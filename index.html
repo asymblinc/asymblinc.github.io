@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My API Documentation</title>
+  <title>ATS External Integration Guide</title>
   <style>
     body {
       margin: 0;
@@ -11,9 +11,6 @@
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
     }
     header {
       background: #007bff;
@@ -23,7 +20,7 @@
     }
     .main {
       display: flex;
-      flex: 1;
+      min-height: calc(100vh - 140px);
     }
     nav {
       width: 250px;
@@ -45,28 +42,21 @@
     .container {
       flex: 1;
       padding: 2rem;
-      max-width: 1000px;
       background: white;
       margin: 1rem;
       box-sizing: border-box;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: #007bff;
     }
-    code {
+    code, pre {
       background: #f4f4f4;
-      padding: 2px 4px;
-      border-radius: 4px;
-      font-family: monospace;
-    }
-    pre {
-      background: #272822;
-      color: #f8f8f2;
-      padding: 1rem;
-      overflow-x: auto;
+      padding: 0.5rem;
       border-radius: 5px;
+      display: block;
+      overflow-x: auto;
     }
     footer {
       text-align: center;
@@ -77,50 +67,98 @@
 </head>
 <body>
   <header>
-    <h1>My API Documentation</h1>
+    <h1>ATS External Integration Guide</h1>
   </header>
 
   <div class="main">
     <nav>
       <a href="#introduction">Introduction</a>
       <a href="#authentication">Authentication</a>
-      <a href="#endpoints">Endpoints</a>
+      <a href="#api-info">API Information</a>
+      <a href="#record-operations">Record Operations</a>
+      <a href="#permission-sets">Permission Sets</a>
+      <a href="#error-handling">Error Handling</a>
+      <a href="#api-limits">API Limits</a>
     </nav>
 
     <div class="container">
       <section id="introduction">
         <h2>Introduction</h2>
-        <p>Welcome to the My API Documentation! Here you'll find everything you need to work with our API.</p>
+        <p>This guide provides information on integrating external systems with the ATS, including connections, retrieving job listings, and submitting applications.</p>
       </section>
 
       <section id="authentication">
         <h2>Authentication</h2>
-        <p>All API requests require authentication via a token.</p>
-        <pre>
-POST /api/login
-{
-  "username": "your_username",
-  "password": "your_password"
-}
-        </pre>
+        <p>Authentication uses Salesforce Connected App and OAuth 2.0 flow. After getting the Access Token, use it for API requests.</p>
+        <pre>Authorization: Bearer &lt;Access_Token&gt;</pre>
       </section>
 
-      <section id="endpoints">
-        <h2>Endpoints</h2>
+      <section id="api-info">
+        <h2>API Information</h2>
+        <p><strong>Base URL:</strong> <code>https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/</code></p>
+        <p>Use latest Salesforce API version (e.g., v60.0 for Summer '24).</p>
+        <h4>Common Request Headers:</h4>
+        <ul>
+          <li><strong>Authorization:</strong> Bearer Token</li>
+          <li><strong>Content-Type:</strong> application/json</li>
+          <li><strong>Accept:</strong> */*</li>
+        </ul>
+      </section>
 
-        <h3>Get User</h3>
-        <p><code>GET /api/users/{id}</code></p>
-        <p>Retrieves a user by ID.</p>
+      <section id="record-operations">
+        <h2>Record Operations</h2>
+        <h3>Get Records</h3>
+        <pre>GET /services/data/vXX.0/query/?q=SELECT+Name+FROM+bpats__Job__c</pre>
 
-        <h3>Create User</h3>
-        <p><code>POST /api/users</code></p>
-        <p>Creates a new user with the given details.</p>
+        <h3>Create Record</h3>
+        <pre>POST /services/data/vXX.0/sobjects/bpats__Job__c
+{
+  "Name": "New Job"
+}</pre>
+
+        <h3>Bulk Create Records</h3>
+        <pre>POST /services/data/vXX.0/composite/tree/bpats__Job__c</pre>
+
+        <h3>Update Record</h3>
+        <pre>PATCH /services/data/vXX.0/sobjects/bpats__Job__c/{recordId}</pre>
+
+        <h3>Delete Record</h3>
+        <pre>DELETE /services/data/vXX.0/sobjects/bpats__Job__c/{recordId}</pre>
+      </section>
+
+      <section id="permission-sets">
+        <h2>Permission Sets</h2>
+        <p>Different permission sets are provided based on the external system access required, such as:</p>
+        <ul>
+          <li>ATS Job Portal Permission Set</li>
+          <li>External Interview Feedback Permission Set</li>
+          <li>ATS User Permission Set</li>
+          <li>ATS Admin Permission Set</li>
+        </ul>
+      </section>
+
+      <section id="error-handling">
+        <h2>Error Handling</h2>
+        <p>Common API Response Codes:</p>
+        <ul>
+          <li><strong>200 OK</strong> - Successful GET, PATCH</li>
+          <li><strong>201 Created</strong> - Successful POST</li>
+          <li><strong>400 Bad Request</strong> - Invalid request body</li>
+          <li><strong>401 Unauthorized</strong> - Invalid or expired token</li>
+          <li><strong>404 Not Found</strong> - Resource not found</li>
+        </ul>
+      </section>
+
+      <section id="api-limits">
+        <h2>API Limits</h2>
+        <p>Salesforce API usage depends on your Edition and licenses. Developer Edition: 15,000/day, Enterprise Edition: 100,000/day + user license multiplier.</p>
+        <p>Use <code>GET /services/data/vXX.0/limits</code> to check your current limits programmatically.</p>
       </section>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 My API Docs</p>
+    <p>&copy; 2025 ATS API Documentation</p>
   </footer>
 </body>
 </html>
