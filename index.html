@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #007bff;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background: #eee;
+      padding: 1rem;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+    }
+    h1, h2, h3 {
+      color: #007bff;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My API Documentation</h1>
+  </header>
+
+  <nav>
+    <a href="#introduction">Introduction</a>
+    <a href="#authentication">Authentication</a>
+    <a href="#endpoints">Endpoints</a>
+  </nav>
+
+  <div class="container">
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <p>Welcome to the My API Documentation! Here you'll find everything you need to work with our API.</p>
+    </section>
+
+    <section id="authentication">
+      <h2>Authentication</h2>
+      <p>All API requests require authentication via a token.</p>
+      <pre>
+POST /api/login
+{
+  "username": "your_username",
+  "password": "your_password"
+}
+      </pre>
+    </section>
+
+    <section id="endpoints">
+      <h2>Endpoints</h2>
+
+      <h3>Get User</h3>
+      <p><code>GET /api/users/{id}</code></p>
+      <p>Retrieves a user by ID.</p>
+
+      <h3>Create User</h3>
+      <p><code>POST /api/users</code></p>
+      <p>Creates a new user with the given details.</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 My API Docs</p>
+  </footer>
+</body>
+</html>
