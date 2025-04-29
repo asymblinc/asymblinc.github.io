@@ -6,12 +6,14 @@
   <title>My API Documentation</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
     }
     header {
       background: #007bff;
@@ -19,21 +21,36 @@
       padding: 1rem;
       text-align: center;
     }
+    .main {
+      display: flex;
+      flex: 1;
+    }
     nav {
+      width: 250px;
       background: #eee;
-      padding: 1rem;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
     }
     nav a {
-      margin-right: 15px;
+      display: block;
+      margin-bottom: 1rem;
       text-decoration: none;
       color: #007bff;
       font-weight: bold;
     }
     .container {
+      flex: 1;
       padding: 2rem;
       max-width: 1000px;
-      margin: auto;
       background: white;
+      margin: 1rem;
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     h1, h2, h3 {
       color: #007bff;
@@ -55,7 +72,6 @@
       text-align: center;
       padding: 1rem;
       background: #eee;
-      margin-top: 2rem;
     }
   </style>
 </head>
@@ -64,41 +80,43 @@
     <h1>My API Documentation</h1>
   </header>
 
-  <nav>
-    <a href="#introduction">Introduction</a>
-    <a href="#authentication">Authentication</a>
-    <a href="#endpoints">Endpoints</a>
-  </nav>
+  <div class="main">
+    <nav>
+      <a href="#introduction">Introduction</a>
+      <a href="#authentication">Authentication</a>
+      <a href="#endpoints">Endpoints</a>
+    </nav>
 
-  <div class="container">
-    <section id="introduction">
-      <h2>Introduction</h2>
-      <p>Welcome to the My API Documentation! Here you'll find everything you need to work with our API.</p>
-    </section>
+    <div class="container">
+      <section id="introduction">
+        <h2>Introduction</h2>
+        <p>Welcome to the My API Documentation! Here you'll find everything you need to work with our API.</p>
+      </section>
 
-    <section id="authentication">
-      <h2>Authentication</h2>
-      <p>All API requests require authentication via a token.</p>
-      <pre>
+      <section id="authentication">
+        <h2>Authentication</h2>
+        <p>All API requests require authentication via a token.</p>
+        <pre>
 POST /api/login
 {
   "username": "your_username",
   "password": "your_password"
 }
-      </pre>
-    </section>
+        </pre>
+      </section>
 
-    <section id="endpoints">
-      <h2>Endpoints</h2>
+      <section id="endpoints">
+        <h2>Endpoints</h2>
 
-      <h3>Get User</h3>
-      <p><code>GET /api/users/{id}</code></p>
-      <p>Retrieves a user by ID.</p>
+        <h3>Get User</h3>
+        <p><code>GET /api/users/{id}</code></p>
+        <p>Retrieves a user by ID.</p>
 
-      <h3>Create User</h3>
-      <p><code>POST /api/users</code></p>
-      <p>Creates a new user with the given details.</p>
-    </section>
+        <h3>Create User</h3>
+        <p><code>POST /api/users</code></p>
+        <p>Creates a new user with the given details.</p>
+      </section>
+    </div>
   </div>
 
   <footer>
