@@ -48,8 +48,11 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    h1, h2, h3, h4 {
+    h2, h3, h4 {
       color: #007bff;
+    }
+    h1 {
+      color : white ;
     }
     code, pre {
       background: #f4f4f4;
@@ -67,92 +70,140 @@
 </head>
 <body>
   <header>
-    <h1 style='color:white'>ATS External Integration Guide</h1>
+    <h1>ATS External Integration Guide</h1>
   </header>
 
   <div class="main">
     <nav>
       <a href="#introduction">Introduction</a>
+      <a href="#objects">Objects</a>
+      <a href="#json">JSON Format</a>
+      <a href="#versions">Salesforce Versions</a>
       <a href="#authentication">Authentication</a>
       <a href="#api-info">API Information</a>
       <a href="#record-operations">Record Operations</a>
-      <a href="#permission-sets">Permission Sets</a>
       <a href="#error-handling">Error Handling</a>
       <a href="#api-limits">API Limits</a>
+      <a href="#permission-sets">Permission Sets</a>
     </nav>
 
     <div class="container">
       <section id="introduction">
         <h2>Introduction</h2>
-        <p>This guide provides information on integrating external systems with the ATS, including connections, retrieving job listings, and submitting applications.</p>
+        <p>This reference guide provides information about how external systems can integrate with our ATS. It includes methods for establishing connections, retrieving job listings, and submitting job applications through API integration.</p>
+      </section>
+
+      <section id="objects">
+        <h2>Objects</h2>
+        <p>In the ATS, an object represents a specific record type, like Job, Contact, or Placement. You can retrieve metadata using:</p>
+        <pre>GET /services/data/vXX.0/sobjects/&lt;your-object-api-name&gt;/describe</pre>
+      </section>
+
+      <section id="json">
+        <h2>JSON Format</h2>
+        <p>All API request and response bodies are expected in JSON format. Ensure to validate data types, required fields, and use 18-character Salesforce Record IDs for lookup fields.</p>
+      </section>
+
+      <section id="versions">
+        <h2>Salesforce API Versions</h2>
+        <ul>
+          <li><strong>v59.0</strong>: Spring '24</li>
+          <li><strong>v60.0</strong>: Summer '24</li>
+          <li><strong>v61.0</strong>: Winter '25</li>
+        </ul>
       </section>
 
       <section id="authentication">
         <h2>Authentication</h2>
-        <p>Authentication uses Salesforce Connected App and OAuth 2.0 flow. After getting the Access Token, use it for API requests.</p>
-        <pre>Authorization: Bearer &lt;Access_Token&gt;</pre>
+        <p>Use Salesforce Connected App for OAuth 2.0 authentication. Once access token is obtained, include in header:</p>
+        <pre>Authorization: Bearer &lt;access_token&gt;</pre>
       </section>
 
       <section id="api-info">
         <h2>API Information</h2>
         <p><strong>Base URL:</strong> <code>https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/</code></p>
-        <p>Use latest Salesforce API version (e.g., v60.0 for Summer '24).</p>
-        <h4>Common Request Headers:</h4>
+        <h3>Common Headers</h3>
         <ul>
-          <li><strong>Authorization:</strong> Bearer Token</li>
-          <li><strong>Content-Type:</strong> application/json</li>
-          <li><strong>Accept:</strong> */*</li>
+          <li>Authorization: Bearer &lt;token&gt;</li>
+          <li>Content-Type: application/json</li>
+          <li>Accept: */*</li>
         </ul>
       </section>
 
       <section id="record-operations">
         <h2>Record Operations</h2>
-        <h3>Get Records</h3>
+
+        <h3>GET (Retrieve Record)</h3>
         <pre>GET /services/data/vXX.0/query/?q=SELECT+Name+FROM+bpats__Job__c</pre>
 
-        <h3>Create Record</h3>
+        <h3>POST (Create Record)</h3>
         <pre>POST /services/data/vXX.0/sobjects/bpats__Job__c
 {
-  "Name": "New Job"
+  "bpats__Contact__c": "003xx000004TmiQAAS",
+  "bpats__Job__c": "a0Bxx0000008aRtEAI",
+  "bpats__Email__c": "john@example.com",
+  "bpats__First_Name__c": "John",
+  "bpats__Last_Name__c": "Doe"
 }</pre>
 
-        <h3>Bulk Create Records</h3>
-        <pre>POST /services/data/vXX.0/composite/tree/bpats__Job__c</pre>
+        <h3>PATCH (Update Record)</h3>
+        <pre>PATCH /services/data/vXX.0/sobjects/bpats__Job__c/{recordId}
+{
+  "bpats__First_Name__c": "Jane"
+}</pre>
 
-        <h3>Update Record</h3>
-        <pre>PATCH /services/data/vXX.0/sobjects/bpats__Job__c/{recordId}</pre>
-
-        <h3>Delete Record</h3>
+        <h3>DELETE (Delete Record)</h3>
         <pre>DELETE /services/data/vXX.0/sobjects/bpats__Job__c/{recordId}</pre>
-      </section>
-
-      <section id="permission-sets">
-        <h2>Permission Sets</h2>
-        <p>Different permission sets are provided based on the external system access required, such as:</p>
-        <ul>
-          <li>ATS Job Portal Permission Set</li>
-          <li>External Interview Feedback Permission Set</li>
-          <li>ATS User Permission Set</li>
-          <li>ATS Admin Permission Set</li>
-        </ul>
       </section>
 
       <section id="error-handling">
         <h2>Error Handling</h2>
-        <p>Common API Response Codes:</p>
-        <ul>
-          <li><strong>200 OK</strong> - Successful GET, PATCH</li>
-          <li><strong>201 Created</strong> - Successful POST</li>
-          <li><strong>400 Bad Request</strong> - Invalid request body</li>
-          <li><strong>401 Unauthorized</strong> - Invalid or expired token</li>
-          <li><strong>404 Not Found</strong> - Resource not found</li>
-        </ul>
+        <h3>401 Unauthorized</h3>
+        <pre>{
+  "message": "Session expired or invalid",
+  "errorCode": "INVALID_SESSION_ID"
+}</pre>
+
+        <h3>400 Bad Request - Missing Field</h3>
+        <pre>{
+  "hasErrors": true,
+  "results": [
+    {
+      "referenceId": "ref3",
+      "errors": [
+        {
+          "statusCode": "REQUIRED_FIELD_MISSING",
+          "message": "Required fields are missing: [LastName]",
+          "fields": ["LastName"]
+        }
+      ]
+    }
+  ]
+}</pre>
+
+        <h3>404 Not Found</h3>
+        <pre>{
+  "message": "The requested resource does not exist",
+  "errorCode": "NOT_FOUND"
+}</pre>
       </section>
 
       <section id="api-limits">
         <h2>API Limits</h2>
-        <p>Salesforce API usage depends on your Edition and licenses. Developer Edition: 15,000/day, Enterprise Edition: 100,000/day + user license multiplier.</p>
-        <p>Use <code>GET /services/data/vXX.0/limits</code> to check your current limits programmatically.</p>
+        <p><strong>Developer Edition:</strong> 15,000 calls/day</p>
+        <p><strong>Enterprise Edition:</strong> 100,000 calls/day + per-license multiplier</p>
+        <p>Check limits via:</p>
+        <pre>GET /services/data/vXX.0/limits</pre>
+      </section>
+
+      <section id="permission-sets">
+        <h2>Permission Sets Overview</h2>
+        <ul>
+          <li><strong>ATS Job Portal:</strong> Access to Job Board Application</li>
+          <li><strong>Interview Feedback:</strong> Submit interview feedback</li>
+          <li><strong>ATS User:</strong> Read, Create, Edit (no Delete)</li>
+          <li><strong>ATS Admin:</strong> Full access</li>
+        </ul>
       </section>
     </div>
   </div>
