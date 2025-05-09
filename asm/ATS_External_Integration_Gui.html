@@ -1,0 +1,5154 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <link rel="stylesheet" href="ATS_External_Integration_Gui.css" />
+  </head>
+
+  <body>
+    <h1><strong>ATS External Integration Guide</strong></h1>
+    <h2><strong>Introduction</strong></h2>
+    <p>
+      This reference guide provides general information about each Applicant
+      Tracking System (ATS) and specific information about each API operation
+      and supported object type. This document provides an overview of how
+      external systems can integrate with our ATS. It includes methods for
+      establishing connections, retrieving job listings, and submitting job
+      applications through various integration points.
+    </p>
+    <h2><strong>Objects</strong></h2>
+    <p>
+      In the ATS, the term object refers to a specific type of record used
+      within the system. Examples of these objects include Job, Contact,
+      Placement etc. Each object represents a fundamental concept in ATS,
+      helping to structure how staffing data is stored, managed, and processed
+      according to the system’s rules and logic.
+    </p>
+    <p>Objects:</p>
+    <table style="min-width: 50px">
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Object Name</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Object API Name</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Account</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Account</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Action</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Action__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Action Link</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Action_Link__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Applicant</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Applicant__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Log</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Log__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Stage</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Stage__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Stage Tracking</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Stage_Tracking__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Template__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template Filter</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Template_Filter__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template Stage</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Template_Stage__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Timeline Configuration</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Timeline_Configuration__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Timeline Child</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__ATS_Timeline_Child__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Branch</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Branch__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Contact</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Contact</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Contact List</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Contact_List__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Content Version</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>ContentVersion</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Email Message</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>EmailMessage</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Interview__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Interview_Feedback__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Interview_Template__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template Detail</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Interview_Template_Detail__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Interview_Topic__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Interview_Topic_Feedback__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Job__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job Board Application</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Job_Board_Application__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Message Stats</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Message_Stats__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Offer</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Offer__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Placement__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Placement_Credit__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Placement_Credit_Template__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit Template Entry</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Placement_Credit_Template_Entry__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Purchase Order</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Purchase_Order__c</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Work Site Location</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Work_Site_Location__c</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Please follow the
+      <a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://docs.google.com/spreadsheets/d/1PHHJTWK9w5SIYov-ZZM9X9AU_mXA1_hW/edit?gid=1408658604#gid=1408658604"
+        ><span style="color: rgb(17, 85, 204)">link</span></a
+      >
+      to view the complete data schema of ATS.
+    </p>
+    <p>
+      The external system can get the object by using the salesforce standard
+      API.
+    </p>
+    <p><strong>Endpoint: </strong></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">https://&lt;your-instance&gt;.</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/vXX.0/sobjects/<your-object-api-name>/describe"
+        ><span style="color: rgb(24, 128, 56)"
+          >salesforce.com/services/data/vXX.0/sobjects/</span
+        ><span style="color: rgb(23, 128, 56)"
+          >&lt;your-object-api-name&gt;/describe</span
+        ></a
+      >
+    </p>
+    <p></p>
+    <p>
+      <span style="color: rgb(35, 35, 35)"
+        ><strong>Note: </strong>Before accessing objects through the API, make
+        sure the external system is properly authenticated with your Salesforce
+        org.</span
+      >
+    </p>
+    <h2><strong>JSON</strong></h2>
+    <p>
+      <strong>JSON (JavaScript Object Notation)</strong> is a lightweight,
+      text-based data format used for storing and exchanging data between
+      systems—especially in web applications. It is easy for humans to read and
+      write, and easy for machines to parse and generate.
+    </p>
+    <h3><strong>Salesforce Versions appendix</strong></h3>
+    <p>
+      In the below examples replace the ‘<span style="color: rgb(24, 128, 56)"
+        >vXX.0</span
+      >’
+      <strong>placeholder</strong>
+      for the version of the Salesforce API you want to use — for example:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <span style="color: rgb(24, 128, 56)">v59.0</span> = Spring '24
+          release
+        </p>
+      </li>
+      <li>
+        <p>
+          <span style="color: rgb(24, 128, 56)">v60.0</span> = Summer '24
+          release
+        </p>
+      </li>
+      <li>
+        <p>
+          <span style="color: rgb(24, 128, 56)">v61.0</span> = Winter '25
+          release
+        </p>
+      </li>
+    </ul>
+    <p>Use the <strong>latest version</strong> your org supports to:</p>
+    <ul>
+      <li>
+        <p>Access the latest features and field types</p>
+      </li>
+      <li>
+        <p>Avoid deprecated functionality</p>
+      </li>
+      <li>
+        <p>Improve compatibility with newer Salesforce objects or APIs</p>
+      </li>
+    </ul>
+    <h2><strong>API Information</strong></h2>
+    <p>
+      <strong>Base URL</strong> :
+      <span style="color: rgb(24, 128, 56)">https://&lt;your-instance&gt;.</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/vXX.0/"
+        ><span style="color: rgb(24, 128, 56)"
+          >salesforce.com/services/data/vXX.0/</span
+        ></a
+      >
+    </p>
+    <ul>
+      <li>
+        <p>Replace &lt;your-instance&gt; with your Salesforce domain.</p>
+      </li>
+      <li>
+        <p>
+          Replace vXX.0 with your Salesforce API version (e.g., v60.0 for Spring
+          '24).
+        </p>
+      </li>
+    </ul>
+    <h4>
+      <strong>Access Token can be obtained</strong
+      ><span style="color: rgb(102, 102, 102)"> </span>
+    </h4>
+    <p>HTTP Method: <span style="color: rgb(24, 128, 56)">POST</span></p>
+    <p>
+      To authenticate with Salesforce and obtain an access token for API usage,
+      you can use the <strong>OAuth 2.0 Password Grant</strong> flow. This
+      method is suitable for server-to-server integrations where the credentials
+      are securely stored.
+    </p>
+    <p>
+      <strong>Token Request Endpoint: </strong
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://login.salesforce.com/services/oauth2/token"
+        ><span style="color: rgb(24, 128, 56)"
+          >https://login.salesforce.com/services/oauth2/token</span
+        ></a
+      >
+    </p>
+    <p><span style="color: rgb(24, 128, 56)"> </span></p>
+    <p><strong>Required Parameters</strong></p>
+    <table style="min-width: 50px">
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Parameter</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Description</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>grant_type</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Must be password &lt;password&gt;</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>client_id</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Consumer Key from your Connected App</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>client_secret</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Consumer Secret from your Connected App</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>username</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Salesforce user's username</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>password</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              Concatenation of user's password and security token (e.g.,
+              password123SECURITYTOKEN)
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Example Request: </strong></p>
+    <p>
+      <a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://login.salesforce.com/services/oauth2/token?grant_type=password&amp;client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET&amp;username=YOUR_USERNAME&amp;password=YOUR_PASSWORD_AND_SECURITY_TOKEN"
+        ><span style="color: rgb(24, 128, 56)"
+          ><strong
+            >https://login.salesforce.com/services/oauth2/token?grant_type=password&amp;client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET&amp;username=YOUR_USERNAME&amp;password=YOUR_PASSWORD_AND_SECURITY_TOKEN</strong
+          ></span
+        ></a
+      >
+    </p>
+    <p><strong>Successful Response</strong></p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"access_token"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"YOUR_ACCESS_TOKEN"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"instance_url"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://yourInstance.salesforce.com"
+        ><span style="color: rgb(24, 128, 56)"
+          >https://yourInstance.salesforce.com</span
+        ></a
+      ><span style="color: rgb(24, 128, 56)">"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://login.salesforce.com/id/ORG_ID/USER_ID"
+        ><span style="color: rgb(24, 128, 56)"
+          >https://login.salesforce.com/id/ORG_ID/USER_ID</span
+        ></a
+      ><span style="color: rgb(24, 128, 56)">"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"token_type"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"Bearer"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"issued_at"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"TIMESTAMP"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"signature"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"SIGNATURE"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <h4>
+      <span style="color: rgb(35, 35, 35)"
+        ><strong>Common Request Headers</strong></span
+      >
+    </h4>
+    <table style="min-width: 125px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Header</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Type</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Required</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Example</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Description</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Authorization</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Yes</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Bearer &lt;Access_Token&gt;</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>OAuth 2.0 Bearer Token</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Content-Type</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Yes</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>application/json</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>JSON body expected</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Accept</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Yes</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><em>/ </em></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Expected response content type</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <span style="color: rgb(35, 35, 35)"
+        ><strong>Request Parameters:</strong></span
+      >
+    </p>
+    <table style="min-width: 150px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Parameter Location</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Name</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Type</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Required</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Example</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Description</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Query (URL)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>q (for SOQL query)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Yes (for query endpoint)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>SELECT Name FROM bpats__Job__c</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>SOQL statement for record fetching</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Path</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Object_API_Name</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Yes</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>bpats__Job__c</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>The Salesforce API name of the object you're targeting</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Path</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>recordId</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String (18-char Salesforce ID)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Yes (for single record updates/deletes)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>a01ABC1234xyz123</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Unique ID of the record</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h4><strong>Request Body (Payload)</strong></h4>
+    <p>
+      The POST, PUT and PATCH requests can have the request body (payload), such
+      as JSON or XML data. In Swagger terms, the request body is called a
+      <strong>body parameter</strong>. There can be only one body parameter,
+      although the operation may have other parameters (path, query, header).
+    </p>
+    <p>For POST, PATCH, and Composite endpoints:</p>
+    <ul>
+      <li>
+        <p>
+          <strong>Format: </strong
+          ><span style="color: rgb(24, 128, 56)"
+            ><strong>application/json</strong></span
+          >
+        </p>
+      </li>
+      <li>
+        <p><strong>Structure: JSON object</strong></p>
+      </li>
+      <li>
+        <p><strong>Field Validation Rules:</strong></p>
+      </li>
+    </ul>
+    <table style="min-width: 50px">
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Field Property</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Rule</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Data Types</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String, Number, Boolean, Array (for composite bulk ops)</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Maximum Length</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              Depends on field metadata in Salesforce (commonly 255 characters
+              for text fields)
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Required Fields</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              Must be filled if Salesforce marks them as Required in Object
+              Schema
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Optional Fields</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Can be omitted if not mandatory</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Lookup Fields</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Provide 18-digit Salesforce Record ID for references</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>
+      <span style="color: rgb(35, 35, 35)"
+        ><strong>Status Codes and Error Responses</strong></span
+      >
+    </h4>
+    <p>
+      <span style="color: rgb(27, 27, 27)"
+        >HTTP response status codes indicate whether a specific </span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://developer.mozilla.org/en-US/docs/Web/HTTP"
+        ><span style="color: rgb(0, 105, 194)">HTTP</span></a
+      ><span style="color: rgb(27, 27, 27)">
+        request has been successfully completed.</span
+      >
+    </p>
+    <table style="min-width: 50px">
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                ><strong>HTTP response code</strong></span
+              >
+            </p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                ><strong>Description</strong></span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">200</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >“OK” success code, for GET, HEAD, and some PATCH
+                requests.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">201</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >“Created” success code, for POST requests and some PATCH
+                requests.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">204</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >“No Content” success code, for DELETE requests and some PATCH
+                requests.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">300</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The value returned when an external ID exists in more than one
+                record. The response body contains the list of matching
+                records.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">304</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              The request content hasn’t changed since a specified date and
+              time. The date and time is provided in a If-Modified-Since header.
+              See<a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/sobject_describe_with_ifmodified_header.htm"
+              >
+                <span style="color: rgb(17, 85, 204)"
+                  >Get Object Metatdata Changes</span
+                ></a
+              >
+              for an example.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">400</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The request couldn’t be understood, usually because the JSON or
+                XML body contains an error.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">401</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The session ID or OAuth token used has expired or is invalid.
+                The response body contains the message and errorCode.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">403</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The request has been refused. Verify that the logged-in user
+                has appropriate permissions. If the error code is
+                REQUEST_LIMIT_EXCEEDED, you’ve exceeded API request limits in
+                your org.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">404</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The requested resource couldn’t be found. Check the URI for
+                errors, and verify that there are no sharing issues.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">405</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The method specified in the Request-Line isn’t allowed for the
+                resource specified in the URI.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">409</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The request couldn’t be completed due to a conflict with the
+                current state of the resource. Check that the API version is
+                compatible with the resource you’re requesting.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">410</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The requested resource has been retired or removed. Delete or
+                update any references to the resource.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">412</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              The request wasn’t executed because one or more of the
+              preconditions that the client specified in the request headers
+              wasn’t satisfied. For example, the request includes an<a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest_conditional_requests.htm"
+              >
+                <span style="color: rgb(17, 85, 204)"
+                  >If-Unmodified-Since</span
+                ></a
+              >
+              header, but the data was modified after the specified date.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">414</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The length of the URI exceeds the 16,384-byte limit.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">415</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The entity in the request is in a format that’s not supported
+                by the specified method.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">420</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Salesforce Edge doesn’t have routing information available for
+                this request host. Contact Salesforce Customer Support.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">428</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              The request wasn’t executed because it wasn’t conditional. Add one
+              of the<a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest_conditional_requests.htm"
+              >
+                <span style="color: rgb(17, 85, 204)"
+                  >Conditional Request Headers</span
+                ></a
+              >, such as If-Match, to the request and resubmit it.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">431</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The combined length of the URI and headers exceeds the
+                16,384-byte limit.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">500</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >An error has occurred within Lightning Platform, so the request
+                couldn’t be completed. Contact Salesforce Customer
+                Support.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">502</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Salesforce Edge wasn’t able to communicate successfully with
+                the Salesforce instance.</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">503</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >The server is unavailable to handle the request. Typically this
+                issue occurs if the server is down for maintenance or is
+                overloaded.</span
+              >
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h4><strong>Response Body Schemas</strong></h4>
+    <p>For successful responses:</p>
+    <table style="min-width: 75px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Field</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Type</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Description</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ID (for POST)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>The Salesforce ID of the created record.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>success (for POST/Composite)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Boolean</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Indicates if the operation was successful.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>errors (for POST/Composite)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Array</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>List of errors, if any.</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>records (for Query)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Array</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Array of records matching query criteria.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Example: </strong>Successful POST Response (Create Record)</p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"hasErrors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">false,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"results"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"referenceId"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"ref1"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0LEm000007fZDxMAM"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">},</span></p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"referenceId"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"ref2"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0LEm000007fZDyMAM"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><strong>Example</strong>: Successful GET Query Response</p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"totalSize"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(197, 34, 31)">1</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"done"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"records"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"attributes"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">{</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"type"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"bpats__Job__c"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"url"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"/services/data/v57.0/sobjects/bpats__Job__c/a0MEm000004fFnBMAU"</span
+      >
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">},</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"Name"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"Salesforce Developer Test"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__End_Date__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">null</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <h4><strong>Error Responses</strong></h4>
+    <p>
+      If something goes wrong, Salesforce returns a
+      <strong>standard error format</strong>.
+    </p>
+    <table style="min-width: 75px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Field</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Type</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Description</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>message</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Human-readable error message</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>errorCode</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>String</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Salesforce error code</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>fields</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Array</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>List of fields causing the error (optional)</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <br />
+      <br />
+      <br />
+    </p>
+    <p><strong>Example: 400 Bad Request</strong></p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"hasErrors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"results"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"referenceId"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"ref3"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"errors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"statusCode"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"REQUIRED_FIELD_MISSING"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"message"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"Required fields are missing: [LastName]"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"fields"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">"LastName"</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><strong>Possible causes:</strong></p>
+    <ul>
+      <li>
+        <p>
+          Your API request body is missing a <strong>required field</strong> (in
+          this case, <span style="color: rgb(24, 128, 56)">LastName</span>).
+        </p>
+      </li>
+      <li>
+        <p>Validation rules on the Salesforce object require this field.</p>
+      </li>
+    </ul>
+    <p><strong>How to Handle:</strong></p>
+    <ul>
+      <li>
+        <p>
+          Before sending the request, ensure that all mandatory fields are
+          populated.
+        </p>
+      </li>
+      <li>
+        <p>
+          Implement client-side or server-side validation to check required
+          fields before making the API call.
+        </p>
+      </li>
+    </ul>
+    <p><strong>Example: 401 Unauthorized (Invalid Token)</strong></p>
+    <p><span style="color: rgb(24, 128, 56)">[</span></p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"message":</span>
+      <span style="color: rgb(24, 128, 56)">"Session expired or invalid",</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"errorCode":</span>
+      <span style="color: rgb(24, 128, 56)">"INVALID_SESSION_ID"</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><strong>Possible Causes:</strong></p>
+    <ul>
+      <li>
+        <p>
+          The session (OAuth token or session ID) is <strong>expired</strong>,
+          <strong>revoked</strong>, or <strong>invalid</strong>.
+        </p>
+      </li>
+      <li>
+        <p>The user was logged out, or the token has timed out.</p>
+      </li>
+    </ul>
+    <p><strong>How to Handle:</strong></p>
+    <ul>
+      <li>
+        <p>Reauthenticate and obtain a new access token/session ID.</p>
+      </li>
+      <li>
+        <p>Implement automatic token refresh logic if using OAuth.</p>
+      </li>
+      <li>
+        <p>
+          Check your session timeout settings and ensure sessions are still
+          valid before making requests.
+        </p>
+      </li>
+    </ul>
+    <p><strong>Example: 400 Not Found</strong></p>
+    <p><span style="color: rgb(55, 71, 79)">[</span></p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"message"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"The requested resource does not exist"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"errorCode"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"NOT_FOUND"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><strong>Possible Causes:</strong></p>
+    <ul>
+      <li>
+        <p>
+          You're trying to access a record, object, or endpoint that doesn't
+          exist.
+        </p>
+      </li>
+      <li>
+        <p>
+          You might have a typo in the URL or the record ID provided is wrong.
+        </p>
+      </li>
+      <li>
+        <p>The resource might have been deleted.</p>
+      </li>
+    </ul>
+    <p>
+      <br />
+      <br />
+    </p>
+    <p><strong>How to Handle:</strong></p>
+    <ul>
+      <li>
+        <p>Verify that the URL is correct.</p>
+      </li>
+      <li>
+        <p>
+          Ensure the record or resource actually exists before requesting it.
+        </p>
+      </li>
+      <li>
+        <p>
+          Implement error handling to gracefully show "resource not found"
+          messages.
+        </p>
+      </li>
+    </ul>
+    <p><strong>Example: 400 REQUIRED FIELD MISSING</strong></p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"hasErrors":</span>
+      <span style="color: rgb(24, 128, 56)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"results":</span>
+      <span style="color: rgb(24, 128, 56)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"referenceId":</span>
+      <span style="color: rgb(24, 128, 56)">"ref3",</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"errors":</span>
+      <span style="color: rgb(24, 128, 56)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"statusCode":</span>
+      <span style="color: rgb(24, 128, 56)">"REQUIRED_FIELD_MISSING",</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"message":</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"Required fields are missing: [LastName]",</span
+      >
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"fields":</span>
+      <span style="color: rgb(24, 128, 56)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">"LastName"</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><strong>Possible Causes:</strong></p>
+    <ul>
+      <li>
+        <p>
+          <strong
+            >Your API request body is missing a required field (in this case, </strong
+          ><span style="color: rgb(24, 128, 56)"><strong>LastName</strong></span
+          ><strong>).</strong>
+        </p>
+      </li>
+      <li>
+        <p>Validation rules on the Salesforce object require this field.</p>
+      </li>
+    </ul>
+    <p><strong>How to Handle:</strong></p>
+    <ul>
+      <li>
+        <p>
+          Before sending the request, ensure that all mandatory fields are
+          populated.
+        </p>
+      </li>
+      <li>
+        <p>
+          Implement client-side or server-side validation to check required
+          fields before making the API call.
+        </p>
+      </li>
+    </ul>
+    <p><strong>Example: 404 INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST</strong></p>
+    <p><span style="color: rgb(24, 128, 56)">[</span></p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"message":</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"Status: bad value for restricted picklist field: Test",</span
+      >
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"errorCode":</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST",</span
+      >
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"fields":</span>
+      <span style="color: rgb(24, 128, 56)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">"bpats__Status__c"</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><strong>Possible Causes:</strong></p>
+    <ul>
+      <li>
+        <p>
+          You're trying to set a picklist field (<span
+            style="color: rgb(24, 128, 56)"
+            >bpats__Status__c</span
+          >) to a value (<span style="color: rgb(24, 128, 56)">Test</span>) that
+          isn't allowed.
+        </p>
+      </li>
+      <li>
+        <p>
+          The picklist is <strong>restricted</strong>, meaning only predefined
+          values are accepted.
+        </p>
+      </li>
+    </ul>
+    <p><strong>How to Handle:</strong></p>
+    <ul>
+      <li>
+        <p>
+          Fetch the allowed picklist values from Salesforce metadata or manually
+          maintain a list.
+        </p>
+      </li>
+      <li>
+        <p>Validate picklist inputs before sending them to the server.</p>
+      </li>
+      <li>
+        <p>Show users only valid choices in UI dropdowns.</p>
+      </li>
+    </ul>
+    <p><strong>Example: 400 STRING_TOO_LONG</strong></p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"hasErrors":</span>
+      <span style="color: rgb(24, 128, 56)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"results":</span>
+      <span style="color: rgb(24, 128, 56)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"referenceId":</span>
+      <span style="color: rgb(24, 128, 56)">"ref3",</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"errors":</span>
+      <span style="color: rgb(24, 128, 56)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"statusCode":</span>
+      <span style="color: rgb(24, 128, 56)">"STRING_TOO_LONG",</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"message":</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"First Name: data value too large: candidate test candidate test
+        candidate test candidate test candidate test candidate test candidate
+        test candidate test candidate test candidate test candidate test
+        candidate test candidate test candidate test candidate test candidate
+        test candidate test candidate test candidate test candidate test
+        candidate test candidate test candidate test candidate test candidate
+        test candidate (max length=40)",</span
+      >
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"fields":</span>
+      <span style="color: rgb(24, 128, 56)">[</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">"FirstName"</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><span style="color: rgb(24, 128, 56)">]</span></p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <p><strong>Possible Causes:</strong></p>
+    <ul>
+      <li>
+        <p>
+          The value you're trying to insert into the
+          <span style="color: rgb(24, 128, 56)">FirstName</span> field exceeds
+          the maximum allowed characters (40 characters in this case).
+        </p>
+      </li>
+    </ul>
+    <p><strong>How to Handle:</strong></p>
+    <ul>
+      <li>
+        <p>
+          Limit field input length based on Salesforce field metadata (e.g.,
+          maxlength in input fields).
+        </p>
+      </li>
+      <li>
+        <p>Truncate or validate strings before sending the request.</p>
+      </li>
+      <li>
+        <p>
+          Show the user a clear message like "First Name must be 40 characters
+          or fewer."
+        </p>
+      </li>
+    </ul>
+    <h4></h4>
+    <h4><strong>API Request Limits and Allocations</strong></h4>
+    <table style="min-width: 75px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                ><strong>Salesforce Edition</strong></span
+              >
+            </p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                ><strong
+                  >API Calls Per License Type Per 24-Hour Period</strong
+                ></span
+              >
+            </p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                ><strong>Total Calls Per 24-Hour Period</strong></span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">Developer Edition</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">N/A</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">15,000</span></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)">Enterprise Edition</span>
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Professional Edition with API access enabled</span
+              >
+            </p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">Salesforce: 1,000</span></p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Salesforce Platform: 1,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Lightning Platform - One App: 200</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)">Customer Community: 0</span>
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Customer Community Login: 0</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Customer Community Plus: 200</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Customer Community Plus Login: 10</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >External Identity 25,000: 70,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >External Identity 250,000: 750,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >External Identity 1,000,000: 4,000,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)">Partner Community: 200</span>
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Partner Community Login: 10</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Lightning Platform Starter: 200 per member for Enterprise
+                Edition orgs</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Lightning Platform Plus: 1000 per member for Enterprise Edition
+                orgs</span
+              >
+            </p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >100,000 + (number of licenses x calls per license type) +
+                purchased API Call Add-Ons</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">Unlimited Edition</span></p>
+            <p>
+              <span style="color: rgb(24, 24, 24)">Performance Edition</span>
+            </p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">Salesforce: 5,000</span></p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Salesforce Platform: 5,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Lightning Platform - One App: 200</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)">Customer Community: 0</span>
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Customer Community Login: 0</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Customer Community Plus: 200</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Customer Community Plus Login: 10</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >External Identity 25,000: 70,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >External Identity 250,000: 750,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >External Identity 1,000,000: 4,000,000</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)">Partner Community: 200</span>
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Partner Community Login: 10</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Lightning Platform Starter: 200 per member for Unlimited and
+                Performance Edition orgs</span
+              >
+            </p>
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >Lightning Platform Plus: 5,000 per member for Unlimited and
+                Performance Edition orgs</span
+              >
+            </p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >100,000 + (number of licenses x calls per license type) +
+                purchased API Call Add-Ons</span
+              >
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">Full Sandbox</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><span style="color: rgb(24, 24, 24)">N/A</span></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>
+              <span style="color: rgb(24, 24, 24)"
+                >5,000,000This limit applies only to Full Sandboxes that aren’t
+                created from a template. For any sandbox created from a
+                template, values in the template determine the limits. For more
+                information, visit Salesforce Help: Sandbox Types and
+                Templates.</span
+              >
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h4><strong>Getting API Limits</strong></h4>
+    <p>
+      <strong>HTTP method: </strong
+      ><span style="color: rgb(23, 128, 56)"><strong>GET</strong></span>
+    </p>
+    <p>
+      <strong
+        >You can use the Salesforce Limits API to programmatically retrieve your
+        current API usage and limits.</strong
+      >
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Endpoint</strong>:
+          <span style="color: rgb(24, 128, 56)"
+            >https://&lt;your-instance&gt;.</span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/limits"
+            ><span style="color: rgb(24, 128, 56)"
+              >salesforce.com/services/data/vXX.0/limits</span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>Replace vXX.X with the latest salesforce API version.</p>
+      </li>
+    </ul>
+    <p></p>
+    <p>
+      <br />
+      <br />
+    </p>
+    <h4></h4>
+    <h4><strong>Guidelines and Best Practices</strong></h4>
+    <ol>
+      <li>
+        <p>
+          <strong
+            >Pagination: The Salesforce REST API returns a maximum of 2,000
+            records per SOQL query response.</strong
+          >
+        </p>
+      </li>
+    </ol>
+    <p><strong>If the query matches more than 2,000 records:</strong></p>
+    <ul>
+      <li>
+        <p>
+          <strong
+            >Only the first 2,000 records are returned in the initial
+            response.</strong
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>A </strong
+          ><span style="color: rgb(24, 128, 56)"
+            ><strong>nextRecordsUrl</strong></span
+          ><strong> field is included to fetch the next batch.</strong>
+        </p>
+      </li>
+    </ul>
+    <p></p>
+    <p>
+      <strong>Example usage for retrieving the remaining query results</strong>
+    </p>
+    <p>
+      <strong>Endpoint: </strong
+      ><span style="color: rgb(24, 128, 56)"
+        >https://&lt;your-instance&gt;.</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/v63.0/query/0r8xx49yn9SOnOmAAL-2000"
+        ><span style="color: rgb(24, 128, 56)"
+          >salesforce.com/services/data/v63.0/query/0r8xx49yn9SOnOmAAL-2000</span
+        ></a
+      >
+    </p>
+    <p>Example response body</p>
+    <p><span style="color: rgb(24, 128, 56)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"done"</span>
+      <span style="color: rgb(24, 128, 56)">:</span>
+      <span style="color: rgb(24, 128, 56)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"totalSize"</span>
+      <span style="color: rgb(24, 128, 56)">:</span>
+      <span style="color: rgb(24, 128, 56)">3214,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"records"</span>
+      <span style="color: rgb(24, 128, 56)">:</span>
+      <span style="color: rgb(24, 128, 56)">[...]</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)">}</span></p>
+    <ol start="2">
+      <li>
+        <p>
+          <strong>Filtering: </strong>Filtering is done using the
+          <strong>WHERE</strong> clause in SOQL. You can filter based on field
+          values using logical operators.<strong> </strong>
+        </p>
+      </li>
+    </ol>
+    <table style="min-width: 75px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Operator</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Description</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Example</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>=</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Equals</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>status = 'Interview'</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>!=</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Not equal</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>status != 'Rejected'</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>&gt; &lt;</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Greater than / less than</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>createdDate &gt; 2024-01-01T00:00:00Z</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>IN</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Within a set of values</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>status IN ('Open', 'Interview')</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>LIKE</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Pattern matching (with %)</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>name LIKE 'John%'</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <strong>Example: </strong
+      ><span style="color: rgb(24, 128, 56)"
+        >https://&lt;your-instance&gt;.</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+bpats__Status__c=’Open’"
+        ><span style="color: rgb(24, 128, 56)"
+          >salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+bpats__Status__c=’Open’</span
+        ></a
+      >
+    </p>
+    <p>This query filters only Jobs whose status is Open.</p>
+    <ol start="3">
+      <li>
+        <p>
+          <strong>Sorting: Sorting is done using the ORDER BY clause.</strong>
+        </p>
+      </li>
+    </ol>
+    <table style="min-width: 50px">
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Parameter</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Description</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ORDER BY</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Field(s) to sort on</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ASC</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Ascending order (default)</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>DESC</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>Descending order</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <strong>Example: </strong
+      ><span style="color: rgb(24, 128, 56)"
+        >https://&lt;your-instance&gt;.</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c+FROM+bpats__Job__c+ORDER+BY+CreatedDate+DESC"
+        ><span style="color: rgb(24, 128, 56)"
+          >salesforce.com/services<strong
+            >/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c+FROM+bpats__Job__c+ORDER+BY+CreatedDate+DESC</strong
+          ></span
+        ></a
+      >
+    </p>
+    <p><strong>This returns the newest Job first.</strong></p>
+    <ol start="4">
+      <li>
+        <p><strong>Formatting: </strong></p>
+      </li>
+    </ol>
+    <ol>
+      <li>
+        <p>
+          <strong>Date and Time: </strong
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="https://help.salesforce.com/s/articleView?id=analytics.bi_integrate_data_prep_date_format_guidelines.htm&amp;type=5"
+            ><span style="color: rgb(17, 85, 204)"
+              ><strong>Use the salesforce standard format</strong></span
+            ></a
+          >
+        </p>
+      </li>
+    </ol>
+    <p><strong>Example: </strong>2025-04-29T15:45:00Z</p>
+    <p><strong>When filtering by dates in SOQL, use this format: </strong></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">https://&lt;your-instance&gt;</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://.salesforce.com/services/data/v57.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+CreatedDate"
+        ><span style="color: rgb(17, 85, 204)">.</span></a
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/v57.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+CreatedDate<2025-01-01T00:00:00Z"
+        ><span style="color: rgb(17, 85, 204)"
+          >salesforce.com/services<strong>/</strong>data/v57.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+CreatedDate</span
+        ><span style="color: rgb(24, 128, 56)"
+          >&lt;2025-01-01T00:00:00Z</span
+        ></a
+      >
+    </p>
+    <ol start="2">
+      <li>
+        <p><strong>Numeric Values</strong></p>
+      </li>
+    </ol>
+    <p>
+      <strong
+        >Use plain numbers without any formatting (no commas, no currency
+        symbols).<br />✅ </strong
+      ><span style="color: rgb(24, 128, 56)"><strong>10000</strong></span>
+    </p>
+    <p>
+      <strong>❌ </strong
+      ><span style="color: rgb(24, 128, 56)"><strong>10,000</strong></span
+      ><strong> or </strong
+      ><span style="color: rgb(24, 128, 56)"><strong>$10000</strong></span>
+    </p>
+    <p>
+      <strong
+        >Decimal numbers must use a dot (.) as the decimal separator.<br />✅ </strong
+      ><span style="color: rgb(24, 128, 56)"><strong>1234.56</strong></span>
+    </p>
+    <ol start="3">
+      <li>
+        <p><strong>Text String</strong></p>
+      </li>
+    </ol>
+    <p>Enclose string values in single quotes when used in SOQL.</p>
+    <p>Example: WHERE Name = 'John Doe'</p>
+    <ol start="4">
+      <li>
+        <p><strong>Boolean Values</strong></p>
+      </li>
+    </ol>
+    <p>
+      <strong>Use lowercase </strong
+      ><span style="color: rgb(24, 128, 56)"><strong>true</strong></span
+      ><strong> or </strong
+      ><span style="color: rgb(24, 128, 56)"><strong>false</strong></span>
+    </p>
+    <p>Example:</p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"isActive"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p>
+      <br />
+      <br />
+    </p>
+    <h2></h2>
+    <h2><strong>Permission Set Overview</strong></h2>
+    <ul>
+      <li>
+        <p>
+          <strong>Asymbl ATS Job Portal Permission Set:</strong
+          ><span style="color: rgb(67, 67, 67)"><strong> </strong></span>This
+          permission set is designed for external-facing portals.
+        </p>
+      </li>
+    </ul>
+    <p><strong>Object Access &amp; Allowed Operations</strong></p>
+    <table style="min-width: 175px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Object</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Read</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Create</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Edit</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Delete</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>View All</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Modify All</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job Board Application</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>
+        <p>
+          <strong>External Interview Feedback Permission Set:</strong
+          ><span style="color: rgb(67, 67, 67)"><strong> </strong></span
+          >Permission set is designed to submit interview feedback
+        </p>
+      </li>
+    </ul>
+    <p><strong>Object Access &amp; Allowed Operations</strong></p>
+    <table style="min-width: 175px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Object</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Read</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Create</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Edit</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Delete</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>View All</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Modify All</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template Detail</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Contact</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p></p>
+    <ul>
+      <li>
+        <p>
+          <strong>Asymbl ATS User Permission Set:</strong
+          ><span style="color: rgb(67, 67, 67)"><strong> </strong></span>This
+          permission set grants users access to nearly all object permissions
+          within the system, including <strong>Read</strong>,
+          <strong>Create</strong>, and <strong>Edit</strong> capabilities.
+          However, users assigned to this permission set do not have Delete
+          access to any objects.
+        </p>
+      </li>
+    </ul>
+    <table style="min-width: 175px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Object</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Read</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Create</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Edit</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Delete</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>View All</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Modify All</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Action Link</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Action</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Applicant</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS List Filter</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Log</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Stage</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template Filter</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template Stage</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Timeline Child</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Timeline Configuration</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Account</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Branch</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Contact</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Contact List</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template Detail</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job Board Application</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Offer</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit Template Entry</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Purchase Order</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Retained Milestone</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Work Site Location</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>❌</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>
+        <p>
+          <strong>Asymbl ATS Admin Permission Set:</strong
+          ><span style="color: rgb(67, 67, 67)"><strong> </strong></span>This
+          permission set provides
+          <strong>full administrative access</strong> within the Asymbl ATS
+          system. Users with this role have
+          <strong>Read, Create, Edit, and Delete</strong> permissions across all
+          standard and custom objects.
+        </p>
+      </li>
+    </ul>
+    <table style="min-width: 175px">
+      <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+      </colgroup>
+      <tbody>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p><strong>Object</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Read</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Create</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Edit</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Delete</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>View All</strong></p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p><strong>Modify All</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Action Link</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Action</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Applicant</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS List Filter</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Log</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Stage</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template Filter</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS_Template Stage</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Timeline Child</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>ATS Timeline Configuration</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Account</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Branch</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Contact</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Contact List</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template Detail</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic Feedback</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview Topic</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Interview</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job Board Application</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Job</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Offer</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit Template Entry</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit Template</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement Credit</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Placement</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Purchase Order</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Retained Milestone</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1">
+            <p>Work Site Location</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+          <td colspan="1" rowspan="1">
+            <p>✅</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2><strong>Authentication</strong></h2>
+    <p>
+      Authentication in REST APIs is the process of verifying the identity of a
+      client making a request. It's essential to ensure that only authorized
+      users or systems can access specific resources. Our ATS is built on
+      Salesforce, which supports secure and scalable integrations via
+      <strong>Connected Apps</strong>. Authentication ensures secure
+      communication and helps enforce access control in RESTful services.
+    </p>
+    <h3><strong>Method: Connected App in Salesforce</strong></h3>
+    <p>To connect an external system:</p>
+    <ol>
+      <li>
+        <p>
+          <strong>Create a Connected App</strong> in Salesforce:
+          <br />
+          <br />
+        </p>
+        <ul>
+          <li>
+            <p>
+              Go to <strong>Setup</strong> &gt;
+              <strong>App Manager</strong> &gt;
+              <strong>New Connected App</strong>.
+              <br />
+              <br />
+            </p>
+          </li>
+          <li>
+            <p>
+              Define the app name and enable <strong>OAuth Settings</strong>.
+              <br />
+              <br />
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          <strong>Generate Client Credentials</strong> (Client ID and Client
+          Secret).
+          <br />
+          <br />
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong>Authenticate</strong> using Salesforce OAuth 2.0 flow.
+          <br />
+          <br />
+        </p>
+      </li>
+      <li>
+        <p>
+          Use the access token to call Salesforce REST APIs to read/write data.
+        </p>
+      </li>
+    </ol>
+    <p>
+      <strong>Security Note: </strong>All API interactions are performed under
+      the context of the authenticated user. This means access to data and
+      functionality is governed by that user's assigned permissions.
+    </p>
+    <p>
+      <strong>Tip</strong>: Ensure the external system supports OAuth 2.0 and is
+      configured to handle Salesforce-style authentication tokens.
+    </p>
+    <p></p>
+    <h2><strong>Record Operations</strong></h2>
+    <p>
+      External systems can retrieve and manage records using the various
+      supported Salesforce API methods.
+    </p>
+    <h3><strong>Get Records: Salesforce Standard API – GET Records</strong></h3>
+    <p>
+      <strong>HTTP method: </strong
+      ><span style="color: rgb(23, 128, 56)"><strong>GET</strong></span>
+    </p>
+    <p>
+      The <strong>GET</strong> request method is used to
+      <strong>retrieve data</strong> from a server at a specified resource URL.
+      It is one of the most common HTTP methods and is
+      <strong>read-only</strong>, meaning it does not change or modify any data
+      on the server.
+    </p>
+    <p>
+      External systems can use the Salesforce REST API to
+      <strong>query job records</strong> using SOQL.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Endpoint</strong>:
+          <span style="color: rgb(24, 128, 56)"
+            >https://&lt;your-instance&gt;.</span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/query/?q=SELECT+<field-api-name>,+<field-api-name>+FROM+<Object_API_Name>"
+            ><span style="color: rgb(24, 128, 56)"
+              >salesforce.com/services/data/vXX.0/query/?q=SELECT+&lt;field-api-name&gt;,+&lt;field-api-name&gt;+FROM+</span
+            ><span style="color: rgb(23, 128, 56)"
+              >&lt;Object_API_Name&gt;</span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;your-instance&gt;</span>
+          with your actual Salesforce domain.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">vXX.0</span> with your
+          specific version number.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(23, 128, 56)">&lt;Object_API_Name&gt;</span>
+          with the API name of the target Salesforce object.
+        </p>
+      </li>
+    </ul>
+    <p>
+      <br />
+      <br />
+    </p>
+    <p>
+      The query string after <span style="color: rgb(24, 128, 56)">q=</span> is
+      a URL-encoded SOQL query. Here's how it works:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <span style="color: rgb(24, 128, 56)"
+            >SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span
+          >
+          is equivalent to the raw SOQL query:
+          <span style="color: rgb(24, 128, 56)"
+            >SELECT Name, bpats__Job_Title__c FROM bpats__Job__c</span
+          >
+        </p>
+      </li>
+    </ul>
+    <h4><strong>Example</strong></h4>
+    <ul>
+      <li>
+        <p>
+          <span style="color: rgb(35, 35, 35)">Query for Job Records: </span
+          ><span style="color: rgb(24, 128, 56)"
+            >SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          <span style="color: rgb(35, 35, 35)"
+            >Query for Job Board Application Records: </span
+          ><span style="color: rgb(24, 128, 56)"
+            >SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span
+          >
+        </p>
+      </li>
+    </ul>
+    <p>
+      <strong>Note</strong>: The screenshots below depict examples of
+      integrating the ATS with <strong>Postman</strong>. These are provided for
+      demonstration purposes to show how API requests
+    </p>
+    <p></p>
+    <h3><strong>Create Records: Salesforce Standard API</strong></h3>
+    <p>
+      <strong>HTTP method:</strong>
+      <span style="color: rgb(24, 128, 56)"><strong>POST</strong></span>
+    </p>
+    <p>
+      The <strong>POST</strong> method is used to create new records in
+      Salesforce. This method targets a resource collection (i.e., a Salesforce
+      object) and adds a new subordinate resource (i.e., a record) to it.
+      External systems can use this method to create records for any custom or
+      standard Salesforce object via the REST API.
+    </p>
+    <ul>
+      <li>
+        <p><strong>Endpoint</strong>:</p>
+      </li>
+      <li>
+        <p>
+          <span style="color: rgb(24, 128, 56)"
+            >https://&lt;your-instance&gt;.</span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/sobjects/<Object_API_Name>"
+            ><span style="color: rgb(24, 128, 56)"
+              >salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt;</span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;your-instance&gt;</span>
+          with your actual Salesforce domain.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">vXX.0</span> with your
+          specific version number.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(23, 128, 56)">&lt;Object_API_Name&gt;</span>
+          with the API name of the target Salesforce object (e.g., Account,
+          Contact, bpats__Job_Board_Application__c, etc.).
+        </p>
+      </li>
+    </ul>
+    <h4><strong>Example</strong></h4>
+    <ul>
+      <li>
+        <p>
+          Object API Name<strong>:</strong>
+          <span style="color: rgb(23, 128, 56)"
+            >bpats__Job_Board_Application__c</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>Required Fields:</p>
+        <ul>
+          <li>
+            <p>
+              <span style="color: rgb(24, 128, 56)">bpats__Contact__c</span>
+              (Reference to Candidate (e.g., Contact Id))
+            </p>
+          </li>
+          <li>
+            <p>
+              <span style="color: rgb(24, 128, 56)">bpats__Job__c</span>
+              (Reference to Job (e.g., Job Id))
+            </p>
+          </li>
+          <li>
+            <p>
+              <span style="color: rgb(24, 128, 56)">bpats__Email__c </span
+              >(Candidate Email)
+            </p>
+          </li>
+          <li>
+            <p>
+              <span style="color: rgb(24, 128, 56)">bpats__First_Name__c </span
+              >(Candidate First Name)
+            </p>
+          </li>
+          <li>
+            <p>
+              <span style="color: rgb(24, 128, 56)">bpats__Last_Name__c </span
+              >(Candidate Last Name)
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p><strong>Authentication</strong>: Via Connected App</p>
+    <p>Request Body:</p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "Contact__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"003Ec00000jUEMbIAK"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "Email__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="mailto:test@test.com"
+        ><span style="color: rgb(24, 128, 56)">test@test.com</span></a
+      ><span style="color: rgb(24, 128, 56)">"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "First_Name__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"candidate"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "Last_Name__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"new"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "Job__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0cEc000005XLv1TAG"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p>
+      <br />
+      <br />
+    </p>
+    <p>Success Responses:</p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"aObEc000006Chx2IAC"</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "success"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true,</span>
+    </p>
+    <p><span style="color: rgb(24, 128, 56)"> "errors"</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p>
+      <br />
+      <br />
+    </p>
+    <h3>
+      <strong>Create Records in Bulk Record: Salesforce Standard API</strong>
+    </h3>
+    <p>
+      <strong>HTTP method:</strong>
+      <span style="color: rgb(24, 128, 56)"><strong>POST</strong></span>
+    </p>
+    <p>
+      The <strong>Composite Tree API</strong> allows external systems to create
+      <strong>multiple records</strong> in a single API call. This is especially
+      useful for creating a set of related or independent records efficiently.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Endpoint: </strong
+          ><span style="color: rgb(24, 128, 56)"
+            ><strong>https://&lt;your-instance&gt;.</strong></span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/composite/tree/<Object_API_Name>"
+            ><span style="color: rgb(24, 128, 56)"
+              ><strong
+                >salesforce.com/services/data/vXX.0/composite/tree/&lt;Object_API_Name&gt;</strong
+              ></span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">vXX.0</span> with the
+          appropriate API version (e.g.,
+          <span style="color: rgb(24, 128, 56)">v60.0</span>).
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;Object_API_Name&gt;</span>
+          with the API name of the object you're creating (e.g.,
+          <span style="color: rgb(24, 128, 56)">Account</span>,
+          <span style="color: rgb(24, 128, 56)">Contact</span>,
+          <span style="color: rgb(24, 128, 56)"
+            >bpats__Job_Board_Application__c, bpats__Job__c</span
+          >, etc.).
+        </p>
+      </li>
+    </ul>
+    <p>
+      The body must include a records array with JSON objects, each representing
+      a record to be created. You can assign a referenceId to each record for
+      easy identification in the response.
+    </p>
+    <h4><strong>Example</strong></h4>
+    <ul>
+      <li>
+        <p>
+          Object API Name<strong>:</strong>
+          <span style="color: rgb(24, 128, 56)"
+            >bpats__Job_Board_Application__c</span
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Required Fields: You must include all
+          <strong>required fields</strong> for the target object. These are
+          defined in the object schema
+        </p>
+      </li>
+    </ul>
+    <p><strong>Sample JSON Payload:</strong></p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"records"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"attributes"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">{</span
+      ><span style="color: rgb(24, 128, 56)">"type"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"bpats__Job_Board_Application__c"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+      <span style="color: rgb(24, 128, 56)">"referenceId"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"ref1"</span
+      ><span style="color: rgb(55, 71, 79)">},</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Contact__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"003Em00000cqRQ3IAM"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Email__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="mailto:test2@test.com"
+        ><span style="color: rgb(24, 128, 56)">test2@test.com</span></a
+      ><span style="color: rgb(24, 128, 56)">"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__First_Name__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"candidate"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Last_Name__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"new 2"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Job__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0MEm000004fFnBMAU"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">},</span></p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"attributes"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">{</span
+      ><span style="color: rgb(24, 128, 56)">"type"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"bpats__Job_Board_Application__c"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+      <span style="color: rgb(24, 128, 56)">"referenceId"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"ref2"</span
+      ><span style="color: rgb(55, 71, 79)">},</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Contact__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"003Em00000cqAXLIA2"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Email__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="mailto:test3@test.com"
+        ><span style="color: rgb(24, 128, 56)">test3@test.com</span></a
+      ><span style="color: rgb(24, 128, 56)">"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__First_Name__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"candidate"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Last_Name__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"new 3"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Job__c"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0MEm000004fFnBMAU"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p>
+      <br />
+      <br />
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "hasErrors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">false,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "results"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> {</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"referenceld"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"ref1"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0bEc000006CfK6IAK"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> },</span></p>
+    <p><span style="color: rgb(55, 71, 79)"> {</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"referenceld"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"ref2"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0bEc000006C{K7IAK"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p><span style="color: rgb(55, 71, 79)"> ]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <h3><strong>Update Single Records: Salesforce Standard API</strong></h3>
+    <p>
+      <strong>HTTP method: </strong
+      ><span style="color: rgb(23, 128, 56)"><strong>PATCH</strong></span>
+    </p>
+    <p>
+      The <strong>PATCH</strong> request method is used to modify the values of
+      the resource properties. The <strong>PATCH</strong> method requires a
+      request body. The body of the request must contain representation of the
+      JSON Patch operations that you want to perform on the resource.
+    </p>
+    <p>
+      External systems can update records using the standard Salesforce object
+      API.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Endpoint</strong>:
+          <span style="color: rgb(24, 128, 56)"
+            >https://&lt;your-instance&gt;.</span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/sobjects/<Object_API_Name>/{recordId}"
+            ><span style="color: rgb(24, 128, 56)"
+              >salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt;/{recordId}</span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;your-instance&gt;</span>
+          with your actual Salesforce domain.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">vXX.0</span> with your
+          specific version number.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;Object_API_Name&gt;</span>
+          with the API name of the object you're creating.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">{recordId}</span> with
+          the Salesforce ID of the record you want to update.
+        </p>
+      </li>
+    </ul>
+    <h4><strong>Example</strong></h4>
+    <ul>
+      <li>
+        <p>
+          Object API Name<strong>:</strong>
+          <span style="color: rgb(24, 128, 56)">bpats__Job_c</span>
+        </p>
+      </li>
+      <li>
+        <p>
+          Required Fields: You must include all
+          <strong>required fields</strong> for the target object. These are
+          defined in the object schema
+        </p>
+      </li>
+    </ul>
+    <p>Request Body</p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "Name"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"Salesforce Developer Test"</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "bpats_Job_Title__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"Salesforce Developer Test"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <h3><strong>Update Bulk Records: Salesforce Standard API</strong></h3>
+    <p>
+      <strong>HTTP method:</strong>
+      <span style="color: rgb(24, 128, 56)"><strong>PATCH</strong></span>
+    </p>
+    <p>
+      External systems can update records in Bulk using the Standard Salesforce
+      object API.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Endpoint</strong>:
+          <span style="color: rgb(24, 128, 56)"
+            >https://&lt;your-instance&gt;.</span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/composite/sobjects"
+            ><span style="color: rgb(24, 128, 56)"
+              >salesforce.com/services/data/vXX.0/composite/sobjects</span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;your-instance&gt;</span>
+          with your actual Salesforce domain.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">vXX.0</span> with your
+          specific version number.
+        </p>
+      </li>
+    </ul>
+    <p>Request Body</p>
+    <p><span style="color: rgb(55, 71, 79)">{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "allOrNone"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">false,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "records"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[{</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"attributes"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">{</span
+      ><span style="color: rgb(24, 128, 56)">"type"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"bpats__Job__c"</span
+      ><span style="color: rgb(55, 71, 79)">},</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"id"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"aOMEm000004fFnBMAU"</span>
+      <span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"Name"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"Salesforce Developer Test"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Job_Title__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"Salesforce Developer Test"</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> }，{</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"attributes"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">{</span
+      ><span style="color: rgb(24, 128, 56)">"type"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"bpats__Job__c"</span
+      ><span style="color: rgb(55, 71, 79)">},</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"id"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"aOMEm000004{HCHMA2"</span>
+      <span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"Name"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"Senior Salesforce Developer Test"</span
+      >
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)">"bpats__Job_Title__c"</span>
+      <span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)"
+        >"Senior Salesforce Developer Test"</span
+      >
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> }]</span></p>
+    <p><span style="color: rgb(55, 71, 79)">}</span></p>
+    <p>Success Response</p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)"> {</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0MEm000004fFnBMAU"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "success"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "errors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[]</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> },</span></p>
+    <p><span style="color: rgb(55, 71, 79)"> {</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"aOMEm000004fHCHMA2"</span>
+      <span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "success"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "errors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[]</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> }</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p>
+      <br />
+      <br />
+    </p>
+    <h3><strong>Delete Records: Salesforce Standard API</strong></h3>
+    <p>
+      <strong>HTTP method:</strong>
+      <span style="color: rgb(24, 128, 56)"><strong>DELETE</strong></span>
+    </p>
+    <p>
+      The <strong>DELETE</strong> request is used to delete a specific resource
+      from your Salesforce instance. External systems can delete a specific
+      record from Salesforce by using the Standard Salesforce object API.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Endpoint</strong>:
+          <span style="color: rgb(24, 128, 56)"
+            >https://&lt;your-instance&gt;.</span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/sobjects/<Object_API_Name>/{recordId}"
+            ><span style="color: rgb(24, 128, 56)"
+              >salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt;/{recordId}</span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;your-instance&gt;</span>
+          with your actual Salesforce domain.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">vXX.0</span> with the
+          latest salesforce version number.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;Object_API_Name&gt;</span>
+          with the API name of the object you're creating
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">{recordId}</span> with
+          the Salesforce ID of the record you want to delete.
+        </p>
+      </li>
+    </ul>
+    <h4><strong>Example</strong></h4>
+    <ul>
+      <li>
+        <p>
+          Object API Name<strong>:</strong>
+          <span style="color: rgb(24, 128, 56)">bpats__Job_c</span>
+        </p>
+      </li>
+      <li>
+        <p>
+          Required Fields: You must include all
+          <strong>required fields</strong> for the target object. These are
+          defined in the object schema.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Example URL:
+      <span style="color: rgb(24, 128, 56)">https://&lt;your-instance&gt;.</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/v63.0/sobjects/bpats__Job__c/a0LEm000007SHNYMA4"
+        ><span style="color: rgb(24, 128, 56)"
+          >salesforce.com/services/data/v63.0/sobjects/bpats__Job__c/a0LEm000007SHNYMA4</span
+        ></a
+      >
+    </p>
+    <h3><strong>Delete Records in Bulk: Salesforce Standard API</strong></h3>
+    <p>
+      <strong>HTTP method:</strong>
+      <span style="color: rgb(24, 128, 56)"><strong>DELETE</strong></span>
+    </p>
+    <p>
+      The <strong>DELETE</strong> request can also be used to delete multiple
+      records from your Salesforce instance. External systems can delete records
+      in Bulk from Salesforce by using the Standard Salesforce object API.
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong>Endpoint</strong>:
+          <span style="color: rgb(24, 128, 56)"
+            >https://&lt;your-instance&gt;.</span
+          ><a
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            href="http://salesforce.com/services/data/vXX.0/composite/sobjects?ids=<comma-separated-record-ids>&amp;allOrNone=false"
+            ><span style="color: rgb(24, 128, 56)"
+              >salesforce.com/services/data/vXX.0/composite/sobjects?ids=&lt;comma-separated-record-ids&gt;&amp;allOrNone=false</span
+            ></a
+          >
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace
+          <span style="color: rgb(24, 128, 56)">&lt;your-instance&gt;</span>
+          with your actual Salesforce domain.
+        </p>
+      </li>
+      <li>
+        <p>
+          Replace <span style="color: rgb(24, 128, 56)">vXX.0</span> with your
+          specific version number.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Example URL:
+      <span style="color: rgb(24, 128, 56)">https://&lt;your-instance&gt;.</span
+      ><a
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="http://salesforce.com/services/data/v63.0/composite/sobjects?ids=a0LEm000007SHNYMA4,a0LEm000007SDD3MAO&amp;allOrNone=false"
+        ><span style="color: rgb(24, 128, 56)"
+          >salesforce.com/services/data/v63.0/composite/sobjects?ids=a0LEm000007SHNYMA4,a0LEm000007SDD3MAO&amp;allOrNone=false</span
+        ></a
+      >
+    </p>
+    <p>Success Response</p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+    <p><span style="color: rgb(55, 71, 79)"> {</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"a0MEm000004fFnBMAU"</span
+      ><span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "success"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "errors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[]</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> },</span></p>
+    <p><span style="color: rgb(55, 71, 79)"> {</span></p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "id"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(24, 128, 56)">"aOMEm000004fHCHMA2"</span>
+      <span style="color: rgb(55, 71, 79)">,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "success"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">true,</span>
+    </p>
+    <p>
+      <span style="color: rgb(24, 128, 56)"> "errors"</span
+      ><span style="color: rgb(55, 71, 79)">:</span>
+      <span style="color: rgb(55, 71, 79)">[]</span>
+    </p>
+    <p><span style="color: rgb(55, 71, 79)"> }</span></p>
+    <p><span style="color: rgb(55, 71, 79)">]</span></p>
+  </body>
+</html>
