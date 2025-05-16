@@ -8,7 +8,7 @@
     <!-- header start -->
     <div class="header">
       <span>
-        <img src="images/Asymbl_Logo.svg" alt="ASYMBL LOGO">
+        <img src="images/Asymbl_Logo.svg" alt="ASYMBL LOGO" />
       </span>
       <span class="options">
         <span>Products</span>
@@ -37,21 +37,184 @@
         <div class="data-container">
           <div class="child-container">
             <section id="introduction">
-              <h2 class="verson-info">ATS External Integration Guide V1</h2>
+              <h2 class="verson-info">ATS External Integration Guide</h2>
               <div class="heading">Introduction</div>
-              <hr class="line">
-              <div class="info-text">This reference guide provides information about how external systems can integrate with our ATS. 
-                It includes methods for establishing connections, retrieving job listings, 
-                and submitting job applications through API integration.
+              <hr class="line" />
+              <div class="info-text">
+                This reference guide provides general information about each
+                Applicant Tracking System (ATS) and specific information about
+                each API operation and supported object type. This document
+                provides an overview of how external systems can integrate with
+                our ATS. It includes methods for establishing connections,
+                retrieving job listings, and submitting job applications through
+                various integration points.
               </div>
             </section>
 
-            <section id="object">
+            <section id="objects">
               <div class="heading">Objects</div>
-              <hr class="line">
-              <div class="info-text">In the ATS, an object represents a specific record type, like Job, Contact, or Placement. 
-                You can retrieve metadata using:
+              <hr class="line" />
+              <div class="info-text">
+                In the ATS, the term object refers to a specific type of record
+                used within the system. Examples of these objects include Job,
+                Contact, Placement etc. Each object represents a fundamental
+                concept in ATS, helping to structure how staffing data is
+                stored, managed, and processed according to the system’s rules
+                and logic.
               </div>
+              <!-- <pre class="snippet-text">GET /services/data/vXX.0/sobjects/&lt;your-object-api-name&gt;/describe</pre> -->
+              <div>
+                <h4>Objects:</h4>
+                <table class="object-table">
+                  <thead>
+                    <tr>
+                      <th>Object Name</th>
+                      <th>Object API Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Account</td>
+                      <td>Account</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Action</td>
+                      <td>bpats__ATS_Action__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Action Link</td>
+                      <td>bpats__ATS_Action_Link__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Applicant</td>
+                      <td>bpats__ATS_Applicant__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Log</td>
+                      <td>bpats__ATS_Log__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Stage</td>
+                      <td>bpats__ATS_Stage__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Stage Tracking</td>
+                      <td>bpats__ATS_Stage_Tracking__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Template</td>
+                      <td>bpats__ATS_Template__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Template Filter</td>
+                      <td>bpats__ATS_Template_Filter__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Template Stage</td>
+                      <td>bpats__ATS_Template_Stage__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Timeline Configuration</td>
+                      <td>bpats__ATS_Timeline_Configuration__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Timeline Child</td>
+                      <td>bpats__ATS_Timeline_Child__c</td>
+                    </tr>
+                    <tr>
+                      <td>Branch</td>
+                      <td>bpats__Branch__c</td>
+                    </tr>
+                    <tr>
+                      <td>Contact</td>
+                      <td>Contact</td>
+                    </tr>
+                    <tr>
+                      <td>Contact List</td>
+                      <td>bpats__Contact_List__c</td>
+                    </tr>
+                    <tr>
+                      <td>Content Version</td>
+                      <td>ContentVersion</td>
+                    </tr>
+                    <tr>
+                      <td>Email Message</td>
+                      <td>EmailMessage</td>
+                    </tr>
+                    <tr>
+                      <td>Interview</td>
+                      <td>bpats__Interview__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Feedback</td>
+                      <td>bpats__Interview_Feedback__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Template</td>
+                      <td>bpats__Interview_Template__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Template Detail</td>
+                      <td>bpats__Interview_Template_Detail__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Topic</td>
+                      <td>bpats__Interview_Topic__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Topic Feedback</td>
+                      <td>bpats__Interview_Topic_Feedback__c</td>
+                    </tr>
+                    <tr>
+                      <td>Job</td>
+                      <td>bpats__Job__c</td>
+                    </tr>
+                    <tr>
+                      <td>Job Board Application</td>
+                      <td>bpats__Job_Board_Application__c</td>
+                    </tr>
+                    <tr>
+                      <td>Message Stats</td>
+                      <td>bpats__Message_Stats__c</td>
+                    </tr>
+                    <tr>
+                      <td>Offer</td>
+                      <td>bpats__Offer__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement</td>
+                      <td>bpats__Placement__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement Credit</td>
+                      <td>bpats__Placement_Credit__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement Credit Template</td>
+                      <td>bpats__Placement_Credit_Template__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement Credit Template Entry</td>
+                      <td>bpats__Placement_Credit_Template_Entry__c</td>
+                    </tr>
+                    <tr>
+                      <td>Purchase Order</td>
+                      <td>bpats__Purchase_Order__c</td>
+                    </tr>
+                    <tr>
+                      <td>Work Site Location</td>
+                      <td>bpats__Work_Site_Location__c</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="info-text">Please follow the <a href="https://docs.google.com/spreadsheets/d/1PHHJTWK9w5SIYov-ZZM9X9AU_mXA1_hW/edit?gid=1408658604#gid=1408658604" target="_blank">link</a> to view the complete data schema of ATS.</p>
+              <p class="info-text">The external system can get the object by using the salesforce standard API.</p>
+              <h4>Endpoint: </h4>
+              <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;your-object-api-name&gt/describe</pre>
+              <br>
+              <img style="width: 100%;" src="images/describe_objects.png" alt="Describe Objects" />
+              <h4>Note: </h4><p class="info-text">Before accessing objects through the API, make sure the external system is properly authenticated with your Salesforce org.</p>
             </section>
           </div>
         </div>

@@ -83,3 +83,30 @@ hr {
     font-size: 16px;
     font-weight: 200;
 }
+
+.snippet-text {
+    background-color: #EAF6FE;
+    color: #22337A;
+    padding: 1rem;
+}
+
+.object-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+.object-table th, .object-table td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+.object-table th {
+  background-color: #a9c5f2; /* Light blue header */
+  font-weight: bold;
+}
+
+h4 {
+    font-family: sans-serif;
+}
