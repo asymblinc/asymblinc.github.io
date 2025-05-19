@@ -91,6 +91,8 @@ hr {
     background-color: #EAF6FE;
     color: #22337A;
     padding: 1rem;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
 }
 
 .object-table {
@@ -121,4 +123,8 @@ li {
 
 .image-style {
     width: 100%;
+}
+
+.http_method {
+    color: #1b823c;
 }

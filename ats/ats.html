@@ -243,7 +243,7 @@
 
             <section id="authentication">
               <div class="heading">Authentication</div>
-              <hr class="line" />
+              <hr class="line"/>
               <div class="info-text">
                 Authentication in REST APIs is the process of verifying the identity of a client making a request. 
                 It's essential to ensure that only authorized users or systems can access specific resources. 
@@ -269,6 +269,38 @@
               <h4>Tip: </h4><div class="info-text">Ensure the external system supports OAuth 2.0 and is configured to handle Salesforce-style authentication tokens.</div>
               <br>
               <img class="image-style" src="images/connected_app.png" alt="Connected App" />
+            </section>
+
+            <section id="record-operations">
+              <div class="heading">Record Operations</div>
+              <hr class="line"/>
+              <div class="info-text">External systems can retrieve and manage records using the various supported Salesforce API methods.</div>
+              <h4>Get Records: Salesforce Standard API – GET Records</h4>
+              <h4>HTTP method: <span class="http_method">GET</span></h4>
+              <div class="info-text">The GET request method is used to retrieve data from a server at a specified resource URL. It is one of the most common HTTP methods and is read-only, meaning it does not change or modify any data on the server.</div>
+              <br>
+              <div class="info-text">External systems can use the Salesforce REST API to query job records using SOQL.</div>
+              <ul>
+                <li>
+                  <pre class="snippet-text">https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/query/?q=SELECT+&lt;field-api-name&gt,+&lt;field-api-name&gt+FROM+&lt;Object_API_Name&gt</pre>
+                </li>
+                <li><div class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</div></li>
+                <li><div class="info-text">Replace vXX.0 with your specific version number.</div></li>
+                <li><div class="info-text">Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object.</div></li>
+              </ul>
+              <div class="info-text">The query string after q= is a URL-encoded SOQL query. Here's how it works:</div>
+              <ul>
+                <li><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span> <span class="info-text">is equivalent to the raw SOQL query: </span><span class="http_method">SELECT Name, bpats__Job_Title__c FROM bpats__Job__c</span></li>
+              </ul>
+              <h4>Example</h4>
+              <ul>
+                <li><span class="info-text">Query for Job Records: </span><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
+                <li><span class="info-text">Query for Job Board Application Records: </span><span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
+              </ul>
+              <h4>Note: </h4>
+              <div class="info-text">The screenshots below depict examples of integrating the ATS with Postman. These are provided for demonstration purposes to show how API requests</div>
+              <br>
+              <img class="image-style" src="images/get_records.png" alt="Get Records" />
             </section>
           </div>
         </div>
