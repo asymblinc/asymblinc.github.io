@@ -1,5 +1,8 @@
-body {
-    margin: 0px;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .header {
@@ -25,6 +28,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     overflow: hidden;
+    height: calc(100vh - 100px);
 }
 
 nav a {
@@ -46,7 +50,6 @@ nav a:hover {
 
 .index-section {
     background-color: #e9f6fe;
-    overflow: hidden;
 }
 
 .child-container {
@@ -69,7 +72,7 @@ nav a:hover {
 }
 
 .data-container {
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 hr {
@@ -103,10 +106,18 @@ hr {
 }
 
 .object-table th {
-  background-color: #a9c5f2; /* Light blue header */
+  background-color: #a9c5f2;
   font-weight: bold;
 }
 
 h4 {
     font-family: sans-serif;
+}
+
+li {
+    padding: 10px;
+}
+
+.image-style {
+    width: 100%;
 }
