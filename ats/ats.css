@@ -122,3 +122,45 @@ li {
 .image-style {
     width: 100%;
 }
+
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+
+th, td {
+    border: 1px solid #999;
+    text-align: left;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+ .code-block {
+            background-color: #f4f4f4;
+            border-radius: 15px;
+            padding: 20px;
+            
+            margin-top: 10px;
+            font-size: 16px;
+            color: #22337A;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            /* white-space: pre-wrap; */
+ }
+ .lang-label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            font-family: sans-serif;
+}
+.http-header{
+    border-bottom: 3px solid #6446b5;
+}

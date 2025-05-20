@@ -223,7 +223,7 @@
                 <div class="info-text">
                   JSON (JavaScript Object Notation) is a lightweight, text-based data format used for storing and exchanging data between systems—especially in web applications. It is easy for humans to read and write, and easy for machines to parse and generate.
               </div>
-              <h4>JSalesforce Versions appendix</h4>
+              <h4>Salesforce Versions appendix</h4>
               <div class="info-text">In the below examples replace the ‘vXX.0’ placeholder for the version of the Salesforce API you want to use — for example:
               </div>
               
@@ -240,6 +240,340 @@
                 <li>Improve compatibility with newer Salesforce objects or APIs</li>
               </ul>
             </section>
+
+            <section id="api-info">
+               <div class="heading">API Information</div>
+              <h4>Base URL: </h4><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;your-object-api-name&gt/describe</pre>
+           
+                <ul>
+                  <li>Replace <your-instance> with your Salesforce domain.</li>
+                  <li>Replace vXX.0 with your Salesforce API version (e.g., v60.0 for Spring '24).</li>
+                </ul>
+
+                 <h4>Access Token can be obtained</h4>
+                <!-- <div class="info-text">HTTP Method: POST</div> -->
+                <div class="info-text">HTTP Method: POST</div><br>
+
+                <div class="info-text">To authenticate with Salesforce and obtain an access token for API usage, you can use the OAuth 2.0 Password Grant flow. This method is suitable for server-to-server integrations where the credentials are securely stored.</div>
+              <h4>Token Request Endpoint: </h4><pre class="snippet-text">https://login.salesforce.com/services/oauth2/token</pre>
+
+              <div class="info-text">Required Parameters</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>grant_type</td>
+                            <td>Must be password &lt;password&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>client_id</td>
+                            <td>Consumer Key from your Connected App</td>
+                        </tr>
+                        <tr>
+                            <td>client_secret</td>
+                            <td>Consumer Secret from your Connected App</td>
+                        </tr>
+                        <tr>
+                            <td>username</td>
+                            <td>Salesforce user's username</td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                            <td>Concatenation of user's password and security token (e.g., password123SECURITYTOKEN)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Example Request:</h4><pre class="snippet-text">https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=YOUR_CLIENT_ID&client_secret=YOUR_C
+LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</pre><br>
+                
+                <div class="info-text">Successful Response:</div>
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+  "access_token": "YOUR_ACCESS_TOKEN",
+  "instance_url": "https://yourInstance.salesforce.com",
+  "id": "https://login.salesforce.com/id/ORG_ID/USER_ID",
+  "token_type": "Bearer",
+  "issued_at": "TIMESTAMP",
+  "signature": "SIGNATURE" 
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+                <div class="info-text">Common Request Headers</div>
+                 <table>
+                    <thead>
+                        <tr>
+                            <th>Header</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>Bearer &lt;Access_Token&gt;</td>
+                            <td>OAuth 2.0 Bearer Token</td>
+                        </tr>
+                        <tr>
+                            <td>Content-Type</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>application/json</td>
+                            <td>JSON body expected</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Accept</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>*/*</td>
+                            <td>Expected response content type</td>
+                           
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+                <div class="info-text"> Request Parameters:</div>
+
+                  <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter Location</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Query (URL)</td>
+                            <td>q (for SOQL query)</td>
+                            <td>String</td>
+                            <td>Yes (for query endpoint)</td>
+                            <td>SELECT Name FROM bpats__Job__c</td>
+                            <td>SOQL statement for record fetching</td>
+                        </tr>
+                        <tr>
+                            <td>Path</td>
+                            <td>Object_API_Name</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>bpats__Job__c</td>
+                            <td>The Salesforce API name of the object you're targeting</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Path</td>
+                            <td>recordId</td>
+                            <td>String (18-char Salesforce ID)</td>
+                            <td>Yes (for single record updates/deletes)</td>
+                            <td>a01ABC1234xyz123</td>
+                            <td>Unique ID of the record</td>
+                        </tr>
+
+                    </tbody>
+                </table><br><br>
+
+                <h4>Request Body (Payload)</h4>
+                <div class="info-text">
+                  The POST, PUT and PATCH requests can have the request body (payload), such as JSON or XML data. In Swagger terms, the request body is called a body parameter. There can be only one body parameter, although the operation may have other parameters (path, query, header).
+                </div><br>  
+
+                 <div class="info-text">For POST, PATCH, and Composite endpoints:</div>
+
+                 <ul>
+                    <li>Format: application/json</li>
+                    <li>Structure: JSON object</li>
+                    <li>Field Validation Rules:</li>
+                  </ul>
+
+                  <table>
+                    <thead>
+                        <tr>
+                            <th>Field Property</th>
+                            <th>Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Types</td>
+                            <td>tring, Number, Boolean, Array (for composite bulk ops)</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum Length</td>
+                            <td>CDepends on field metadata in Salesforce (commonly 255 characters for text fields)</td>
+                        </tr>
+                        <tr>
+                            <td>Required Fields</td>
+                            <td>Must be filled if Salesforce marks them as Required in Object Schema</td>
+                        </tr>
+                        <tr>
+                            <td>Optional Fields</td>
+                            <td>Can be omitted if not mandatory</td>
+                        </tr>
+                        <tr>
+                            <td>Lookup Fields</td>
+                            <td>Provide 18-digit Salesforce Record ID for references</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+
+                <h4>Status Codes and Error Responses</h4>
+
+                <div class="info-text">HTTP response status codes indicate whether a specific <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP"  target="_blank">HTTP</a>  request has been successfully completed.</div>
+
+                 <table>
+                    <thead>
+                        <tr class="http-header">
+                            <th >HTTP response code</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>200</td>
+                            <td>“OK” success code, for GET, HEAD, and some PATCH requests.</td>
+                        </tr>
+                        <tr>
+                            <td>201</td>
+                            <td>“Created” success code, for POST requests and some PATCH requests.</td>
+                        </tr>
+                        <tr>
+                            <td>204</td>
+                            <td>“No Content” success code, for DELETE requests and some PATCH requests.</td>
+                        </tr>
+                        <tr>
+                            <td>300</td>
+                            <td>The value returned when an external ID exists in more than one record. The response body contains the list of matching records.</td>
+                        </tr>
+                        <tr>
+                            <td>304</td>
+                            <td>The request content hasn’t changed since a specified date and time. The date and time is provided in a If-Modified-Since header. See <a  target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/sobject_describe_with_ifmodified_header.htm">Get Object Metatdata Changes</a> for an example.</td>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>The request couldn’t be understood, usually because the JSON or XML body contains an error.</td>
+                        </tr>
+                        <tr>
+                            <td>401</td>
+                            <td>The session ID or OAuth token used has expired or is invalid. The response body contains the message and errorCode.</td>
+                        </tr>
+                        <tr>
+                            <td>403</td>
+                            <td>The request has been refused. Verify that the logged-in user has appropriate permissions. If the error code is REQUEST_LIMIT_EXCEEDED, you’ve exceeded API request limits in your org.</td>
+                        </tr>
+                        <tr>
+                          <td>404</td>
+                          <td>The requested resource couldn’t be found. Check the URI for errors, and verify that there are no sharing issues.</td>
+                        </tr>
+                        <tr>
+                          <td>405</td>
+                          <td>The method specified in the Request-Line isn’t allowed for the resource specified in the URI.</td>
+                        </tr>
+                        <tr>
+                          <td>409</td>
+                          <td>The request couldn’t be completed due to a conflict with the current state of the resource. Check that the API version is compatible with the resource you’re requesting.</td>
+                        </tr>
+                        <tr>
+                          <td>410</td>
+                          <td>The requested resource has been retired or removed. Delete or update any references to the resource.</td>
+                        </tr>
+                        <tr>
+                          <td>412</td>
+                          <td>The request wasn’t executed because one or more of the preconditions that the client specified in the request headers wasn’t satisfied. For example, the request includes an <a  target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest_conditional_requests.htm">If-Unmodified-Since</a> header, but the data was modified after the specified date.</td>
+                        </tr>
+                        <tr>
+                          <td>414</td>
+                          <td>The length of the URI exceeds the 16,384-byte limit.</td>
+                        </tr>
+                        <tr>
+                          <td>415</td>
+                          <td>The entity in the request is in a format that’s not supported by the specified method.</td>
+                        </tr>
+                        <tr>
+                          <td>420</td>
+                          <td>Salesforce Edge doesn’t have routing information available for this request host. Contact Salesforce Customer Support.</td>
+                        </tr>
+                        <tr>
+                          <td>428</td>
+                          <td>The request wasn’t executed because it wasn’t conditional. Add one of the <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest_conditional_requests.htm" target="_blank">Conditional Request Headers</a>, such as If-Match, to the request and resubmit it.</td>
+                        </tr>
+                        <tr>
+                          <td>431</td>
+                          <td>The combined length of the URI and headers exceeds the 16,384-byte limit.</td>
+                        </tr>
+                        <tr>
+                          <td>500</td>
+                          <td>An error has occurred within Lightning Platform, so the request couldn’t be completed. Contact Salesforce Customer Support.</td>
+                        </tr>
+                        <tr>
+                          <td>502</td>
+                          <td>Salesforce Edge wasn’t able to communicate successfully with the Salesforce instance.</td>
+                        </tr>
+                        <tr>
+                          <td>503</td>
+                          <td>The server is unavailable to handle the request. Typically this issue occurs if the server is down for maintenance or is overloaded.</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+
+                <h4>Response Body Schemas</h4>
+
+                <div class="info-text">For successful responses:</div>
+
+                 <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ID (for POST)</td>
+                            <td>String</td>
+                            <td>The Salesforce ID of the created record.</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>success (for POST/Composite)</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the operation was successful.</td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>errors (for POST/Composite)</td>
+                            <td>Array</td>
+                            <td>List of errors, if any.</td>
+                        </tr>
+                        <tr>
+                            <td>records (for Query)</td>
+                            <td>Array</td>
+                            <td>Array of records matching query criteria.</td>
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+              </section>
+
 
             <section id="authentication">
               <div class="heading">Authentication</div>
