@@ -647,8 +647,8 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <div class="info-text">The POST method is used to create new records in Salesforce. This method targets a resource collection (i.e., a Salesforce object) 
                   and adds a new subordinate resource (i.e., a record) to it. External systems can use this method to create records for any custom or standard Salesforce object via the REST API.
                 </div>
-                <ul class="info-text">
-                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt</span></li>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt</pre></li>
                   <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
                   <li>Replace vXX.0 with your specific version number.</li>
                   <li>Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object (e.g., Account, Contact, bpats__Job_Board_Application__c, etc.).</li>
@@ -703,10 +703,10 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <div class="info-text">The Composite Tree API allows external systems to create multiple records in a single API call. 
                   This is especially useful for creating a set of related or independent records efficiently.
                 </div>
-                <ul class="info-text">
-                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/tree/&lt;Object_API_Name&gt</span></li>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/tree/&lt;Object_API_Name&gt</pre></li>
                   <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
-                  <li>Replace <Object_API_Name> with the API name of the object you're creating (e.g., Account, Contact, bpats__Job_Board_Application__c, bpats__Job__c, etc.).</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating (e.g., Account, Contact, bpats__Job_Board_Application__c, bpats__Job__c, etc.).</li>
                 </ul>
                 <div class="info-text">The body must include a records array with JSON objects, each representing a record to be created. You can assign a referenceId to each record for easy identification in the response.</div>
                 <h4>Example</h4>
@@ -771,9 +771,9 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </div>
                 <br>
                 <div class="info-text">External systems can update records using the standard Salesforce object API.</div>
-                <ul class="info-text">
-                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt/{recordId}</span></li>
-                  <li><span class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</span></li>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt/{recordId}</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
                   <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
                   <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating.</li>
                   <li>Replace {recordId} with the Salesforce ID of the record you want to update.</li>
@@ -801,9 +801,9 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <h4>Update Bulk Records: Salesforce Standard API</h4>
                 <h4>HTTP method: <span class="http_method">PATCH</span></h4>
                 <div class="info-text">External systems can update records in Bulk using the Standard Salesforce object API.</div>
-                  <ul class="info-text">
-                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/sobjects</span></li>
-                  <li><span class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</span></li>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/sobjects</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
                   <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
                 </ul>
                 <div class="info-text">Request Body</div>
@@ -850,7 +850,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <!-- Delete Record Start -->
               <div>
-                
+
               </div>
               <!-- Delete Record End -->
             </section>
