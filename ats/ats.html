@@ -762,9 +762,97 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
               </div>
               <!-- Create Bulk Records End -->
 
-              <!-- Update Single record Start -->
-               
-              <!-- Update Single record End -->
+              <!-- Update Single Record Start -->
+              <div>
+                <h4>Update Single Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">PATCH</span></h4>
+                <div class="info-text">The PATCH request method is used to modify the values of the resource properties. The PATCH method requires a request body. 
+                  The body of the request must contain representation of the JSON Patch operations that you want to perform on the resource.
+                </div>
+                <br>
+                <div class="info-text">External systems can update records using the standard Salesforce object API.</div>
+                <ul class="info-text">
+                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt/{recordId}</span></li>
+                  <li><span class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</span></li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating.</li>
+                  <li>Replace {recordId} with the Salesforce ID of the record you want to update.</li>
+                </ul>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li>Object API Name: bpats__Job__c</li>
+                  <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
+                </ul>
+                <div class="info-text">Request Body</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "Name" : "Salesforce Developer Test"
+  "bpats_Job_Title__c" : "Salesforce Developer Test"
+}</pre> 
+                  </div>
+                </div>
+              </div>
+              <!-- Update Single Record End -->
+
+              <!-- Update Bulk Record Start -->
+              <div>
+                <h4>Update Bulk Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">PATCH</span></h4>
+                <div class="info-text">External systems can update records in Bulk using the Standard Salesforce object API.</div>
+                  <ul class="info-text">
+                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/sobjects</span></li>
+                  <li><span class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</span></li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                </ul>
+                <div class="info-text">Request Body</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "allOrNone" : false,
+  "records" : [{
+    "attributes" : {"type" : "bpats__Job__c"},
+    "id" : "aOMEm000004fFnBMAU" ,
+    "Name" : "Salesforce Developer Test",
+    "bpats__Job_Title__c" : "Salesforce Developer Test"
+  }，{
+    "attributes" : {"type" : "bpats__Job__c"},
+    "id" : "aOMEm000004{HCHMA2" ,
+    "Name" : "Senior Salesforce Developer Test"
+    "bpats__Job_Title__c" : "Senior Salesforce Developer Test"
+  }]
+}</pre> 
+                  </div>
+                </div>
+                <br>
+                <div class="info-text">Success Response</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>[
+  {
+    "id": "a0MEm000004fFnBMAU",
+    "success": true,
+    "errors": []
+  },
+  {
+    "id": "aOMEm000004fHCHMA2" ,
+    "success": true,
+    "errors": []
+  }
+]</pre> 
+                  </div>
+                </div>
+              </div>
+              <!-- Update Bulk Record End -->
+
+              <!-- Delete Record Start -->
+              <div>
+                
+              </div>
+              <!-- Delete Record End -->
             </section>
           </div>
         </div>
