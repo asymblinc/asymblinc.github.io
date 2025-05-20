@@ -608,32 +608,163 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
               <div class="heading">Record Operations</div>
               <hr class="line"/>
               <div class="info-text">External systems can retrieve and manage records using the various supported Salesforce API methods.</div>
-              <h4>Get Records: Salesforce Standard API – GET Records</h4>
-              <h4>HTTP method: <span class="http_method">GET</span></h4>
-              <div class="info-text">The GET request method is used to retrieve data from a server at a specified resource URL. It is one of the most common HTTP methods and is read-only, meaning it does not change or modify any data on the server.</div>
+              <!-- Get Records Start -->
+              <div>
+                <h4>Get Records: Salesforce Standard API – GET Records</h4>
+                <h4>HTTP method: <span class="http_method">GET</span></h4>
+                <div class="info-text">The GET request method is used to retrieve data from a server at a specified resource URL. It is one of the most common HTTP methods and is read-only, meaning it does not change or modify any data on the server.</div>
+                <br>
+                <div class="info-text">External systems can use the Salesforce REST API to query job records using SOQL.</div>
+                <ul>
+                  <li>
+                    <pre class="snippet-text">https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/query/?q=SELECT+&lt;field-api-name&gt,+&lt;field-api-name&gt+FROM+&lt;Object_API_Name&gt</pre>
+                  </li>
+                  <li><div class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</div></li>
+                  <li><div class="info-text">Replace vXX.0 with your specific version number.</div></li>
+                  <li><div class="info-text">Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object.</div></li>
+                </ul>
+                <div class="info-text">The query string after q= is a URL-encoded SOQL query. Here's how it works:</div>
+                <ul>
+                  <li><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span> <span class="info-text">is equivalent to the raw SOQL query: </span><span class="http_method">SELECT Name, bpats__Job_Title__c FROM bpats__Job__c</span></li>
+                </ul>
+                <h4>Example</h4>
+                <ul>
+                  <li><span class="info-text">Query for Job Records: </span><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
+                  <li><span class="info-text">Query for Job Board Application Records: </span><span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
+                </ul>
+                <h4>Note: </h4>
+                <div class="info-text">The screenshots below depict examples of integrating the ATS with Postman. These are provided for demonstration purposes to show how API requests</div>
+                <br>
+                <img class="image-style" src="images/get_records.png" alt="Get Records" />
+              </div>
               <br>
-              <div class="info-text">External systems can use the Salesforce REST API to query job records using SOQL.</div>
-              <ul>
-                <li>
-                  <pre class="snippet-text">https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/query/?q=SELECT+&lt;field-api-name&gt,+&lt;field-api-name&gt+FROM+&lt;Object_API_Name&gt</pre>
-                </li>
-                <li><div class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</div></li>
-                <li><div class="info-text">Replace vXX.0 with your specific version number.</div></li>
-                <li><div class="info-text">Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object.</div></li>
-              </ul>
-              <div class="info-text">The query string after q= is a URL-encoded SOQL query. Here's how it works:</div>
-              <ul>
-                <li><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span> <span class="info-text">is equivalent to the raw SOQL query: </span><span class="http_method">SELECT Name, bpats__Job_Title__c FROM bpats__Job__c</span></li>
-              </ul>
-              <h4>Example</h4>
-              <ul>
-                <li><span class="info-text">Query for Job Records: </span><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
-                <li><span class="info-text">Query for Job Board Application Records: </span><span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
-              </ul>
-              <h4>Note: </h4>
-              <div class="info-text">The screenshots below depict examples of integrating the ATS with Postman. These are provided for demonstration purposes to show how API requests</div>
-              <br>
-              <img class="image-style" src="images/get_records.png" alt="Get Records" />
+              <!-- Get Records End -->
+
+              <!-- Create Records Start -->
+              <div>
+                <h4>Create Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">POST</span></h4>
+                <div class="info-text">The POST method is used to create new records in Salesforce. This method targets a resource collection (i.e., a Salesforce object) 
+                  and adds a new subordinate resource (i.e., a record) to it. External systems can use this method to create records for any custom or standard Salesforce object via the REST API.
+                </div>
+                <ul class="info-text">
+                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt</span></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with your specific version number.</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object (e.g., Account, Contact, bpats__Job_Board_Application__c, etc.).</li>
+                </ul>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li class="info-text">Object API Name: bpats__Job_Board_Application__c</li>
+                  <li>Required Fields:
+                    <ul>
+                      <li>bpats__Contact__c (Reference to Candidate (e.g., Contact Id))</li>
+                      <li>bpats__Job__c (Reference to Job (e.g., Job Id))</li>
+                      <li>bpats__Email__c (Candidate Email)</li>
+                      <li>bpats__First_Name__c (Candidate First Name)</li>
+                      <li>bpats__Last_Name__c (Candidate Last Name)</li>
+                    </ul>
+                  </li>
+                </ul>
+                <h4>Authentication: Via Connected App</h4>
+                <div class="info-text">Request Body: </div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "Contact__c" : "003Ec00000jUEMbIAK",
+  "Email__c" : "test@test.com",
+  "First_Name__c" : "candidate",
+  "Last_Name__c" : "new",
+  "Job__c" : "a0cEc000005XLv1TAG"
+}</pre> 
+                  </div>
+                </div>
+                <br>
+                <div class="info-text">Success Responses: </div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "id": "aObEc000006Chx2IAC"
+  "success": true,
+  "errors"
+}</pre> 
+                  </div>
+                </div>
+              </div>
+              <!-- Create Records End -->
+
+              <!-- Create Bulk Records Start -->
+              <div>
+                <h4>Create Records in Bulk Record: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">POST</span></h4>
+
+                <div class="info-text">The Composite Tree API allows external systems to create multiple records in a single API call. 
+                  This is especially useful for creating a set of related or independent records efficiently.
+                </div>
+                <ul class="info-text">
+                  <li><span>Endpoint: </span><span class="http_method">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/tree/&lt;Object_API_Name&gt</span></li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                  <li>Replace <Object_API_Name> with the API name of the object you're creating (e.g., Account, Contact, bpats__Job_Board_Application__c, bpats__Job__c, etc.).</li>
+                </ul>
+                <div class="info-text">The body must include a records array with JSON objects, each representing a record to be created. You can assign a referenceId to each record for easy identification in the response.</div>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li>Object API Name: bpats__Job_Board_Application__c</li>
+                  <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
+                </ul>
+                <div class="info-text">Sample JSON Payload:</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "records": [
+    {
+      "attributes" : {"type" : "bpats__Job_Board_Application__c", "referenceId" : "ref1"},
+      "bpats__Contact__c": "003Em00000cqRQ3IAM",
+      "bpats__Email__c": "test2@test.com",
+      "bpats__First_Name__c": "candidate",
+      "bpats__Last_Name__c": "new 2",
+      "bpats__Job__c": "a0MEm000004fFnBMAU"
+    },
+    {
+      "attributes" : {"type" : "bpats__Job_Board_Application__c", "referenceId" : "ref2"},
+      "bpats__Contact__c": "003Em00000cqAXLIA2",
+      "bpats__Email__c": "test3@test.com",
+      "bpats__First_Name__c": "candidate",
+      "bpats__Last_Name__c": "new 3",
+      "bpats__Job__c": "a0MEm000004fFnBMAU"
+    }
+  ]
+}</pre> 
+                  </div>
+                </div>
+                <br>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "hasErrors": false,
+  "results": [
+    {
+      "referenceld": "ref1",
+      "id": "a0bEc000006CfK6IAK"
+    },
+    {
+      "referenceld": "ref2",
+      "id": "a0bEc000006C{K7IAK"
+    }
+ ]
+}</pre> 
+                  </div>
+                </div>
+              </div>
+              <!-- Create Bulk Records End -->
+
+              <!-- Update Single record Start -->
+               
+              <!-- Update Single record End -->
             </section>
           </div>
         </div>
