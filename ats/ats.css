@@ -91,6 +91,8 @@ hr {
     background-color: #EAF6FE;
     color: #22337A;
     padding: 1rem;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
 }
 
 .object-table {
@@ -163,4 +165,7 @@ th {
 }
 .http-header{
     border-bottom: 3px solid #6446b5;
+}
+.http_method {
+    color: #1b823c;
 }
