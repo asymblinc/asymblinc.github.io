@@ -242,19 +242,18 @@
             </section>
 
             <section id="api-info">
-               <div class="heading">API Information</div>
+              <div class="heading">API Information</div>
               <h4>Base URL: </h4><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;your-object-api-name&gt/describe</pre>
            
-                <ul>
-                  <li>Replace <your-instance> with your Salesforce domain.</li>
-                  <li>Replace vXX.0 with your Salesforce API version (e.g., v60.0 for Spring '24).</li>
-                </ul>
+              <ul>
+                <li>Replace <your-instance> with your Salesforce domain.</li>
+                <li>Replace vXX.0 with your Salesforce API version (e.g., v60.0 for Spring '24).</li>
+              </ul>
 
-                 <h4>Access Token can be obtained</h4>
-                <!-- <div class="info-text">HTTP Method: POST</div> -->
-                <div class="info-text">HTTP Method: POST</div><br>
+              <h4>Access Token can be obtained</h4>
+              <h4>HTTP method: <span class="http_method">POST</span></h4>
 
-                <div class="info-text">To authenticate with Salesforce and obtain an access token for API usage, you can use the OAuth 2.0 Password Grant flow. This method is suitable for server-to-server integrations where the credentials are securely stored.</div>
+              <div class="info-text">To authenticate with Salesforce and obtain an access token for API usage, you can use the OAuth 2.0 Password Grant flow. This method is suitable for server-to-server integrations where the credentials are securely stored.</div>
               <h4>Token Request Endpoint: </h4><pre class="snippet-text">https://login.salesforce.com/services/oauth2/token</pre>
 
               <div class="info-text">Required Parameters</div>
@@ -412,11 +411,11 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     <tbody>
                         <tr>
                             <td>Data Types</td>
-                            <td>tring, Number, Boolean, Array (for composite bulk ops)</td>
+                            <td>String, Number, Boolean, Array (for composite bulk ops)</td>
                         </tr>
                         <tr>
                             <td>Maximum Length</td>
-                            <td>CDepends on field metadata in Salesforce (commonly 255 characters for text fields)</td>
+                            <td>Depends on field metadata in Salesforce (commonly 255 characters for text fields)</td>
                         </tr>
                         <tr>
                             <td>Required Fields</td>
@@ -693,13 +692,13 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </div>
                 </div>
               </div>
+              <br>
               <!-- Create Records End -->
 
               <!-- Create Bulk Records Start -->
               <div>
-                <h4>Create Records in Bulk Record: Salesforce Standard API</h4>
+                <h4>Create Records in Bulk: Salesforce Standard API</h4>
                 <h4>HTTP method: <span class="http_method">POST</span></h4>
-
                 <div class="info-text">The Composite Tree API allows external systems to create multiple records in a single API call. 
                   This is especially useful for creating a set of related or independent records efficiently.
                 </div>
@@ -760,6 +759,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </div>
                 </div>
               </div>
+              <br>
               <!-- Create Bulk Records End -->
 
               <!-- Update Single Record Start -->
@@ -794,6 +794,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </div>
                 </div>
               </div>
+              <br>
               <!-- Update Single Record End -->
 
               <!-- Update Bulk Record Start -->
@@ -846,13 +847,68 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </div>
                 </div>
               </div>
+              <br>
               <!-- Update Bulk Record End -->
 
               <!-- Delete Record Start -->
               <div>
-
+                <h4>Delete Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">DELETE</span></h4>
+                <div class="info-text">The DELETE request is used to delete a specific resource from your Salesforce instance. 
+                  External systems can delete a specific record from Salesforce by using the Standard Salesforce object API.
+                </div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt/{recordId}</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating</li>
+                  <li>Replace {recordId} with the Salesforce ID of the record you want to delete.</li>
+                </ul>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li>Object API Name: bpats__Job_c</li>
+                  <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema.</li>
+                </ul>
+                <h4>Example URL: </h4>
+                <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/v63.0/sobjects/bpats__Job__c/a0LEm000007SHNYMA4</pre>
+                <br>
               </div>
               <!-- Delete Record End -->
+
+              <!-- Delete Bulk Records Start -->
+              <div>
+                <h4>Delete Records in Bulk: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">DELETE</span></h4>
+                <div class="info-text">The DELETE request can also be used to delete multiple records from your Salesforce instance. 
+                  External systems can delete records in Bulk from Salesforce by using the Standard Salesforce object API.
+                </div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/sobjects?ids=&lt;comma-separated-record-ids&gt&allOrNone=false</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                </ul>
+                <h4>Example URL: </h4>
+                <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/v63.0/composite/sobjects?ids=a0LEm000007SHNYMA4,a0LEm000007SDD3MAO&allOrNone=false</pre>
+                <div class="info-text">Success Response</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">     
+<pre>[
+  {
+    "id": "a0MEm000004fFnBMAU",
+    "success": true,
+    "errors": []
+  },
+  {
+    "id": "aOMEm000004fHCHMA2" ,
+    "success": true,
+    "errors": []
+  }
+]</pre>
+                  </div>
+                </div>
+              </div>
+              <!-- Delete Bulk Records End -->
             </section>
           </div>
         </div>
