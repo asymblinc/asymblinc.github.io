@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="ats.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
 
   <body>
@@ -228,16 +229,16 @@
               </div>
               
               <ul>
-                <li>v59.0 = Spring '24 release</li>
-                <li>v60.0 = Summer '24 release</li>
-                <li>v61.0 = Winter '25 release</li>
+                <li> <span class="info-text"> v59.0 = Spring '24 release</span></li>
+                <li> <span class="info-text">v60.0 = Summer '24 release</span></li>
+                <li><span class="info-text">v61.0 = Winter '25 release</span></li>
               </ul>
 
                <div class="info-text">Use the latest version your org supports to:</div>
               <ul>
-                <li>Access the latest features and field types</li>
-                <li>Avoid deprecated functionality</li>
-                <li>Improve compatibility with newer Salesforce objects or APIs</li>
+                <li> <span class="info-text"> Access the latest features and field types</span></li>
+                <li> <span class="info-text">Avoid deprecated functionality</span></li>
+                <li> <span class="info-text"> Improve compatibility with newer Salesforce objects or APIs</span></li>
               </ul>
             </section>
 
@@ -571,7 +572,1138 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br><br>
 
+                <h4>Example:</h4> <div class="info-text">Successful POST Response (Create Record)</div>
+
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+    "hasErrors": false,
+    "results": [
+        {
+            "referenceId": "ref1",
+            "id": "a0LEm000007fZDxMAM"
+        },
+        {
+            "referenceId": "ref2",
+            "id": "a0LEm000007fZDyMAM"
+        }
+    ]
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+                 <h4>Example:</h4> <div class="info-text">Successful GET Query Response</div>
+
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+    "totalSize": 1,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "bpats__Job__c",
+                "url": "/services/data/v57.0/sobjects/bpats__Job__c/a0MEm000004fFnBMAU"
+            },
+            "Name": "Salesforce Developer Test",
+            "bpats__End_Date__c": null
+        }
+    ]
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+
+                <h4>Error Responses</h4>
+                <div class="info-text">If something goes wrong, Salesforce returns a standard error format.</div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>message</td>
+                            <td>String</td>
+                            <td>Human-readable error message</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>errorCode</td>
+                            <td>String</td>
+                            <td>Salesforce error code</td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>fields</td>
+                            <td>Array</td>
+                            <td>List of fields causing the error (optional)</td>
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+                <div><h4>Example:</h4><div class="info-text">400 Bad Request</div></div>
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+    "hasErrors": true,
+    "results": [
+        {
+            "referenceId": "ref3",
+            "errors": [
+                {
+                    "statusCode": "REQUIRED_FIELD_MISSING",
+                    "message": "Required fields are missing: [LastName]",
+                    "fields": [
+                        "LastName"
+                    ]
+                }
+            ]
+        }
+    ]
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+                 <h4>Possible causes: </h4>
+
+                <ul>
+                    <li> <span class="info-text">Your API request body is missing a required field (in this case, LastName).</span></li>
+                    <li><span class="info-text">Validation rules on the Salesforce object require this field.</span></li>
+                </ul>
+                 <h4>How to Handle:</h4> 
+                 <ul>
+                    <li><span class="info-text">Before sending the request, ensure that all mandatory fields are populated.</span></li>
+                    <li><span class="info-text">Implement client-side or server-side validation to check required fields before making the API call.</span></li>
+                </ul>
+
+                <h4>Example:</h4><span class="info-text">401 Unauthorized (Invalid Token)</span>
+                 <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+[
+  {
+    "message": "Session expired or invalid",
+    "errorCode": "INVALID_SESSION_ID" 
+  }
+]</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                  <li> <span class="info-text">The session (OAuth token or session ID) is expired, revoked, or invalid.</span> </li>
+                  <li> <span class="info-text">The user was logged out, or the token has timed out.</span> </li>
+                </ul>
+              <h4>How to Handle:</h4>
+              <ul>
+                <li> <span class="info-text">Reauthenticate and obtain a new access token/session ID.</span> </li>
+                <li> <span class="info-text">Implement automatic token refresh logic if using OAuth.</span> </li>
+                <li> <span class="info-text">Check your session timeout settings and ensure sessions are still valid before making requests.</span> </li>
+              </ul>
+
+              <h4>Example: <span class="info-text" ></span> 400 Not Found</h4>
+               <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+[
+  {
+    "message": "The requested resource does not exist",
+    "errorCode": "NOT_FOUND"
+  }
+]</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li> <span class="info-text">You're trying to access a record, object, or endpoint that doesn't exist.</span> </li>
+                <li> <span class="info-text">You might have a typo in the URL or the record ID provided is wrong.</span> </li>
+                <li> <span class="info-text">The resource might have been deleted.</span> </li>
+              </ul>
+
+              <h4>How to Handle:</h4>
+              <ul>
+                <li> <span class="info-text">Verify that the URL is correct.</span> </li>
+                <li> <span class="info-text">Ensure the record or resource actually exists before requesting it.</span> </li>
+                <li> <span class="info-text">Implement error handling to gracefully show "resource not found" messages.</span> </li>
+              </ul>
+
+              <h4>Example: <span class="info-text"> 400 REQUIRED FIELD MISSING</span></h4>
+              <div class="code-block">
+                <div class="lang-label">Unset</div>
+                <div class="code-content">      
+<pre>
+{
+    "hasErrors": true,
+    "results": [
+        {
+            "referenceId": "ref3",
+            "errors": [
+                {
+                    "statusCode": "REQUIRED_FIELD_MISSING",
+                    "message": "Required fields are missing: [LastName]",
+                    "fields": [
+                        "LastName"
+                    ]
+                }
+            ]
+        }
+    ]
+}</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li><span class="info-text">Your API request body is missing a required field (in this case, <span class="http_method">LastName</span>).</span></li>
+                <li><span class="info-text">Validation rules on the Salesforce object require this field.</span></li>
+              </ul>
+
+              <h4>How to Handle:</h4>
+              <ul>
+                <li><span class="info-text">Before sending the request, ensure that all mandatory fields are populated.</span></li>
+                <li><span class="info-text">Implement client-side or server-side validation to check required fields before making the API call.</span></li>
+              </ul>
+
+              <h4>Example: <span class="info-text">404 INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST</span> </h4> 
+              <div class="code-block">
+                <div class="lang-label">Unset</div>
+                <div class="code-content">      
+<pre>
+[
+    {
+        "message": "Status: bad value for restricted picklist field: Test",
+        "errorCode": "INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST",
+        "fields": [
+            "bpats__Status__c"
+        ]
+    }
+]</pre>
+                    
+              </div></div>
+
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li><span class="info-text">You're trying to set a picklist field (<span class="http_method">bpats__Status__c</span>) to a value (<span class="http_method">Test</span>) that isn't allowed.</span></li>
+                <li><span class="info-text">The picklist is restricted, meaning only predefined values are accepted.</span></li>
+              </ul>
+              <h4>How to Handle:</h4>
+
+              <ul>
+                <li><span class="info-text">Fetch the allowed picklist values from Salesforce metadata or manually maintain a list.</span></li>
+                <li><span class="info-text">Validate picklist inputs before sending them to the server.</span></li>
+                <li><span class="info-text">Show users only valid choices in UI dropdowns.</span></li>
+              </ul>
+            
+              <h4>Example: <spam class="info-text">400 STRING_TOO_LONG</spam> </h4>
+                <div class="code-block">
+                <div class="lang-label">Unset</div>
+                <div class="code-content">      
+<pre>
+{
+  "hasErrors": true,
+  "results": [
+    {
+      "referenceId": "ref3",
+      "errors": [
+        {
+          "statusCode": "STRING_TOO_LONG",
+          "message": "First Name: data value too large: candidate test candidate test candidate test 
+          candidate test candidate test candidate test candidate test candidate test candidate test 
+          candidate test candidate test candidate test candidate test candidate test candidate test 
+          candidate test candidate test candidate test candidate test candidate test candidate test 
+          candidate test candidate test candidate 
+          test candidate test candidate (max length=40)",
+          "fields": [
+            "FirstName"
+          ]
+        }
+      ]
+    }
+  ]
+}</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li><span class="info-text">The value you're trying to insert into the <span class="http_method">FirstName</span> field exceeds the maximum allowed characters (40 characters in this case).</span></li>
+              </ul>
+
+              <h4>How to Handle:</h4>
+              <ul>
+                <li><span class="info-text">Limit field input length based on Salesforce field metadata (e.g., maxlength in input fields).</span></li>
+                <li><span class="info-text">Truncate or validate strings before sending the request.</span></li>
+                <li><span class="info-text">Show the user a clear message like "First Name must be 40 characters or fewer."</span></li>
+              </ul>
+
+              <h4>API Request Limits and Allocations</h4>
+
+                <table>
+                    <thead>
+                        <tr class="http-header">
+                            <th >Salesforce Edition</th>
+                            <th>API Calls Per License Type Per 24-Hour Period</th>
+                            <th>Total Calls Per 24-Hour Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Developer Edition</td>
+                            <td>N/A</td>
+                            <td>15,000</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise Edition Professional Edition with API access enabled</td>
+                            <td>Salesforce: 1,000<br>
+                            Salesforce Platform: 1,000<br>
+                            Lightning Platform - One App: 200<br>
+                            Customer Community: 0<br>
+                            Customer Community Login: 0<br>
+                            Customer Community Plus: 200<br>
+                            Customer Community Plus Login: 10<br>
+                            External Identity 25,000: 70,000<br>
+                            External Identity 250,000: 750,000<br>
+                            External Identity 1,000,000: 4,000,000<br>
+                            Partner Community: 200<br>
+                            Partner Community Login: 10<br>
+                            Lightning Platform Starter: 200 per member for Enterprise Edition orgs<br>
+                            Lightning Platform Plus: 1000 per member for Enterprise Edition orgs
+                            </td>
+                            <td>100,000 + (number of licenses x calls per license type) + purchased API Call Add-Ons</td>
+                        </tr>
+                        <tr>
+                            <td>Unlimited Edition Performance Edition</td>
+                            <td>Salesforce: 5,000<br>
+                            Salesforce Platform: 5,000<br>
+                            Lightning Platform - One App: 200<br>
+                            Customer Community: 0<br>
+                            Customer Community Login: 0<br>
+                            Customer Community Plus: 200<br>
+                            Customer Community Plus Login: 10<br>
+                            External Identity 25,000: 70,000<br>
+                            External Identity 250,000: 750,000<br>
+                            External Identity 1,000,000: 4,000,000
+                            Partner Community: 200<br>
+                            Partner Community Login: 10<br>
+                            Lightning Platform Starter: 200 per member for Unlimited and Performance Edition orgs
+                            Lightning Platform Plus: 5,000 per member for Unlimited and Performance Edition org
+                            </td>
+                            <td>100,000 + (number of licenses x calls per license type) + purchased API Call Add-Ons</td>
+                        </tr>
+                        <tr>
+                            <td>Full Sandbox</td>
+                            <td>N/A</td>
+                            <td>5,000,000This limit applies only to Full Sandboxes that aren’t created from a template. For any sandbox created from a template, values in the template determine the limits. For more information, visit Salesforce Help: Sandbox Types and Templates.</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+
+                <h4>Getting API Limits</h4>
+                <h4>HTTP method: <span class="http_method">GET</span></h4>
+                <div class="info-text">You can use the Salesforce Limits API to programmatically retrieve your current API usage and limits.</div>
+
+                <ul>
+
+                  <li><span class="info-text">Endpoint:</span> <pre class="snippet-text ">https://<your-instance>.salesforce.com/services/data/vXX.0/limits</pre> </li>
+                  <li><span class="info-text">Replace</span> vXX.X <span class="info-text">with the latest salesforce API version.</span></li>
+                </ul>
+
+                 <img class="image-style" src="images/Api_Limit.png" alt="Api Limit" />
+
+                <h4>Guidelines and Best Practices</h4>
+
+                <ol>
+                  <li>Pagination: <span class="info-text">The Salesforce REST API returns a maximum of 2,000 records per SOQL query response.</span></li><br>
+                  <div class="info-text" >&nbsp;&nbsp;&nbsp;If the query matches more than 2,000 records:</div> <br>
+                  <ul>
+                    <li><span class="info-text">Only the first 2,000 records are returned in the initial response.</span></li>
+                    <li><span class="info-text">A <span class="http_method">nextRecordsUrl</span> field is included to fetch the next batch.</span></li>
+                  </ul>
+                  <img class="image-style" src="images/scratch.png" alt="Api Limit" />
+
+                  <h4>Example usage for retrieving the remaining query results</h4>
+                  <div class="info-text"> Endpoint:</div>
+                  <pre class="snippet-text "> https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/0r8xx49yn9SOnOmAAL-2000</pre>
+                  
+                  <div class="info-text">Example response body</div>
+                  <div class="code-block">
+                  <div class="lang-label">None</div>
+                  <div class="code-content">      
+<pre>
+{
+    "done" : true,
+    "totalSize" : 3214,
+    "records" : [...]
+}</pre>
+                    
+              </div></div>
+
+              <li>Filtering: <span class="info-text">Filtering is done using the WHERE clause in SOQL. You can filter based on field values using logical operators.</span></li>
+
+               <table>
+                    <thead>
+                        <tr>
+                            <th >Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>=</td>
+                            <td>Equals</td>
+                            <td>status = 'Interview'</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>Not equal</td>
+                            <td>status != 'Rejected'</td>
+                        </tr>
+                        <tr>
+                            <td>> <</td>
+                            <td>Greater than / less than</td>
+                            <td>createdDate > 2024-01-01T00:00:00Z</td>
+                        </tr>
+                        <tr>
+                            <td>IN</td>
+                            <td>Within a set of values</td>
+                            <td>status IN ('Open', 'Interview')</td>
+                        </tr>
+                        <tr>
+                            <td>LIKE</td>
+                            <td>Pattern matching (with %)</td>
+                            <td>name LIKE 'John%'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Example</h4>
+                <pre class="snippet-text ">https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+bpats__Status__c=’Open’</pre>
+                
+                <div class="info-text">This query filters only Jobs whose status is Open.</div><br>
+
+                <li>Sorting: <span class="info-text">Sorting is done using the ORDER BY clause.</span> </li>
+                <table>
+                    <thead>
+                        <tr>
+                            <th >Parameter</th>
+                            <th>Description</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORDER BY</td>
+                            <td>Field(s) to sort on</td>
+                        </tr>
+                        <tr>
+                            <td>ASC</td>
+                            <td>Ascending order (default)</td>
+                          
+                        </tr>
+                        <tr>
+                            <td>DESC</td>
+                            <td>Descending order</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Example</h4>
+                <pre class="snippet-text ">https://&lgt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c+FROM+bpats__Job__c+ORDER+BY+CreatedDate+DESC</pre>
+                
+                <div class="info-text">This returns the newest Job first.</div><br>
+
+                <li>Formatting:</li>
+                  <ol Type="a">
+                    <li>Date and Time: <a href="https://help.salesforce.com/s/articleView?id=analytics.bi_integrate_data_prep_date_format_guidelines.htm&type=5" target="_blank" >Use the salesforce standard format</a></li>
+                    <div><br>
+                    <div class="info-text">&nbsp;&nbsp;&nbsp;Example: 2025-04-29T15:45:00Z<br><br>
+                      &nbsp;&nbsp;&nbsp;When filtering by dates in SOQL, use this format: 
+                    </div><br>
+                    
+                    <pre class="snippet-text" >https://<your-instance>.salesforce.com/services/data/v57.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+CreatedDate<2025-01-01T00:00:00Z</pre>
+                    <li>Numeric Values</li>
+                    <div class="info-text">&nbsp;&nbsp;Use plain numbers without any formatting (no commas, no currency symbols).</div>
+                    <p>&nbsp; &#9989;<span class="http_method">&nbsp;&nbsp;10000</span></p>
+                    <p>&nbsp; &#10060;<span class="http_method">&nbsp;&nbsp;10,000</span> or <span class="http_method">$10000</span></p>
+
+                    <div class="info-text"> &nbsp;Decimal numbers must use a dot (.) as the decimal separator.</div>
+                    <p>&nbsp; &#9989;<span class="http_method">&nbsp;&nbsp;1234.56</span></p>
+
+                  <li>Text String</li>
+                     <div class="info-text"> 
+                          &nbsp;&nbsp;Enclose string values in single quotes when used in SOQL.<br><br>
+                          &nbsp;&nbsp;Example: WHERE Name = 'John Doe'
+                     </div><br>
+                     <li>Boolean Values</li>
+                     <div class="info-text"> 
+                          &nbsp;&nbsp;Use lowercase <span class="http_method">true</span> or <span class="http_method">false</span><br><br>
+                          &nbsp;&nbsp;Example:
+                     </div>                     
+              </ol>
+               <div class="code-block">
+                     <div class="lang-label">JavaScript</div>
+                     <div class="code-content">      
+<pre>
+{
+  "isActive": true
+}</pre>
+                    
+              </div></div>             
             </section>
+
+             <section id="permission-sets">
+                <div class="heading">Permission Set Overview</div>
+                <hr class="line"/>  
+                <ol>
+                  <li>Asymbl ATS Job Portal Permission Set:<span class="info-text"> This permission set is designed for external-facing portals.</span></li>
+                  <div>&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</div>
+                  <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Job Board Application</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td >Job</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        
+                    </tbody>
+                  </table><br>
+
+                  <li>External Interview Feedback Permission Set: <span class="info-text">Permission set is designed to submit interview feedback </span></li>
+                  <div class="info-text">&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</div>
+                  <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Interview Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td >Interview Topic Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td >Interview Topic</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template Detail</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        
+                    </tbody>
+                  </table><br>
+
+                  <li>Asymbl ATS User Permission Set: <span class="info-text">This permission set grants users access to nearly all object permissions within the system, including <br></span> Read, Create, <span class="info-text">and</span>  Edit <span class="info-text">capabilities. However, users assigned to this permission set do not have Delete access to any objects.</span></li>
+
+                  <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ATS Action Link</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Action</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Applicant</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS List Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Log</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Template Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Template Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Template</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Timeline Child</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Timeline Configuration</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Account</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Branch</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Contact List</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template Detail</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Topic Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Topic</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Job Board Application</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Job</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Offer</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement Credit Template Entry</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement Credit Template</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement Credit</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase Order</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Retained Milestone</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Work Site Location</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+
+                    </tbody>
+                  </table><br>
+
+                  <li>Asymbl ATS Admin Permission Set: <span class="info-text"> This permission set provides full administrative access within the Asymbl ATS system. Users with this role have </span> Read, Create, Edit, <span class="info-text">and</span>and Delete <span class="info-text">permissions across all standard and custom objects</span></li>
+                
+                    <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                            <td>ATS Action Link</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Action</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Applicant</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS List Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> <tr>
+                            <td>ATS Log</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Template Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS_Template Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS Template</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS Timeline Child</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Timeline Configuration</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Account</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Branch</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Contact</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Contact List</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Interview Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Interview Template Detail</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Interview Template</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Interview Topic Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Interview Topic</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                        <tr>
+                            <td>Job Board Application</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                    </tbody>
+                 </table>
+                </ol>
+
+               
+             </section>
 
             <section id="authentication">
               <div class="heading">Authentication</div>
