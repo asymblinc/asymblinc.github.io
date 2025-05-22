@@ -24,14 +24,11 @@
         <nav>
             <a href="#introduction">Introduction</a>
             <a href="#objects">Objects</a>
-            <a href="#json">JSON Format</a>
+            <a href="#json">JSON</a>
             <a href="#api-info">API Information</a>
             <a href="#permission-sets">Permission Sets Overview</a>
             <a href="#authentication">Authentication</a>
-            <!-- <a href="#versions">Salesforce Versions</a> -->
             <a href="#record-operations">Record Operations</a>
-            <!-- <a href="#error-handling">Error Handling</a> -->
-            <!-- <a href="#api-limits">API Limits</a> -->
           </nav>
         </div>
         <div class="data-container">
@@ -228,21 +225,22 @@
               </div>
               
               <ul>
-                <li> <span class="info-text"> v59.0 = Spring '24 release</span></li>
-                <li> <span class="info-text">v60.0 = Summer '24 release</span></li>
-                <li><span class="info-text">v61.0 = Winter '25 release</span></li>
+                <li>v59.0 = Spring '24 release</li>
+                <li>v60.0 = Summer '24 release</li>
+                <li>v61.0 = Winter '25 release</li>
               </ul>
 
-               <div class="info-text">Use the latest version your org supports to:</div>
+              <div class="info-text">Use the latest version your org supports to:</div>
               <ul>
-                <li> <span class="info-text"> Access the latest features and field types</span></li>
-                <li> <span class="info-text">Avoid deprecated functionality</span></li>
-                <li> <span class="info-text"> Improve compatibility with newer Salesforce objects or APIs</span></li>
+                <li>Access the latest features and field types</li>
+                <li>Avoid deprecated functionality</li>
+                <li>Improve compatibility with newer Salesforce objects or APIs</li>
               </ul>
             </section>
 
             <section id="api-info">
               <div class="heading">API Information</div>
+              <hr class="line" />
               <h4>Base URL: </h4><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;your-object-api-name&gt/describe</pre>
            
               <ul>
@@ -256,8 +254,8 @@
               <div class="info-text">To authenticate with Salesforce and obtain an access token for API usage, you can use the OAuth 2.0 Password Grant flow. This method is suitable for server-to-server integrations where the credentials are securely stored.</div>
               <h4>Token Request Endpoint: </h4><pre class="snippet-text">https://login.salesforce.com/services/oauth2/token</pre>
 
-              <div class="info-text">Required Parameters</div>
-                <table>
+              <h4>Required Parameters</h4>
+                <table class="required_parameters">
                     <thead>
                         <tr>
                             <th>Parameter</th>
@@ -290,7 +288,7 @@
                 <h4>Example Request:</h4><pre class="snippet-text">https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=YOUR_CLIENT_ID&client_secret=YOUR_C
 LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</pre><br>
                 
-                <div class="info-text">Successful Response:</div>
+                <h4>Successful Response:</h4>
                 <div class="code-block">
                 <div class="lang-label">JavaScript</div>
                 <div class="code-content">      
@@ -307,7 +305,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </div>
                 </div><br><br>
 
-                <div class="info-text">Common Request Headers</div>
+                <h4>Common Request Headers</h4>
                  <table>
                     <thead>
                         <tr>
@@ -345,7 +343,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br><br>
 
-                <div class="info-text"> Request Parameters:</div>
+                <h4> Request Parameters:</h4>
 
                   <table>
                     <thead>
@@ -439,7 +437,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                  <table>
                     <thead>
                         <tr class="http-header">
-                            <th >HTTP response code</th>
+                            <th>HTTP Response Code</th>
                             <th>Description</th>
                         </tr>
                     </thead>
@@ -571,7 +569,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br><br>
 
-                <h4>Example:</h4> <div class="info-text">Successful POST Response (Create Record)</div>
+                <h4>Example: Successful POST Response (Create Record)</h4>
 
                 <div class="code-block">
                 <div class="lang-label">JavaScript</div>
@@ -594,7 +592,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </div>
                 </div><br><br>
 
-                 <h4>Example:</h4> <div class="info-text">Successful GET Query Response</div>
+                 <h4>Example: Successful GET Query Response</h4>
 
                 <div class="code-block">
                 <div class="lang-label">JavaScript</div>
@@ -653,7 +651,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br><br>
 
-                <div><h4>Example:</h4><div class="info-text">400 Bad Request</div></div>
+                <h4>Example: 400 Bad Request</h4>
                 <div class="code-block">
                 <div class="lang-label">JavaScript</div>
                 <div class="code-content">      
@@ -691,7 +689,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     <li><span class="info-text">Implement client-side or server-side validation to check required fields before making the API call.</span></li>
                 </ul>
 
-                <h4>Example:</h4><span class="info-text">401 Unauthorized (Invalid Token)</span>
+                <h4>Example: 401 Unauthorized (Invalid Token)</h4>
                  <div class="code-block">
                 <div class="lang-label">JavaScript</div>
                 <div class="code-content">      
@@ -716,8 +714,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <li> <span class="info-text">Check your session timeout settings and ensure sessions are still valid before making requests.</span> </li>
               </ul>
 
-              <h4>Example:</h4>
-              <div class="info-text">400 Not Found</div>
+              <h4>Example: 400 Not Found</h4>
                <div class="code-block">
                 <div class="lang-label">JavaScript</div>
                 <div class="code-content">      
@@ -744,8 +741,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <li> <span class="info-text">Implement error handling to gracefully show "resource not found" messages.</span> </li>
               </ul>
 
-              <h4>Example:</h4>
-               <Div class="info-text"> 400 REQUIRED FIELD MISSING</Div>
+              <h4>Example: 400 REQUIRED FIELD MISSING</h4>
               <div class="code-block">
                 <div class="lang-label">Unset</div>
                 <div class="code-content">      
@@ -781,8 +777,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <li><span class="info-text">Implement client-side or server-side validation to check required fields before making the API call.</span></li>
               </ul>
 
-              <h4>Example:</h4> 
-              <Div class="info-text">404 INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST</Div> 
+              <h4>Example: 404 INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST</h4>
               <div class="code-block">
                 <div class="lang-label">Unset</div>
                 <div class="code-content">      
@@ -812,11 +807,10 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <li><span class="info-text">Show users only valid choices in UI dropdowns.</span></li>
               </ul>
             
-              <h4>Example:</h4>
-               <div class="info-text">400 STRING_TOO_LONG</div> 
-                <div class="code-block">
-                <div class="lang-label">Unset</div>
-                <div class="code-content">      
+              <h4>Example: 400 STRING_TOO_LONG</h4>
+              <div class="code-block">
+              <div class="lang-label">Unset</div>
+              <div class="code-content">      
 <pre>
 {
   "hasErrors": true,
@@ -922,8 +916,8 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
                 <ul>
 
-                  <li><span class="info-text">Endpoint:</span> <pre class="snippet-text ">https://<your-instance>.salesforce.com/services/data/vXX.0/limits</pre> </li>
-                  <li><span class="info-text">Replace</span> vXX.X <span class="info-text">with the latest salesforce API version.</span></li>
+                  <li>Endpoint: <pre class="snippet-text ">https://<your-instance>.salesforce.com/services/data/vXX.0/limits</pre> </li>
+                  <li>Replace vXX.X with the latest salesforce API version.</li>
                 </ul>
 
                  <img class="image-style" src="images/Api_Limit.png" alt="Api Limit" />
@@ -940,10 +934,10 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <img class="image-style" src="images/scratch.png" alt="Api Limit" />
 
                   <h4>Example usage for retrieving the remaining query results</h4>
-                  <div class="info-text"> Endpoint:</div>
+                  <strong>Endpoint:</strong>
                   <pre class="snippet-text "> https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/0r8xx49yn9SOnOmAAL-2000</pre>
                   
-                  <div class="info-text">Example response body</div>
+                  <h4>Example response body</h4>
                   <div class="code-block">
                   <div class="lang-label">None</div>
                   <div class="code-content">      
@@ -994,7 +988,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                         </tr>
                     </tbody>
                 </table>
-                <h4>Example</h4>
+                <h4>Example:</h4>
                 <pre class="snippet-text ">https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+bpats__Status__c=’Open’</pre>
                 
                 <div class="info-text">This query filters only Jobs whose status is Open.</div><br>
@@ -1024,7 +1018,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                         </tr>
                     </tbody>
                 </table>
-                <h4>Example</h4>
+                <h4>Example:</h4>
                 <pre class="snippet-text ">https://&lgt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c+FROM+bpats__Job__c+ORDER+BY+CreatedDate+DESC</pre>
                 
                 <div class="info-text">This returns the newest Job first.</div><br>
@@ -1761,7 +1755,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <ul>
                   <li><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span> <span class="info-text">is equivalent to the raw SOQL query: </span><span class="http_method">SELECT Name, bpats__Job_Title__c FROM bpats__Job__c</span></li>
                 </ul>
-                <h4>Example</h4>
+                <h4>Example:</h4>
                 <ul>
                   <li><span class="info-text">Query for Job Records: </span><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
                   <li><span class="info-text">Query for Job Board Application Records: </span><span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
@@ -1787,7 +1781,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace vXX.0 with your specific version number.</li>
                   <li>Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object (e.g., Account, Contact, bpats__Job_Board_Application__c, etc.).</li>
                 </ul>
-                <h4>Example</h4>
+                <h4>Example:</h4>
                 <ul class="info-text">
                   <li class="info-text">Object API Name: bpats__Job_Board_Application__c</li>
                   <li>Required Fields:
@@ -1801,7 +1795,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </li>
                 </ul>
                 <h4>Authentication: Via Connected App</h4>
-                <div class="info-text">Request Body: </div>
+                <h4>Request Body: </h4>
                 <div class="code-block">
                   <div class="lang-label">JavaScript</div>
                   <div class="code-content">      
@@ -1815,7 +1809,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </div>
                 </div>
                 <br>
-                <div class="info-text">Success Responses: </div>
+                <h4>Success Responses: </h4>
                 <div class="code-block">
                   <div class="lang-label">JavaScript</div>
                   <div class="code-content">      
@@ -1843,12 +1837,12 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating (e.g., Account, Contact, bpats__Job_Board_Application__c, bpats__Job__c, etc.).</li>
                 </ul>
                 <div class="info-text">The body must include a records array with JSON objects, each representing a record to be created. You can assign a referenceId to each record for easy identification in the response.</div>
-                <h4>Example</h4>
+                <h4>Example:</h4>
                 <ul class="info-text">
                   <li>Object API Name: bpats__Job_Board_Application__c</li>
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
                 </ul>
-                <div class="info-text">Sample JSON Payload:</div>
+                <h4>Sample JSON Payload:</h4>
                 <div class="code-block">
                   <div class="lang-label">JavaScript</div>
                   <div class="code-content">      
@@ -1913,12 +1907,12 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating.</li>
                   <li>Replace {recordId} with the Salesforce ID of the record you want to update.</li>
                 </ul>
-                <h4>Example</h4>
+                <h4>Example:</h4>
                 <ul class="info-text">
                   <li>Object API Name: bpats__Job__c</li>
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
                 </ul>
-                <div class="info-text">Request Body</div>
+                <h4>Request Body</h4>
                 <div class="code-block">
                   <div class="lang-label">JavaScript</div>
                   <div class="code-content">      
@@ -1942,7 +1936,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
                   <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
                 </ul>
-                <div class="info-text">Request Body</div>
+                <h4>Request Body</h4>
                 <div class="code-block">
                   <div class="lang-label">JavaScript</div>
                   <div class="code-content">      
@@ -1963,7 +1957,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </div>
                 </div>
                 <br>
-                <div class="info-text">Success Response</div>
+                <h4>Success Response</h4>
                 <div class="code-block">
                   <div class="lang-label">JavaScript</div>
                   <div class="code-content">      
@@ -1999,7 +1993,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating</li>
                   <li>Replace {recordId} with the Salesforce ID of the record you want to delete.</li>
                 </ul>
-                <h4>Example</h4>
+                <h4>Example:</h4>
                 <ul class="info-text">
                   <li>Object API Name: bpats__Job_c</li>
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema.</li>
@@ -2024,7 +2018,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </ul>
                 <h4>Example URL: </h4>
                 <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/v63.0/composite/sobjects?ids=a0LEm000007SHNYMA4,a0LEm000007SDD3MAO&allOrNone=false</pre>
-                <div class="info-text">Success Response</div>
+                <h4>Success Response</h4>
                 <div class="code-block">
                   <div class="lang-label">JavaScript</div>
                   <div class="code-content">     
