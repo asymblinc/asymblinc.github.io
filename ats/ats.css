@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    text-align: justify;
 }
 
 .header {
@@ -49,6 +50,7 @@ nav a:hover {
 }
 
 .index-section {
+    overflow-y: auto;
     background-color: #e9f6fe;
 }
 
@@ -86,7 +88,6 @@ hr {
     font-family: sans-serif;
     font-size: 16px;
     font-weight: 200;
-    text-align: justify;
 }
 
 .snippet-text {

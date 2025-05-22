@@ -21,14 +21,40 @@
     <div>
       <div class="container">
         <div class="index-section">
-        <nav>
+          <nav>
             <a href="#introduction">Introduction</a>
             <a href="#objects">Objects</a>
+
             <a href="#json">JSON</a>
+            <div class="subsection">
+              <a href="#salesforce_versions_appendix">Salesforce Versions appendix</a>
+            </div>
+
             <a href="#api-info">API Information</a>
+            <div class="subsection">
+              <a href="#common-request-headers">Common Request Headers</a>
+              <a href="#request-body-payload">Request Body Schemas</a>
+              <a href="#status-codes">Status Codes & Error Responses</a>
+              <a href="#response-body-schemas">Response Body Schemas</a>
+              <a href="#error-responses">Error Responses</a>
+              <a href="#api-request-limits">API Request Limits & Allocations</a>
+              <a href="#get-api-limits">Fetch API Limits</a>
+              <a href="#best-practices">Guidelines & Best Practices</a>
+            </div>
+
             <a href="#permission-sets">Permission Sets Overview</a>
             <a href="#authentication">Authentication</a>
+
             <a href="#record-operations">Record Operations</a>
+            <div class="subsection">
+              <a href="#get-records">Get Records</a>
+              <a href="#create-record">Create Record</a>
+              <a href="#create-records-bulk">Create Records in Bulk</a>
+              <a href="#update-record">Update Record</a>
+              <a href="#update-records-bulk">Update Records in Bulk</a>
+              <a href="#delete-record">Delete Record</a>
+              <a href="#delete-records-bulk">Delete Records in Bulk</a>
+            </div>
           </nav>
         </div>
         <div class="data-container">
@@ -220,7 +246,7 @@
                 <div class="info-text">
                   JSON (JavaScript Object Notation) is a lightweight, text-based data format used for storing and exchanging data between systems—especially in web applications. It is easy for humans to read and write, and easy for machines to parse and generate.
               </div>
-              <h4>Salesforce Versions appendix</h4>
+              <section id="salesforce_versions_appendix"><h4>Salesforce Versions appendix</h4></section>
               <div class="info-text">In the below examples replace the ‘vXX.0’ placeholder for the version of the Salesforce API you want to use — for example:
               </div>
               
@@ -248,7 +274,7 @@
                 <li>Replace vXX.0 with your Salesforce API version (e.g., v60.0 for Spring '24).</li>
               </ul>
 
-              <h4>Access Token can be obtained</h4>
+              <section id="access-token"><h4>Access Token can be obtained</h4></section>
               <h4>HTTP method: <span class="http_method">POST</span></h4>
 
               <div class="info-text">To authenticate with Salesforce and obtain an access token for API usage, you can use the OAuth 2.0 Password Grant flow. This method is suitable for server-to-server integrations where the credentials are securely stored.</div>
@@ -305,7 +331,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </div>
                 </div><br><br>
 
-                <h4>Common Request Headers</h4>
+                <section id="common-request-headers"><h4>Common Request Headers</h4></section>
                  <table>
                     <thead>
                         <tr>
@@ -386,7 +412,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br><br>
 
-                <h4>Request Body (Payload)</h4>
+                <section id="request-body-payload"><h4>Request Body (Payload)</h4></section>
                 <div class="info-text">
                   The POST, PUT and PATCH requests can have the request body (payload), such as JSON or XML data. In Swagger terms, the request body is called a body parameter. There can be only one body parameter, although the operation may have other parameters (path, query, header).
                 </div><br>  
@@ -430,7 +456,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br>
 
-                <h4>Status Codes and Error Responses</h4>
+                <section id="status-codes"><h4>Status Codes and Error Responses</h4></section>
 
                 <div class="info-text">HTTP response status codes indicate whether a specific <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP"  target="_blank">HTTP</a>  request has been successfully completed.</div>
 
@@ -529,7 +555,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br>
 
-                <h4>Response Body Schemas</h4>
+                <section id="response-body-schemas"><h4>Response Body Schemas</h4></section>
 
                 <div class="info-text">For successful responses:</div>
 
@@ -617,7 +643,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </div><br><br>
 
 
-                <h4>Error Responses</h4>
+                <section id="error-responses"><h4>Error Responses</h4></section>
                 <div class="info-text">If something goes wrong, Salesforce returns a standard error format.</div>
 
                 <table>
@@ -848,7 +874,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <li><span class="info-text">Show the user a clear message like "First Name must be 40 characters or fewer."</span></li>
               </ul>
 
-              <h4>API Request Limits and Allocations</h4>
+              <section id="api-request-limits"><h4>API Request Limits and Allocations</h4></section>
 
                 <table>
                     <thead>
@@ -910,7 +936,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table><br>
 
-                <h4>Getting API Limits</h4>
+                <section id="get-api-limits"><h4>Fetch API Limits</h4></section>
                 <h4>HTTP method: <span class="http_method">GET</span></h4>
                 <div class="info-text">You can use the Salesforce Limits API to programmatically retrieve your current API usage and limits.</div>
 
@@ -922,7 +948,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
                  <img class="image-style" src="images/Api_Limit.png" alt="Api Limit" />
 
-                <h4>Guidelines and Best Practices</h4>
+                <section id="best-practices"><h4>Guidelines and Best Practices</h4></section>
 
                 <ol>
                   <li>Pagination: <span class="info-text">The Salesforce REST API returns a maximum of 2,000 records per SOQL query response.</span></li><br>
@@ -1067,7 +1093,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <hr class="line"/>  
                 <ol>
                   <li>Asymbl ATS Job Portal Permission Set:<span class="info-text"> This permission set is designed for external-facing portals.</span></li>
-                  <div class="info-text">&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</div>
+                  <h4>&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</h4>
                   <table>
                     <thead>
                         <tr>
@@ -1103,8 +1129,8 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                   </table><br>
 
-                  <li>External Interview Feedback Permission Set: <span class="info-text">Permission set is designed to submit interview feedback </span></li>
-                  <div class="info-text">&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</div>
+                  <li>External Interview Feedback Permission Set: <span class="info-text">Permission set is designed to submit feedback from external site</span></li>
+                  <h4>&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</h4>
                   <table>
                     <thead>
                         <tr>
@@ -1185,8 +1211,8 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                   </table><br>
 
-                  <li>Asymbl ATS User Permission Set: <span class="info-text">This permission set grants users access to nearly all object permissions within the system, including <br></span> Read, Create, <span class="info-text">and</span>  Edit <span class="info-text">capabilities. However, users assigned to this permission set do not have Delete access to any objects.</span></li>
-
+                  <li>Asymbl ATS User Permission Set: <span class="info-text">This permission set grants users access to nearly all object permissions within the system, including </span> Read, Create, <span class="info-text">and</span>  Edit <span class="info-text">capabilities. However, users assigned to this permission set do not have Delete access to any objects.</span></li>
+                  <h4>&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</h4>
                   <table>
                     <thead>
                         <tr>
@@ -1484,7 +1510,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   </table><br>
 
                   <li>Asymbl ATS Admin Permission Set: <span class="info-text"> This permission set provides full administrative access within the Asymbl ATS system. Users with this role have </span> Read, Create, Edit, <span class="info-text">and</span>and Delete <span class="info-text">permissions across all standard and custom objects</span></li>
-                
+                  <h4>&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</h4>
                     <table>
                     <thead>
                         <tr>
@@ -1738,7 +1764,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
               <div class="info-text">External systems can retrieve and manage records using the various supported Salesforce API methods.</div>
               <!-- Get Records Start -->
               <div>
-                <h4>Get Records: Salesforce Standard API – GET Records</h4>
+                <section id="get-records"><h4>Get Records: Salesforce Standard API – GET Records</h4></section>
                 <h4>HTTP method: <span class="http_method">GET</span></h4>
                 <div class="info-text">The GET request method is used to retrieve data from a server at a specified resource URL. It is one of the most common HTTP methods and is read-only, meaning it does not change or modify any data on the server.</div>
                 <br>
@@ -1747,9 +1773,9 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>
                     <pre class="snippet-text">https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/query/?q=SELECT+&lt;field-api-name&gt,+&lt;field-api-name&gt+FROM+&lt;Object_API_Name&gt</pre>
                   </li>
-                  <li><div class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</div></li>
-                  <li><div class="info-text">Replace vXX.0 with your specific version number.</div></li>
-                  <li><div class="info-text">Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object.</div></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with your specific version number.</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object.</li>
                 </ul>
                 <div class="info-text">The query string after q= is a URL-encoded SOQL query. Here's how it works:</div>
                 <ul>
@@ -1757,8 +1783,8 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </ul>
                 <h4>Example:</h4>
                 <ul>
-                  <li><span class="info-text">Query for Job Records: </span><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
-                  <li><span class="info-text">Query for Job Board Application Records: </span><span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
+                  <li>Query for Job Records: <span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
+                  <li>Query for Job Board Application Records: <span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
                 </ul>
                 <h4>Note: </h4>
                 <div class="info-text">The screenshots below depict examples of integrating the ATS with Postman. These are provided for demonstration purposes to show how API requests</div>
@@ -1770,7 +1796,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <!-- Create Records Start -->
               <div>
-                <h4>Create Records: Salesforce Standard API</h4>
+                <section id="create-record"><h4>Create Records: Salesforce Standard API</h4></section>
                 <h4>HTTP method: <span class="http_method">POST</span></h4>
                 <div class="info-text">The POST method is used to create new records in Salesforce. This method targets a resource collection (i.e., a Salesforce object) 
                   and adds a new subordinate resource (i.e., a record) to it. External systems can use this method to create records for any custom or standard Salesforce object via the REST API.
@@ -1782,8 +1808,8 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object (e.g., Account, Contact, bpats__Job_Board_Application__c, etc.).</li>
                 </ul>
                 <h4>Example:</h4>
-                <ul class="info-text">
-                  <li class="info-text">Object API Name: bpats__Job_Board_Application__c</li>
+                <ul>
+                  <li>Object API Name: bpats__Job_Board_Application__c</li>
                   <li>Required Fields:
                     <ul>
                       <li>bpats__Contact__c (Reference to Candidate (e.g., Contact Id))</li>
@@ -1826,7 +1852,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <!-- Create Bulk Records Start -->
               <div>
-                <h4>Create Records in Bulk: Salesforce Standard API</h4>
+                <section id="create-records-bulk"><h4>Create Records in Bulk: Salesforce Standard API</h4></section>
                 <h4>HTTP method: <span class="http_method">POST</span></h4>
                 <div class="info-text">The Composite Tree API allows external systems to create multiple records in a single API call. 
                   This is especially useful for creating a set of related or independent records efficiently.
@@ -1838,7 +1864,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </ul>
                 <div class="info-text">The body must include a records array with JSON objects, each representing a record to be created. You can assign a referenceId to each record for easy identification in the response.</div>
                 <h4>Example:</h4>
-                <ul class="info-text">
+                <ul>
                   <li>Object API Name: bpats__Job_Board_Application__c</li>
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
                 </ul>
@@ -1881,7 +1907,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
     },
     {
       "referenceld": "ref2",
-      "id": "a0bEc000006C{K7IAK"
+      "id": "a0bEc000006CfK7IAK"
     }
  ]
 }</pre> 
@@ -1893,7 +1919,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <!-- Update Single Record Start -->
               <div>
-                <h4>Update Single Records: Salesforce Standard API</h4>
+                <section id="update-record"><h4>Update Single Records: Salesforce Standard API</h4></section>
                 <h4>HTTP method: <span class="http_method">PATCH</span></h4>
                 <div class="info-text">The PATCH request method is used to modify the values of the resource properties. The PATCH method requires a request body. 
                   The body of the request must contain representation of the JSON Patch operations that you want to perform on the resource.
@@ -1908,7 +1934,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace {recordId} with the Salesforce ID of the record you want to update.</li>
                 </ul>
                 <h4>Example:</h4>
-                <ul class="info-text">
+                <ul>
                   <li>Object API Name: bpats__Job__c</li>
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
                 </ul>
@@ -1928,7 +1954,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <!-- Update Bulk Record Start -->
               <div>
-                <h4>Update Bulk Records: Salesforce Standard API</h4>
+                <section id="update-records-bulk"><h4>Update Bulk Records: Salesforce Standard API</h4></section>
                 <h4>HTTP method: <span class="http_method">PATCH</span></h4>
                 <div class="info-text">External systems can update records in Bulk using the Standard Salesforce object API.</div>
                 <ul>
@@ -1981,7 +2007,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <!-- Delete Record Start -->
               <div>
-                <h4>Delete Records: Salesforce Standard API</h4>
+                <section id="delete-record"><h4>Delete Records: Salesforce Standard API</h4></section>
                 <h4>HTTP method: <span class="http_method">DELETE</span></h4>
                 <div class="info-text">The DELETE request is used to delete a specific resource from your Salesforce instance. 
                   External systems can delete a specific record from Salesforce by using the Standard Salesforce object API.
@@ -1994,7 +2020,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Replace {recordId} with the Salesforce ID of the record you want to delete.</li>
                 </ul>
                 <h4>Example:</h4>
-                <ul class="info-text">
+                <ul>
                   <li>Object API Name: bpats__Job_c</li>
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema.</li>
                 </ul>
@@ -2006,7 +2032,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <!-- Delete Bulk Records Start -->
               <div>
-                <h4>Delete Records in Bulk: Salesforce Standard API</h4>
+                <section id="delete-records-bulk"><h4>Delete Records in Bulk: Salesforce Standard API</h4></section>
                 <h4>HTTP method: <span class="http_method">DELETE</span></h4>
                 <div class="info-text">The DELETE request can also be used to delete multiple records from your Salesforce instance. 
                   External systems can delete records in Bulk from Salesforce by using the Standard Salesforce object API.
