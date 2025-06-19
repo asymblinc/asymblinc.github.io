@@ -1,0 +1,2053 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <link rel="stylesheet" href="ats.css" />
+  </head>
+
+  <body>
+    <!-- header start -->
+    <div class="header">
+      <span>
+        <img src="images/Asymbl_Logo.svg" alt="ASYMBL LOGO" />
+      </span>
+      <span class="options">
+        <span>Products</span>
+        <span>For Developer</span>
+        <span>Docs</span>
+      </span>
+    </div>
+    <!-- header end -->
+
+    <div>
+      <div class="container">
+        <div class="index-section">
+        <nav>
+            <a href="#introduction">Introduction</a>
+            <a href="#objects">Objects</a>
+            <a href="#json">JSON Format</a>
+            <a href="#api-info">API Information</a>
+            <a href="#permission-sets">Permission Sets Overview</a>
+            <a href="#authentication">Authentication</a>
+            <!-- <a href="#versions">Salesforce Versions</a> -->
+            <a href="#record-operations">Record Operations</a>
+            <!-- <a href="#error-handling">Error Handling</a> -->
+            <!-- <a href="#api-limits">API Limits</a> -->
+          </nav>
+        </div>
+        <div class="data-container">
+          <div class="child-container">
+            <section id="introduction">
+              <h2 class="verson-info">ATS External Integration Guide</h2>
+              <div class="heading">Introduction</div>
+              <hr class="line" />
+              <div class="info-text">
+                This reference guide provides general information about each
+                Applicant Tracking System (ATS) and specific information about
+                each API operation and supported object type. This document
+                provides an overview of how external systems can integrate with
+                our ATS. It includes methods for establishing connections,
+                retrieving job listings, and submitting job applications through
+                various integration points.
+              </div>
+            </section>
+
+            <section id="objects">
+              <div class="heading">Objects</div>
+              <hr class="line" />
+              <div class="info-text">
+                In the ATS, the term object refers to a specific type of record
+                used within the system. Examples of these objects include Job,
+                Contact, Placement etc. Each object represents a fundamental
+                concept in ATS, helping to structure how staffing data is
+                stored, managed, and processed according to the system’s rules
+                and logic.
+              </div>
+              <!-- <pre class="snippet-text">GET /services/data/vXX.0/sobjects/&lt;your-object-api-name&gt;/describe</pre> -->
+              <div>
+                <h4>Objects:</h4>
+                <table class="object-table">
+                  <thead>
+                    <tr>
+                      <th>Object Name</th>
+                      <th>Object API Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Account</td>
+                      <td>Account</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Action</td>
+                      <td>bpats__ATS_Action__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Action Link</td>
+                      <td>bpats__ATS_Action_Link__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Applicant</td>
+                      <td>bpats__ATS_Applicant__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Log</td>
+                      <td>bpats__ATS_Log__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Stage</td>
+                      <td>bpats__ATS_Stage__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Stage Tracking</td>
+                      <td>bpats__ATS_Stage_Tracking__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Template</td>
+                      <td>bpats__ATS_Template__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Template Filter</td>
+                      <td>bpats__ATS_Template_Filter__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Template Stage</td>
+                      <td>bpats__ATS_Template_Stage__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Timeline Configuration</td>
+                      <td>bpats__ATS_Timeline_Configuration__c</td>
+                    </tr>
+                    <tr>
+                      <td>ATS Timeline Child</td>
+                      <td>bpats__ATS_Timeline_Child__c</td>
+                    </tr>
+                    <tr>
+                      <td>Branch</td>
+                      <td>bpats__Branch__c</td>
+                    </tr>
+                    <tr>
+                      <td>Contact</td>
+                      <td>Contact</td>
+                    </tr>
+                    <tr>
+                      <td>Contact List</td>
+                      <td>bpats__Contact_List__c</td>
+                    </tr>
+                    <tr>
+                      <td>Content Version</td>
+                      <td>ContentVersion</td>
+                    </tr>
+                    <tr>
+                      <td>Email Message</td>
+                      <td>EmailMessage</td>
+                    </tr>
+                    <tr>
+                      <td>Interview</td>
+                      <td>bpats__Interview__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Feedback</td>
+                      <td>bpats__Interview_Feedback__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Template</td>
+                      <td>bpats__Interview_Template__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Template Detail</td>
+                      <td>bpats__Interview_Template_Detail__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Topic</td>
+                      <td>bpats__Interview_Topic__c</td>
+                    </tr>
+                    <tr>
+                      <td>Interview Topic Feedback</td>
+                      <td>bpats__Interview_Topic_Feedback__c</td>
+                    </tr>
+                    <tr>
+                      <td>Job</td>
+                      <td>bpats__Job__c</td>
+                    </tr>
+                    <tr>
+                      <td>Job Board Application</td>
+                      <td>bpats__Job_Board_Application__c</td>
+                    </tr>
+                    <tr>
+                      <td>Message Stats</td>
+                      <td>bpats__Message_Stats__c</td>
+                    </tr>
+                    <tr>
+                      <td>Offer</td>
+                      <td>bpats__Offer__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement</td>
+                      <td>bpats__Placement__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement Credit</td>
+                      <td>bpats__Placement_Credit__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement Credit Template</td>
+                      <td>bpats__Placement_Credit_Template__c</td>
+                    </tr>
+                    <tr>
+                      <td>Placement Credit Template Entry</td>
+                      <td>bpats__Placement_Credit_Template_Entry__c</td>
+                    </tr>
+                    <tr>
+                      <td>Purchase Order</td>
+                      <td>bpats__Purchase_Order__c</td>
+                    </tr>
+                    <tr>
+                      <td>Work Site Location</td>
+                      <td>bpats__Work_Site_Location__c</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="info-text">Please follow the <a href="https://docs.google.com/spreadsheets/d/1PHHJTWK9w5SIYov-ZZM9X9AU_mXA1_hW/edit?gid=1408658604#gid=1408658604" target="_blank">link</a> to view the complete data schema of ATS.</p>
+              <p class="info-text">The external system can get the object by using the salesforce standard API.</p>
+              <h4>Endpoint: </h4>
+              <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;your-object-api-name&gt/describe</pre>
+              <br>
+              <img class="image-style" src="images/describe_objects.png" alt="Describe Objects" />
+              <h4>Note: </h4><p class="info-text">Before accessing objects through the API, make sure the external system is properly authenticated with your Salesforce org.</p>
+            </section>
+
+            <section id="json">
+              <div class="heading">JSON</div>
+              <hr class="line" />
+                <div class="info-text">
+                  JSON (JavaScript Object Notation) is a lightweight, text-based data format used for storing and exchanging data between systems—especially in web applications. It is easy for humans to read and write, and easy for machines to parse and generate.
+              </div>
+              <h4>Salesforce Versions appendix</h4>
+              <div class="info-text">In the below examples replace the ‘vXX.0’ placeholder for the version of the Salesforce API you want to use — for example:
+              </div>
+              
+              <ul>
+                <li> <span class="info-text"> v59.0 = Spring '24 release</span></li>
+                <li> <span class="info-text">v60.0 = Summer '24 release</span></li>
+                <li><span class="info-text">v61.0 = Winter '25 release</span></li>
+              </ul>
+
+               <div class="info-text">Use the latest version your org supports to:</div>
+              <ul>
+                <li> <span class="info-text"> Access the latest features and field types</span></li>
+                <li> <span class="info-text">Avoid deprecated functionality</span></li>
+                <li> <span class="info-text"> Improve compatibility with newer Salesforce objects or APIs</span></li>
+              </ul>
+            </section>
+
+            <section id="api-info">
+              <div class="heading">API Information</div>
+              <h4>Base URL: </h4><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;your-object-api-name&gt/describe</pre>
+           
+              <ul>
+                <li>Replace <your-instance> with your Salesforce domain.</li>
+                <li>Replace vXX.0 with your Salesforce API version (e.g., v60.0 for Spring '24).</li>
+              </ul>
+
+              <h4>Access Token can be obtained</h4>
+              <h4>HTTP method: <span class="http_method">POST</span></h4>
+
+              <div class="info-text">To authenticate with Salesforce and obtain an access token for API usage, you can use the OAuth 2.0 Password Grant flow. This method is suitable for server-to-server integrations where the credentials are securely stored.</div>
+              <h4>Token Request Endpoint: </h4><pre class="snippet-text">https://login.salesforce.com/services/oauth2/token</pre>
+
+              <div class="info-text">Required Parameters</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>grant_type</td>
+                            <td>Must be password &lt;password&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>client_id</td>
+                            <td>Consumer Key from your Connected App</td>
+                        </tr>
+                        <tr>
+                            <td>client_secret</td>
+                            <td>Consumer Secret from your Connected App</td>
+                        </tr>
+                        <tr>
+                            <td>username</td>
+                            <td>Salesforce user's username</td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                            <td>Concatenation of user's password and security token (e.g., password123SECURITYTOKEN)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Example Request:</h4><pre class="snippet-text">https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=YOUR_CLIENT_ID&client_secret=YOUR_C
+LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</pre><br>
+                
+                <div class="info-text">Successful Response:</div>
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+  "access_token": "YOUR_ACCESS_TOKEN",
+  "instance_url": "https://yourInstance.salesforce.com",
+  "id": "https://login.salesforce.com/id/ORG_ID/USER_ID",
+  "token_type": "Bearer",
+  "issued_at": "TIMESTAMP",
+  "signature": "SIGNATURE" 
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+                <div class="info-text">Common Request Headers</div>
+                 <table>
+                    <thead>
+                        <tr>
+                            <th>Header</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>Bearer &lt;Access_Token&gt;</td>
+                            <td>OAuth 2.0 Bearer Token</td>
+                        </tr>
+                        <tr>
+                            <td>Content-Type</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>application/json</td>
+                            <td>JSON body expected</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Accept</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>*/*</td>
+                            <td>Expected response content type</td>
+                           
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+                <div class="info-text"> Request Parameters:</div>
+
+                  <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter Location</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Query (URL)</td>
+                            <td>q (for SOQL query)</td>
+                            <td>String</td>
+                            <td>Yes (for query endpoint)</td>
+                            <td>SELECT Name FROM bpats__Job__c</td>
+                            <td>SOQL statement for record fetching</td>
+                        </tr>
+                        <tr>
+                            <td>Path</td>
+                            <td>Object_API_Name</td>
+                            <td>String</td>
+                            <td>Yes</td>
+                            <td>bpats__Job__c</td>
+                            <td>The Salesforce API name of the object you're targeting</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Path</td>
+                            <td>recordId</td>
+                            <td>String (18-char Salesforce ID)</td>
+                            <td>Yes (for single record updates/deletes)</td>
+                            <td>a01ABC1234xyz123</td>
+                            <td>Unique ID of the record</td>
+                        </tr>
+
+                    </tbody>
+                </table><br><br>
+
+                <h4>Request Body (Payload)</h4>
+                <div class="info-text">
+                  The POST, PUT and PATCH requests can have the request body (payload), such as JSON or XML data. In Swagger terms, the request body is called a body parameter. There can be only one body parameter, although the operation may have other parameters (path, query, header).
+                </div><br>  
+
+                 <div class="info-text">For POST, PATCH, and Composite endpoints:</div>
+
+                 <ul>
+                    <li>Format: application/json</li>
+                    <li>Structure: JSON object</li>
+                    <li>Field Validation Rules:</li>
+                  </ul>
+
+                  <table>
+                    <thead>
+                        <tr>
+                            <th>Field Property</th>
+                            <th>Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Types</td>
+                            <td>String, Number, Boolean, Array (for composite bulk ops)</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum Length</td>
+                            <td>Depends on field metadata in Salesforce (commonly 255 characters for text fields)</td>
+                        </tr>
+                        <tr>
+                            <td>Required Fields</td>
+                            <td>Must be filled if Salesforce marks them as Required in Object Schema</td>
+                        </tr>
+                        <tr>
+                            <td>Optional Fields</td>
+                            <td>Can be omitted if not mandatory</td>
+                        </tr>
+                        <tr>
+                            <td>Lookup Fields</td>
+                            <td>Provide 18-digit Salesforce Record ID for references</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+
+                <h4>Status Codes and Error Responses</h4>
+
+                <div class="info-text">HTTP response status codes indicate whether a specific <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP"  target="_blank">HTTP</a>  request has been successfully completed.</div>
+
+                 <table>
+                    <thead>
+                        <tr class="http-header">
+                            <th >HTTP response code</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>200</td>
+                            <td>“OK” success code, for GET, HEAD, and some PATCH requests.</td>
+                        </tr>
+                        <tr>
+                            <td>201</td>
+                            <td>“Created” success code, for POST requests and some PATCH requests.</td>
+                        </tr>
+                        <tr>
+                            <td>204</td>
+                            <td>“No Content” success code, for DELETE requests and some PATCH requests.</td>
+                        </tr>
+                        <tr>
+                            <td>300</td>
+                            <td>The value returned when an external ID exists in more than one record. The response body contains the list of matching records.</td>
+                        </tr>
+                        <tr>
+                            <td>304</td>
+                            <td>The request content hasn’t changed since a specified date and time. The date and time is provided in a If-Modified-Since header. See <a  target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/sobject_describe_with_ifmodified_header.htm">Get Object Metatdata Changes</a> for an example.</td>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>The request couldn’t be understood, usually because the JSON or XML body contains an error.</td>
+                        </tr>
+                        <tr>
+                            <td>401</td>
+                            <td>The session ID or OAuth token used has expired or is invalid. The response body contains the message and errorCode.</td>
+                        </tr>
+                        <tr>
+                            <td>403</td>
+                            <td>The request has been refused. Verify that the logged-in user has appropriate permissions. If the error code is REQUEST_LIMIT_EXCEEDED, you’ve exceeded API request limits in your org.</td>
+                        </tr>
+                        <tr>
+                          <td>404</td>
+                          <td>The requested resource couldn’t be found. Check the URI for errors, and verify that there are no sharing issues.</td>
+                        </tr>
+                        <tr>
+                          <td>405</td>
+                          <td>The method specified in the Request-Line isn’t allowed for the resource specified in the URI.</td>
+                        </tr>
+                        <tr>
+                          <td>409</td>
+                          <td>The request couldn’t be completed due to a conflict with the current state of the resource. Check that the API version is compatible with the resource you’re requesting.</td>
+                        </tr>
+                        <tr>
+                          <td>410</td>
+                          <td>The requested resource has been retired or removed. Delete or update any references to the resource.</td>
+                        </tr>
+                        <tr>
+                          <td>412</td>
+                          <td>The request wasn’t executed because one or more of the preconditions that the client specified in the request headers wasn’t satisfied. For example, the request includes an <a  target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest_conditional_requests.htm">If-Unmodified-Since</a> header, but the data was modified after the specified date.</td>
+                        </tr>
+                        <tr>
+                          <td>414</td>
+                          <td>The length of the URI exceeds the 16,384-byte limit.</td>
+                        </tr>
+                        <tr>
+                          <td>415</td>
+                          <td>The entity in the request is in a format that’s not supported by the specified method.</td>
+                        </tr>
+                        <tr>
+                          <td>420</td>
+                          <td>Salesforce Edge doesn’t have routing information available for this request host. Contact Salesforce Customer Support.</td>
+                        </tr>
+                        <tr>
+                          <td>428</td>
+                          <td>The request wasn’t executed because it wasn’t conditional. Add one of the <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest_conditional_requests.htm" target="_blank">Conditional Request Headers</a>, such as If-Match, to the request and resubmit it.</td>
+                        </tr>
+                        <tr>
+                          <td>431</td>
+                          <td>The combined length of the URI and headers exceeds the 16,384-byte limit.</td>
+                        </tr>
+                        <tr>
+                          <td>500</td>
+                          <td>An error has occurred within Lightning Platform, so the request couldn’t be completed. Contact Salesforce Customer Support.</td>
+                        </tr>
+                        <tr>
+                          <td>502</td>
+                          <td>Salesforce Edge wasn’t able to communicate successfully with the Salesforce instance.</td>
+                        </tr>
+                        <tr>
+                          <td>503</td>
+                          <td>The server is unavailable to handle the request. Typically this issue occurs if the server is down for maintenance or is overloaded.</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+
+                <h4>Response Body Schemas</h4>
+
+                <div class="info-text">For successful responses:</div>
+
+                 <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ID (for POST)</td>
+                            <td>String</td>
+                            <td>The Salesforce ID of the created record.</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>success (for POST/Composite)</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the operation was successful.</td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>errors (for POST/Composite)</td>
+                            <td>Array</td>
+                            <td>List of errors, if any.</td>
+                        </tr>
+                        <tr>
+                            <td>records (for Query)</td>
+                            <td>Array</td>
+                            <td>Array of records matching query criteria.</td>
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+                <h4>Example:</h4> <div class="info-text">Successful POST Response (Create Record)</div>
+
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+    "hasErrors": false,
+    "results": [
+        {
+            "referenceId": "ref1",
+            "id": "a0LEm000007fZDxMAM"
+        },
+        {
+            "referenceId": "ref2",
+            "id": "a0LEm000007fZDyMAM"
+        }
+    ]
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+                 <h4>Example:</h4> <div class="info-text">Successful GET Query Response</div>
+
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+    "totalSize": 1,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "bpats__Job__c",
+                "url": "/services/data/v57.0/sobjects/bpats__Job__c/a0MEm000004fFnBMAU"
+            },
+            "Name": "Salesforce Developer Test",
+            "bpats__End_Date__c": null
+        }
+    ]
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+
+                <h4>Error Responses</h4>
+                <div class="info-text">If something goes wrong, Salesforce returns a standard error format.</div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>message</td>
+                            <td>String</td>
+                            <td>Human-readable error message</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>errorCode</td>
+                            <td>String</td>
+                            <td>Salesforce error code</td>
+                            
+                            
+                        </tr>
+                        <tr>
+                            <td>fields</td>
+                            <td>Array</td>
+                            <td>List of fields causing the error (optional)</td>
+                        </tr>
+                    </tbody>
+                </table><br><br>
+
+                <div><h4>Example:</h4><div class="info-text">400 Bad Request</div></div>
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+    "hasErrors": true,
+    "results": [
+        {
+            "referenceId": "ref3",
+            "errors": [
+                {
+                    "statusCode": "REQUIRED_FIELD_MISSING",
+                    "message": "Required fields are missing: [LastName]",
+                    "fields": [
+                        "LastName"
+                    ]
+                }
+            ]
+        }
+    ]
+}</pre>
+                    
+                </div>
+                </div><br><br>
+
+                 <h4>Possible causes: </h4>
+
+                <ul>
+                    <li> <span class="info-text">Your API request body is missing a required field (in this case, LastName).</span></li>
+                    <li><span class="info-text">Validation rules on the Salesforce object require this field.</span></li>
+                </ul>
+                 <h4>How to Handle:</h4> 
+                 <ul>
+                    <li><span class="info-text">Before sending the request, ensure that all mandatory fields are populated.</span></li>
+                    <li><span class="info-text">Implement client-side or server-side validation to check required fields before making the API call.</span></li>
+                </ul>
+
+                <h4>Example:</h4><span class="info-text">401 Unauthorized (Invalid Token)</span>
+                 <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+[
+  {
+    "message": "Session expired or invalid",
+    "errorCode": "INVALID_SESSION_ID" 
+  }
+]</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                  <li> <span class="info-text">The session (OAuth token or session ID) is expired, revoked, or invalid.</span> </li>
+                  <li> <span class="info-text">The user was logged out, or the token has timed out.</span> </li>
+                </ul>
+              <h4>How to Handle:</h4>
+              <ul>
+                <li> <span class="info-text">Reauthenticate and obtain a new access token/session ID.</span> </li>
+                <li> <span class="info-text">Implement automatic token refresh logic if using OAuth.</span> </li>
+                <li> <span class="info-text">Check your session timeout settings and ensure sessions are still valid before making requests.</span> </li>
+              </ul>
+
+              <h4>Example:</h4>
+              <div class="info-text">400 Not Found</div>
+               <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+[
+  {
+    "message": "The requested resource does not exist",
+    "errorCode": "NOT_FOUND"
+  }
+]</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li> <span class="info-text">You're trying to access a record, object, or endpoint that doesn't exist.</span> </li>
+                <li> <span class="info-text">You might have a typo in the URL or the record ID provided is wrong.</span> </li>
+                <li> <span class="info-text">The resource might have been deleted.</span> </li>
+              </ul>
+
+              <h4>How to Handle:</h4>
+              <ul>
+                <li> <span class="info-text">Verify that the URL is correct.</span> </li>
+                <li> <span class="info-text">Ensure the record or resource actually exists before requesting it.</span> </li>
+                <li> <span class="info-text">Implement error handling to gracefully show "resource not found" messages.</span> </li>
+              </ul>
+
+              <h4>Example:</h4>
+               <Div class="info-text"> 400 REQUIRED FIELD MISSING</Div>
+              <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+    "hasErrors": true,
+    "results": [
+        {
+            "referenceId": "ref3",
+            "errors": [
+                {
+                    "statusCode": "REQUIRED_FIELD_MISSING",
+                    "message": "Required fields are missing: [LastName]",
+                    "fields": [
+                        "LastName"
+                    ]
+                }
+            ]
+        }
+    ]
+}</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li><span class="info-text">Your API request body is missing a required field (in this case, <span class="http_method">LastName</span>).</span></li>
+                <li><span class="info-text">Validation rules on the Salesforce object require this field.</span></li>
+              </ul>
+
+              <h4>How to Handle:</h4>
+              <ul>
+                <li><span class="info-text">Before sending the request, ensure that all mandatory fields are populated.</span></li>
+                <li><span class="info-text">Implement client-side or server-side validation to check required fields before making the API call.</span></li>
+              </ul>
+
+              <h4>Example:</h4> 
+              <Div class="info-text">404 INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST</Div> 
+              <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+[
+    {
+        "message": "Status: bad value for restricted picklist field: Test",
+        "errorCode": "INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST",
+        "fields": [
+            "bpats__Status__c"
+        ]
+    }
+]</pre>
+                    
+              </div></div>
+
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li><span class="info-text">You're trying to set a picklist field (<span class="http_method">bpats__Status__c</span>) to a value (<span class="http_method">Test</span>) that isn't allowed.</span></li>
+                <li><span class="info-text">The picklist is restricted, meaning only predefined values are accepted.</span></li>
+              </ul>
+              <h4>How to Handle:</h4>
+
+              <ul>
+                <li><span class="info-text">Fetch the allowed picklist values from Salesforce metadata or manually maintain a list.</span></li>
+                <li><span class="info-text">Validate picklist inputs before sending them to the server.</span></li>
+                <li><span class="info-text">Show users only valid choices in UI dropdowns.</span></li>
+              </ul>
+            
+              <h4>Example:</h4>
+               <div class="info-text">400 STRING_TOO_LONG</div> 
+                <div class="code-block">
+                <div class="lang-label">JavaScript</div>
+                <div class="code-content">      
+<pre>
+{
+  "hasErrors": true,
+  "results": [
+    {
+      "referenceId": "ref3",
+      "errors": [
+        {
+          "statusCode": "STRING_TOO_LONG",
+          "message": "First Name: data value too large: candidate test candidate test candidate test 
+          candidate test candidate test candidate test candidate test candidate test candidate test 
+          candidate test candidate test candidate test candidate test candidate test candidate test 
+          candidate test candidate test candidate test candidate test candidate test candidate test 
+          candidate test candidate test candidate 
+          test candidate test candidate (max length=40)",
+          "fields": [
+            "FirstName"
+          ]
+        }
+      ]
+    }
+  ]
+}</pre>
+                    
+              </div></div>
+              <h4>Possible Causes:</h4>
+              <ul>
+                <li><span class="info-text">The value you're trying to insert into the <span class="http_method">FirstName</span> field exceeds the maximum allowed characters (40 characters in this case).</span></li>
+              </ul>
+
+              <h4>How to Handle:</h4>
+              <ul>
+                <li><span class="info-text">Limit field input length based on Salesforce field metadata (e.g., maxlength in input fields).</span></li>
+                <li><span class="info-text">Truncate or validate strings before sending the request.</span></li>
+                <li><span class="info-text">Show the user a clear message like "First Name must be 40 characters or fewer."</span></li>
+              </ul>
+
+              <h4>API Request Limits and Allocations</h4>
+
+                <table>
+                    <thead>
+                        <tr class="http-header">
+                            <th >Salesforce Edition</th>
+                            <th>API Calls Per License Type Per 24-Hour Period</th>
+                            <th>Total Calls Per 24-Hour Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Developer Edition</td>
+                            <td>N/A</td>
+                            <td>15,000</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise Edition Professional Edition with API access enabled</td>
+                            <td>Salesforce: 1,000<br>
+                            Salesforce Platform: 1,000<br>
+                            Lightning Platform - One App: 200<br>
+                            Customer Community: 0<br>
+                            Customer Community Login: 0<br>
+                            Customer Community Plus: 200<br>
+                            Customer Community Plus Login: 10<br>
+                            External Identity 25,000: 70,000<br>
+                            External Identity 250,000: 750,000<br>
+                            External Identity 1,000,000: 4,000,000<br>
+                            Partner Community: 200<br>
+                            Partner Community Login: 10<br>
+                            Lightning Platform Starter: 200 per member for Enterprise Edition orgs<br>
+                            Lightning Platform Plus: 1000 per member for Enterprise Edition orgs
+                            </td>
+                            <td>100,000 + (number of licenses x calls per license type) + purchased API Call Add-Ons</td>
+                        </tr>
+                        <tr>
+                            <td>Unlimited Edition Performance Edition</td>
+                            <td>Salesforce: 5,000<br>
+                            Salesforce Platform: 5,000<br>
+                            Lightning Platform - One App: 200<br>
+                            Customer Community: 0<br>
+                            Customer Community Login: 0<br>
+                            Customer Community Plus: 200<br>
+                            Customer Community Plus Login: 10<br>
+                            External Identity 25,000: 70,000<br>
+                            External Identity 250,000: 750,000<br>
+                            External Identity 1,000,000: 4,000,000
+                            Partner Community: 200<br>
+                            Partner Community Login: 10<br>
+                            Lightning Platform Starter: 200 per member for Unlimited and Performance Edition orgs
+                            Lightning Platform Plus: 5,000 per member for Unlimited and Performance Edition org
+                            </td>
+                            <td>100,000 + (number of licenses x calls per license type) + purchased API Call Add-Ons</td>
+                        </tr>
+                        <tr>
+                            <td>Full Sandbox</td>
+                            <td>N/A</td>
+                            <td>5,000,000This limit applies only to Full Sandboxes that aren’t created from a template. For any sandbox created from a template, values in the template determine the limits. For more information, visit Salesforce Help: Sandbox Types and Templates.</td>
+                        </tr>
+                    </tbody>
+                </table><br>
+
+                <h4>Getting API Limits</h4>
+                <h4>HTTP method: <span class="http_method">GET</span></h4>
+                <div class="info-text">You can use the Salesforce Limits API to programmatically retrieve your current API usage and limits.</div>
+
+                <ul>
+
+                  <li><span class="info-text">Endpoint:</span> <pre class="snippet-text ">https://<your-instance>.salesforce.com/services/data/vXX.0/limits</pre> </li>
+                  <li><span class="info-text">Replace</span> vXX.X <span class="info-text">with the latest salesforce API version.</span></li>
+                </ul>
+
+                 <img class="image-style" src="images/Api_Limit.png" alt="Api Limit" />
+
+                <h4>Guidelines and Best Practices</h4>
+
+                <ol>
+                  <li>Pagination: <span class="info-text">The Salesforce REST API returns a maximum of 2,000 records per SOQL query response.</span></li><br>
+                  <div class="info-text" >&nbsp;&nbsp;&nbsp;If the query matches more than 2,000 records:</div> <br>
+                  <ul>
+                    <li><span class="info-text">Only the first 2,000 records are returned in the initial response.</span></li>
+                    <li><span class="info-text">A <span class="http_method">nextRecordsUrl</span> field is included to fetch the next batch.</span></li>
+                  </ul>
+                  <img class="image-style" src="images/scratch.png" alt="Api Limit" />
+
+                  <h4>Example usage for retrieving the remaining query results</h4>
+                  <div class="info-text"> Endpoint:</div>
+                  <pre class="snippet-text "> https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/0r8xx49yn9SOnOmAAL-2000</pre>
+                  
+                  <div class="info-text">Example response body</div>
+                  <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>
+{
+    "done" : true,
+    "totalSize" : 3214,
+    "records" : [...]
+}</pre>
+                    
+              </div></div>
+
+              <li>Filtering: <span class="info-text">Filtering is done using the WHERE clause in SOQL. You can filter based on field values using logical operators.</span></li>
+
+               <table>
+                    <thead>
+                        <tr>
+                            <th >Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>=</td>
+                            <td>Equals</td>
+                            <td>status = 'Interview'</td>
+                        </tr>
+                        <tr>
+                            <td>!=</td>
+                            <td>Not equal</td>
+                            <td>status != 'Rejected'</td>
+                        </tr>
+                        <tr>
+                            <td>> <</td>
+                            <td>Greater than / less than</td>
+                            <td>createdDate > 2024-01-01T00:00:00Z</td>
+                        </tr>
+                        <tr>
+                            <td>IN</td>
+                            <td>Within a set of values</td>
+                            <td>status IN ('Open', 'Interview')</td>
+                        </tr>
+                        <tr>
+                            <td>LIKE</td>
+                            <td>Pattern matching (with %)</td>
+                            <td>name LIKE 'John%'</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Example</h4>
+                <pre class="snippet-text ">https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+bpats__Status__c=’Open’</pre>
+                
+                <div class="info-text">This query filters only Jobs whose status is Open.</div><br>
+
+                <li>Sorting: <span class="info-text">Sorting is done using the ORDER BY clause.</span> </li>
+                <table>
+                    <thead>
+                        <tr>
+                            <th >Parameter</th>
+                            <th>Description</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORDER BY</td>
+                            <td>Field(s) to sort on</td>
+                        </tr>
+                        <tr>
+                            <td>ASC</td>
+                            <td>Ascending order (default)</td>
+                          
+                        </tr>
+                        <tr>
+                            <td>DESC</td>
+                            <td>Descending order</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Example</h4>
+                <pre class="snippet-text ">https://&lgt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c+FROM+bpats__Job__c+ORDER+BY+CreatedDate+DESC</pre>
+                
+                <div class="info-text">This returns the newest Job first.</div><br>
+
+                <li>Formatting:</li>
+                  <ol Type="a">
+                    <li>Date and Time: <a href="https://help.salesforce.com/s/articleView?id=analytics.bi_integrate_data_prep_date_format_guidelines.htm&type=5" target="_blank" >Use the salesforce standard format</a></li>
+                    <div><br>
+                    <div class="info-text">&nbsp;&nbsp;&nbsp;Example: 2025-04-29T15:45:00Z<br><br>
+                      &nbsp;&nbsp;&nbsp;When filtering by dates in SOQL, use this format: 
+                    </div><br>
+                    
+                    <pre class="snippet-text" >https://<your-instance>.salesforce.com/services/data/v57.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+CreatedDate<2025-01-01T00:00:00Z</pre>
+                    <li>Numeric Values</li>
+                    <div class="info-text">&nbsp;&nbsp;Use plain numbers without any formatting (no commas, no currency symbols).</div>
+                    <p>&nbsp; &#9989;<span class="http_method">&nbsp;&nbsp;10000</span></p>
+                    <p>&nbsp; &#10060;<span class="http_method">&nbsp;&nbsp;10,000</span> or <span class="http_method">$10000</span></p>
+
+                    <div class="info-text"> &nbsp;Decimal numbers must use a dot (.) as the decimal separator.</div>
+                    <p>&nbsp; &#9989;<span class="http_method">&nbsp;&nbsp;1234.56</span></p>
+
+                  <li>Text String</li>
+                     <div class="info-text"> 
+                          &nbsp;&nbsp;Enclose string values in single quotes when used in SOQL.<br><br>
+                          &nbsp;&nbsp;Example: WHERE Name = 'John Doe'
+                     </div><br>
+                     <li>Boolean Values</li>
+                     <div class="info-text"> 
+                          &nbsp;&nbsp;Use lowercase <span class="http_method">true</span> or <span class="http_method">false</span><br><br>
+                          &nbsp;&nbsp;Example:
+                     </div>                     
+              </ol>
+               <div class="code-block">
+                     <div class="lang-label">JavaScript</div>
+                     <div class="code-content">      
+<pre>
+{
+  "isActive": true
+}</pre>
+                    
+              </div></div>             
+            </section>
+
+             <section id="permission-sets">
+                <div class="heading">Permission Set Overview</div>
+                <hr class="line"/>  
+                <ol>
+                  <li>Asymbl ATS Job Portal Permission Set:<span class="info-text"> This permission set is designed for external-facing portals.</span></li>
+                  <div class="info-text">&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</div>
+                  <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Job Board Application</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td >Job</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        
+                    </tbody>
+                  </table><br>
+
+                  <li>External Interview Feedback Permission Set: <span class="info-text">Permission set is designed to submit interview feedback </span></li>
+                  <div class="info-text">&nbsp;&nbsp;&nbsp;Object Access & Allowed Operations</div>
+                  <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >Interview Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td >Interview Topic Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td >Interview Topic</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template Detail</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        
+                    </tbody>
+                  </table><br>
+
+                  <li>Asymbl ATS User Permission Set: <span class="info-text">This permission set grants users access to nearly all object permissions within the system, including <br></span> Read, Create, <span class="info-text">and</span>  Edit <span class="info-text">capabilities. However, users assigned to this permission set do not have Delete access to any objects.</span></li>
+
+                  <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ATS Action Link</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Action</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Applicant</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS List Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Log</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Template Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Template Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Template</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Timeline Child</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>ATS Timeline Configuration</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Account</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Branch</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Contact List</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template Detail</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Template</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Topic Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview Topic</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Job Board Application</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Job</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Offer</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement Credit Template Entry</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement Credit Template</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement Credit</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Placement</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase Order</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Retained Milestone</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+                        <tr>
+                            <td>Work Site Location</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                            <td>&#10060;</td>
+                        </tr>
+
+                    </tbody>
+                  </table><br>
+
+                  <li>Asymbl ATS Admin Permission Set: <span class="info-text"> This permission set provides full administrative access within the Asymbl ATS system. Users with this role have </span> Read, Create, Edit, <span class="info-text">and</span>and Delete <span class="info-text">permissions across all standard and custom objects</span></li>
+                
+                    <table>
+                    <thead>
+                        <tr>
+                            <th >Object</th>
+                            <th>Read</th>
+                            <th>Create</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View All</th>
+                            <th>Modify All</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                            <td>ATS Action Link</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Action</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Applicant</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS List Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> <tr>
+                            <td>ATS Log</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Template Filter</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS_Template Stage</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS Template</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>ATS Timeline Child</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>ATS Timeline Configuration</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Account</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Branch</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Contact</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Contact List</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Interview Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                         <tr>
+                            <td>Interview Template Detail</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Interview Template</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Interview Topic Feedback</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr> 
+                        <tr>
+                            <td>Interview Topic</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                        <tr>
+                            <td>Interview</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                        <tr>
+                            <td>Job Board Application</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                            <td>&#9989;</td>
+                        </tr>
+                    </tbody>
+                 </table>
+                </ol>
+
+               
+             </section>
+
+            <section id="authentication">
+              <div class="heading">Authentication</div>
+              <hr class="line"/>
+              <div class="info-text">
+                Authentication in REST APIs is the process of verifying the identity of a client making a request. 
+                It's essential to ensure that only authorized users or systems can access specific resources. 
+                Our ATS is built on Salesforce, which supports secure and scalable integrations via Connected Apps. 
+                Authentication ensures secure communication and helps enforce access control in RESTful services.
+              </div>
+              <h4>Method: Connected App in Salesforce</h4>
+              <div class="info-text">To connect an external system:</div>
+              <div class="info-text">
+                <ol>
+                  <li>Create a Connected App in Salesforce:
+                    <ol>
+                      <li>Go to Setup > App Manager > New Connected App.</li>
+                      <li>Define the app name and enable OAuth Settings.</li>
+                    </ol>
+                  </li>
+                  <li>Generate Client Credentials (Client ID and Client Secret).</li>
+                  <li>Authenticate using Salesforce OAuth 2.0 flow.</li>
+                  <li>Use the access token to call Salesforce REST APIs to read/write data.</li>
+                </ol>
+              </div>
+              <h4>Security Note: </h4><div class="info-text">API interactions are performed under the context of the authenticated user. This means access to data and functionality is governed by that user's assigned permissions.</div>
+              <h4>Tip: </h4><div class="info-text">Ensure the external system supports OAuth 2.0 and is configured to handle Salesforce-style authentication tokens.</div>
+              <br>
+              <img class="image-style" src="images/connected_app.png" alt="Connected App" />
+            </section>
+
+            <section id="record-operations">
+              <div class="heading">Record Operations</div>
+              <hr class="line"/>
+              <div class="info-text">External systems can retrieve and manage records using the various supported Salesforce API methods.</div>
+              <!-- Get Records Start -->
+              <div>
+                <h4>Get Records: Salesforce Standard API – GET Records</h4>
+                <h4>HTTP method: <span class="http_method">GET</span></h4>
+                <div class="info-text">The GET request method is used to retrieve data from a server at a specified resource URL. It is one of the most common HTTP methods and is read-only, meaning it does not change or modify any data on the server.</div>
+                <br>
+                <div class="info-text">External systems can use the Salesforce REST API to query job records using SOQL.</div>
+                <ul>
+                  <li>
+                    <pre class="snippet-text">https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/query/?q=SELECT+&lt;field-api-name&gt,+&lt;field-api-name&gt+FROM+&lt;Object_API_Name&gt</pre>
+                  </li>
+                  <li><div class="info-text">Replace &lt;your-instance&gt with your actual Salesforce domain.</div></li>
+                  <li><div class="info-text">Replace vXX.0 with your specific version number.</div></li>
+                  <li><div class="info-text">Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object.</div></li>
+                </ul>
+                <div class="info-text">The query string after q= is a URL-encoded SOQL query. Here's how it works:</div>
+                <ul>
+                  <li><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span> <span class="info-text">is equivalent to the raw SOQL query: </span><span class="http_method">SELECT Name, bpats__Job_Title__c FROM bpats__Job__c</span></li>
+                </ul>
+                <h4>Example</h4>
+                <ul>
+                  <li><span class="info-text">Query for Job Records: </span><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
+                  <li><span class="info-text">Query for Job Board Application Records: </span><span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
+                </ul>
+                <h4>Note: </h4>
+                <div class="info-text">The screenshots below depict examples of integrating the ATS with Postman. These are provided for demonstration purposes to show how API requests</div>
+                <br>
+                <img class="image-style" src="images/get_records.png" alt="Get Records" />
+              </div>
+              <br>
+              <!-- Get Records End -->
+
+              <!-- Create Records Start -->
+              <div>
+                <h4>Create Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">POST</span></h4>
+                <div class="info-text">The POST method is used to create new records in Salesforce. This method targets a resource collection (i.e., a Salesforce object) 
+                  and adds a new subordinate resource (i.e., a record) to it. External systems can use this method to create records for any custom or standard Salesforce object via the REST API.
+                </div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with your specific version number.</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the target Salesforce object (e.g., Account, Contact, bpats__Job_Board_Application__c, etc.).</li>
+                </ul>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li class="info-text">Object API Name: bpats__Job_Board_Application__c</li>
+                  <li>Required Fields:
+                    <ul>
+                      <li>bpats__Contact__c (Reference to Candidate (e.g., Contact Id))</li>
+                      <li>bpats__Job__c (Reference to Job (e.g., Job Id))</li>
+                      <li>bpats__Email__c (Candidate Email)</li>
+                      <li>bpats__First_Name__c (Candidate First Name)</li>
+                      <li>bpats__Last_Name__c (Candidate Last Name)</li>
+                    </ul>
+                  </li>
+                </ul>
+                <h4>Authentication: Via Connected App</h4>
+                <div class="info-text">Request Body: </div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "Contact__c" : "003Ec00000jUEMbIAK",
+  "Email__c" : "test@test.com",
+  "First_Name__c" : "candidate",
+  "Last_Name__c" : "new",
+  "Job__c" : "a0cEc000005XLv1TAG"
+}</pre> 
+                  </div>
+                </div>
+                <br>
+                <div class="info-text">Success Responses: </div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "id": "aObEc000006Chx2IAC"
+  "success": true,
+  "errors"
+}</pre> 
+                  </div>
+                </div>
+              </div>
+              <br>
+              <!-- Create Records End -->
+
+              <!-- Create Bulk Records Start -->
+              <div>
+                <h4>Create Records in Bulk: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">POST</span></h4>
+                <div class="info-text">The Composite Tree API allows external systems to create multiple records in a single API call. 
+                  This is especially useful for creating a set of related or independent records efficiently.
+                </div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/tree/&lt;Object_API_Name&gt</pre></li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating (e.g., Account, Contact, bpats__Job_Board_Application__c, bpats__Job__c, etc.).</li>
+                </ul>
+                <div class="info-text">The body must include a records array with JSON objects, each representing a record to be created. You can assign a referenceId to each record for easy identification in the response.</div>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li>Object API Name: bpats__Job_Board_Application__c</li>
+                  <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
+                </ul>
+                <div class="info-text">Sample JSON Payload:</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "records": [
+    {
+      "attributes" : {"type" : "bpats__Job_Board_Application__c", "referenceId" : "ref1"},
+      "bpats__Contact__c": "003Em00000cqRQ3IAM",
+      "bpats__Email__c": "test2@test.com",
+      "bpats__First_Name__c": "candidate",
+      "bpats__Last_Name__c": "new 2",
+      "bpats__Job__c": "a0MEm000004fFnBMAU"
+    },
+    {
+      "attributes" : {"type" : "bpats__Job_Board_Application__c", "referenceId" : "ref2"},
+      "bpats__Contact__c": "003Em00000cqAXLIA2",
+      "bpats__Email__c": "test3@test.com",
+      "bpats__First_Name__c": "candidate",
+      "bpats__Last_Name__c": "new 3",
+      "bpats__Job__c": "a0MEm000004fFnBMAU"
+    }
+  ]
+}</pre> 
+                  </div>
+                </div>
+                <br>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "hasErrors": false,
+  "results": [
+    {
+      "referenceld": "ref1",
+      "id": "a0bEc000006CfK6IAK"
+    },
+    {
+      "referenceld": "ref2",
+      "id": "a0bEc000006C{K7IAK"
+    }
+ ]
+}</pre> 
+                  </div>
+                </div>
+              </div>
+              <br>
+              <!-- Create Bulk Records End -->
+
+              <!-- Update Single Record Start -->
+              <div>
+                <h4>Update Single Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">PATCH</span></h4>
+                <div class="info-text">The PATCH request method is used to modify the values of the resource properties. The PATCH method requires a request body. 
+                  The body of the request must contain representation of the JSON Patch operations that you want to perform on the resource.
+                </div>
+                <br>
+                <div class="info-text">External systems can update records using the standard Salesforce object API.</div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt/{recordId}</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating.</li>
+                  <li>Replace {recordId} with the Salesforce ID of the record you want to update.</li>
+                </ul>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li>Object API Name: bpats__Job__c</li>
+                  <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
+                </ul>
+                <div class="info-text">Request Body</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "Name" : "Salesforce Developer Test"
+  "bpats_Job_Title__c" : "Salesforce Developer Test"
+}</pre> 
+                  </div>
+                </div>
+              </div>
+              <br>
+              <!-- Update Single Record End -->
+
+              <!-- Update Bulk Record Start -->
+              <div>
+                <h4>Update Bulk Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">PATCH</span></h4>
+                <div class="info-text">External systems can update records in Bulk using the Standard Salesforce object API.</div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/sobjects</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                </ul>
+                <div class="info-text">Request Body</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>{
+  "allOrNone" : false,
+  "records" : [{
+    "attributes" : {"type" : "bpats__Job__c"},
+    "id" : "aOMEm000004fFnBMAU" ,
+    "Name" : "Salesforce Developer Test",
+    "bpats__Job_Title__c" : "Salesforce Developer Test"
+  }，{
+    "attributes" : {"type" : "bpats__Job__c"},
+    "id" : "aOMEm000004{HCHMA2" ,
+    "Name" : "Senior Salesforce Developer Test"
+    "bpats__Job_Title__c" : "Senior Salesforce Developer Test"
+  }]
+}</pre> 
+                  </div>
+                </div>
+                <br>
+                <div class="info-text">Success Response</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">      
+<pre>[
+  {
+    "id": "a0MEm000004fFnBMAU",
+    "success": true,
+    "errors": []
+  },
+  {
+    "id": "aOMEm000004fHCHMA2" ,
+    "success": true,
+    "errors": []
+  }
+]</pre> 
+                  </div>
+                </div>
+              </div>
+              <br>
+              <!-- Update Bulk Record End -->
+
+              <!-- Delete Record Start -->
+              <div>
+                <h4>Delete Records: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">DELETE</span></h4>
+                <div class="info-text">The DELETE request is used to delete a specific resource from your Salesforce instance. 
+                  External systems can delete a specific record from Salesforce by using the Standard Salesforce object API.
+                </div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;Object_API_Name&gt/{recordId}</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating</li>
+                  <li>Replace {recordId} with the Salesforce ID of the record you want to delete.</li>
+                </ul>
+                <h4>Example</h4>
+                <ul class="info-text">
+                  <li>Object API Name: bpats__Job_c</li>
+                  <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema.</li>
+                </ul>
+                <h4>Example URL: </h4>
+                <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/v63.0/sobjects/bpats__Job__c/a0LEm000007SHNYMA4</pre>
+                <br>
+              </div>
+              <!-- Delete Record End -->
+
+              <!-- Delete Bulk Records Start -->
+              <div>
+                <h4>Delete Records in Bulk: Salesforce Standard API</h4>
+                <h4>HTTP method: <span class="http_method">DELETE</span></h4>
+                <div class="info-text">The DELETE request can also be used to delete multiple records from your Salesforce instance. 
+                  External systems can delete records in Bulk from Salesforce by using the Standard Salesforce object API.
+                </div>
+                <ul>
+                  <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/sobjects?ids=&lt;comma-separated-record-ids&gt&allOrNone=false</pre></li>
+                  <li>Replace &lt;your-instance&gt with your actual Salesforce domain.</li>
+                  <li>Replace vXX.0 with the appropriate API version (e.g., v60.0).</li>
+                </ul>
+                <h4>Example URL: </h4>
+                <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/v63.0/composite/sobjects?ids=a0LEm000007SHNYMA4,a0LEm000007SDD3MAO&allOrNone=false</pre>
+                <div class="info-text">Success Response</div>
+                <div class="code-block">
+                  <div class="lang-label">JavaScript</div>
+                  <div class="code-content">     
+<pre>[
+  {
+    "id": "a0MEm000004fFnBMAU",
+    "success": true,
+    "errors": []
+  },
+  {
+    "id": "aOMEm000004fHCHMA2" ,
+    "success": true,
+    "errors": []
+  }
+]</pre>
+                  </div>
+                </div>
+              </div>
+              <!-- Delete Bulk Records End -->
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
