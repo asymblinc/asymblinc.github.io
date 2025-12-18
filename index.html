@@ -1,220 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATS External Integration Guide</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #007bff;
-      color: white;
-      padding: 1rem;
-    }
-    .main {
-      display: flex;
-      min-height: calc(100vh - 140px);
-    }
-    nav {
-      width: 250px;
-      background: #eee;
-      padding: 2rem 1rem;
-      box-sizing: border-box;
-      position: sticky;
-      top: 0;
-      height: calc(100vh - 70px);
-      overflow-y: auto;
-    }
-    nav a {
-      display: block;
-      margin-bottom: 1rem;
-      text-decoration: none;
-      color: #007bff;
-      font-weight: bold;
-    }
-    .container {
-      flex: 1;
-      padding: 2rem;
-      background: white;
-      margin: 1rem;
-      box-sizing: border-box;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h2, h3, h4 {
-      color: #007bff;
-    }
-    h1 {
-      color : white ;
-    }
-    code, pre {
-      background: #f4f4f4;
-      padding: 0.5rem;
-      border-radius: 5px;
-      display: block;
-      overflow-x: auto;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #eee;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asymbl Documentation Portal - Your single source of truth for all Asymbl product documentation">
+    <meta name="keywords" content="Asymbl, ATS, ASM, AST, AIN, ARA, ASIN, Documentation, Integration Guide, API">
+    <title>Asymbl Documentation Portal</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div style='display:flex; justify-content: space-between;'>
-      <div>
-      <h1>ATS External Integration Guide v1</h1>
-      </div>
-      <div style='text-align:right; height=60px;'>
-        <img src="https://asymbl-mo.my.salesforce.com/servlet/servlet.ImageServer?id=015UT00000En42Q&oid=00DDn000009Rfb8" height="60px"/>
-      </div>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="ats/images/Asymbl_Logo.svg" alt="Asymbl Logo" />
+        </div>
+        <div class="options">
+            <a href="https://asymbl.com" target="_blank">About Asymbl</a>
+        </div>
     </div>
-  </header>
-  <div class="main">
-    <nav>
-      <a href="#introduction">Introduction</a>
-      <a href="#objects">Objects</a>
-      <a href="#json">JSON Format</a>
-      <a href="#versions">Salesforce Versions</a>
-      <a href="#authentication">Authentication</a>
-      <a href="#api-info">API Information</a>
-      <a href="#record-operations">Record Operations</a>
-      <a href="#error-handling">Error Handling</a>
-      <a href="#api-limits">API Limits</a>
-      <a href="#permission-sets">Permission Sets</a>
-    </nav>
 
-    <div class="container">
-      <section id="introduction">
-        <h2>Introduction</h2>
-        <p>This reference guide provides information about how external systems can integrate with our ATS. It includes methods for establishing connections, retrieving job listings, and submitting job applications through API integration.</p>
-      </section>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading documentation...</p>
+        </div>
 
-      <section id="objects">
-        <h2>Objects</h2>
-        <p>In the ATS, an object represents a specific record type, like Job, Contact, or Placement. You can retrieve metadata using:</p>
-        <pre>GET /services/data/vXX.0/sobjects/&lt;your-object-api-name&gt;/describe</pre>
-      </section>
+        <!-- Products Layout - Sidebar + Detail View + Releases Sidebar -->
+        <div class="products-layout" id="products-layout" style="display: none;">
+            <!-- Left Sidebar with all products -->
+            <div class="products-sidebar">
+                <h3 class="sidebar-title">All Products</h3>
+                <div id="products-sidebar-list">
+                    <!-- Product sidebar cards will be inserted here -->
+                </div>
+            </div>
 
-      <section id="json">
-        <h2>JSON Format</h2>
-        <p>All API request and response bodies are expected in JSON format. Ensure to validate data types, required fields, and use 18-character Salesforce Record IDs for lookup fields.</p>
-      </section>
+            <!-- Center Detail Panel -->
+            <div class="product-detail-panel" id="product-detail-panel">
+                <!-- Selected product details will be inserted here -->
+            </div>
 
-      <section id="versions">
-        <h2>Salesforce API Versions</h2>
-        <ul>
-          <li><strong>v59.0</strong>: Spring '24</li>
-          <li><strong>v60.0</strong>: Summer '24</li>
-          <li><strong>v61.0</strong>: Winter '25</li>
-        </ul>
-      </section>
+            <!-- Right Releases Sidebar -->
+            <div class="releases-sidebar visible" id="releases-sidebar">
+                <div class="releases-sidebar-header">
+                    <h3 class="releases-sidebar-title">Release History</h3>
+                </div>
+                <div id="releases-sidebar-content">
+                    <!-- Release cards will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <section id="authentication">
-        <h2>Authentication</h2>
-        <p>Use Salesforce Connected App for OAuth 2.0 authentication. Once access token is obtained, include in header:</p>
-        <pre>Authorization: Bearer &lt;access_token&gt;</pre>
-      </section>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Asymbl Inc. All rights reserved.</p>
+        <p>For support, visit <a href="https://asymbl.com/support" target="_blank">asymbl.com/support</a></p>
+    </div>
 
-      <section id="api-info">
-        <h2>API Information</h2>
-        <p><strong>Base URL:</strong> <code>https://&lt;your-instance&gt;.salesforce.com/services/data/vXX.0/</code></p>
-        <h3>Common Headers</h3>
-        <ul>
-          <li>Authorization: Bearer &lt;token&gt;</li>
-          <li>Content-Type: application/json</li>
-          <li>Accept: */*</li>
-        </ul>
-      </section>
+    <!-- JavaScript to load and render documentation data -->
+    <script>
+        let globalData = null;
+        let currentFilter = 'ats';
+        let selectedProductId = 'ats';
 
-      <section id="record-operations">
-        <h2>Record Operations</h2>
-
-        <h3>GET (Retrieve Record)</h3>
-        <pre>GET /services/data/vXX.0/query/?q=SELECT+Name+FROM+bpats__Job__c</pre>
-
-        <h3>POST (Create Record)</h3>
-        <pre>POST /services/data/vXX.0/sobjects/bpats__Job__c
-{
-  "bpats__Contact__c": "003xx000004TmiQAAS",
-  "bpats__Job__c": "a0Bxx0000008aRtEAI",
-  "bpats__Email__c": "john@example.com",
-  "bpats__First_Name__c": "John",
-  "bpats__Last_Name__c": "Doe"
-}</pre>
-
-        <h3>PATCH (Update Record)</h3>
-        <pre>PATCH /services/data/vXX.0/sobjects/bpats__Job__c/{recordId}
-{
-  "bpats__First_Name__c": "Jane"
-}</pre>
-
-        <h3>DELETE (Delete Record)</h3>
-        <pre>DELETE /services/data/vXX.0/sobjects/bpats__Job__c/{recordId}</pre>
-      </section>
-
-      <section id="error-handling">
-        <h2>Error Handling</h2>
-        <h3>401 Unauthorized</h3>
-        <pre>{
-  "message": "Session expired or invalid",
-  "errorCode": "INVALID_SESSION_ID"
-}</pre>
-
-        <h3>400 Bad Request - Missing Field</h3>
-        <pre>{
-  "hasErrors": true,
-  "results": [
-    {
-      "referenceId": "ref3",
-      "errors": [
-        {
-          "statusCode": "REQUIRED_FIELD_MISSING",
-          "message": "Required fields are missing: [LastName]",
-          "fields": ["LastName"]
+        // Fetch documentation data from JSON file
+        async function loadDocumentation() {
+            try {
+                const response = await fetch('docs-data.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load documentation data');
+                }
+                const data = await response.json();
+                globalData = data;
+                renderDocumentation(data);
+            } catch (error) {
+                console.error('Error loading documentation:', error);
+                document.getElementById('loading').innerHTML = `
+                    <p style="color: #dc3545;">
+                        ⚠️ Unable to load documentation data. Please refresh the page or contact support.
+                    </p>
+                `;
+            }
         }
-      ]
-    }
-  ]
-}</pre>
 
-        <h3>404 Not Found</h3>
-        <pre>{
-  "message": "The requested resource does not exist",
-  "errorCode": "NOT_FOUND"
-}</pre>
-      </section>
+        // Render documentation hub
+        function renderDocumentation(data) {
+            // Render sidebar products
+            renderProductsSidebar(data);
 
-      <section id="api-limits">
-        <h2>API Limits</h2>
-        <p><strong>Developer Edition:</strong> 15,000 calls/day</p>
-        <p><strong>Enterprise Edition:</strong> 100,000 calls/day + per-license multiplier</p>
-        <p>Check limits via:</p>
-        <pre>GET /services/data/vXX.0/limits</pre>
-      </section>
+            // Render detail panel for first product (ATS)
+            const firstProduct = data.products.find(p => p.id === selectedProductId) || data.products[0];
+            renderProductDetail(firstProduct);
 
-      <section id="permission-sets">
-        <h2>Permission Sets Overview</h2>
-        <ul>
-          <li><strong>ATS Job Portal:</strong> Access to Job Board Application</li>
-          <li><strong>Interview Feedback:</strong> Submit interview feedback</li>
-          <li><strong>ATS User:</strong> Read, Create, Edit (no Delete)</li>
-          <li><strong>ATS Admin:</strong> Full access</li>
-        </ul>
-      </section>
-    </div>
-  </div>
+            // Show releases for the first product
+            updateReleasesSidebar(firstProduct);
 
-  <footer>
-    <p>&copy; 2025 ATS API Documentation</p>
-  </footer>
+            // Hide loading, show content with releases sidebar always visible
+            document.getElementById('loading').style.display = 'none';
+            const productsLayout = document.getElementById('products-layout');
+            productsLayout.style.display = 'grid';
+            productsLayout.classList.add('with-releases');
+        }
+
+        // Render products sidebar
+        function renderProductsSidebar(data) {
+            const sidebarList = document.getElementById('products-sidebar-list');
+            sidebarList.innerHTML = '';
+
+            data.products.forEach(product => {
+                const card = createSidebarCard(product);
+                sidebarList.appendChild(card);
+            });
+        }
+
+        // Create sidebar card
+        function createSidebarCard(product) {
+            const card = document.createElement('div');
+            card.className = `product-sidebar-card ${product.id === selectedProductId ? 'active' : ''}`;
+            card.onclick = () => selectProduct(product.id);
+
+            card.innerHTML = `
+                <div class="sidebar-product-icon">${product.icon || '📦'}</div>
+                <div class="sidebar-product-info">
+                    <div class="sidebar-product-name">${product.name}</div>
+                    <div class="sidebar-product-version">v${product.version}</div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Select product
+        function selectProduct(productId) {
+            selectedProductId = productId;
+
+            // Update sidebar active state
+            document.querySelectorAll('.product-sidebar-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Render product detail
+            const product = globalData.products.find(p => p.id === productId);
+            if (product) {
+                renderProductDetail(product);
+                // Also update the releases sidebar with the selected product's releases
+                updateReleasesSidebar(product);
+            }
+        }
+
+        // Render product detail panel
+        function renderProductDetail(product) {
+            const detailPanel = document.getElementById('product-detail-panel');
+
+            const links = product.links || {};
+            const docLinks = [
+                { key: 'integrationGuide', icon: '📘' },
+                { key: 'userGuide', icon: '📗' },
+                { key: 'postDeployment', icon: '⚙️' },
+                { key: 'preDeployment', icon: '⚙️' },
+                { key: 'techDoc', icon: '📄' }
+            ];
+
+            const linksHTML = docLinks.map(({ key, icon }) => {
+                const link = links[key];
+                if (!link || !link.url) return '';
+
+                const isDisabled = link.url === '#' || !link.url;
+                const disabledClass = isDisabled ? 'disabled' : '';
+
+                // All links open in new tab with external icon
+                const target = '_blank';
+                const externalIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+
+                return `
+                    <a href="${link.url}"
+                       class="doc-link ${disabledClass}"
+                       target="${target}"
+                       rel="noopener noreferrer"
+                       ${isDisabled ? 'aria-disabled="true"' : ''}>
+                        <span class="doc-link-icon">${icon}</span>
+                        <span class="doc-link-text">${link.label || key}</span>
+                        <span class="doc-link-arrow">${externalIcon}</span>
+                    </a>
+                `;
+            }).join('');
+
+            detailPanel.innerHTML = `
+                <div class="detail-header">
+                    <div class="detail-icon">${product.icon || '📦'}</div>
+                    <div class="detail-info">
+                        <h2 class="detail-product-name">${product.name}</h2>
+                        <p class="detail-product-full-name">${product.fullName}</p>
+                        <p class="detail-product-description">${product.description || ''}</p>
+                        <span class="detail-product-version">v${product.version} • ${product.releaseDate}</span>
+                    </div>
+                </div>
+                <div class="detail-docs-section">
+                    <h3 class="detail-docs-title">Documentation</h3>
+                    <div class="doc-links">
+                        ${linksHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update releases sidebar
+        function updateReleasesSidebar(product) {
+            if (!product) return;
+
+            const releasesContent = document.getElementById('releases-sidebar-content');
+            const releaseHistory = product.releaseHistory || [];
+
+            if (releaseHistory.length === 0) {
+                releasesContent.innerHTML = `
+                    <div class="releases-empty">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem; opacity: 0.5;">
+                            <path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z"/>
+                        </svg>
+                        <p style="color: #999; font-size: 1rem; font-weight: 500;">No Release History</p>
+                        <p style="color: #aaa; font-size: 0.9rem; margin-top: 0.5rem;">Release information will appear here when available</p>
+                    </div>
+                `;
+            } else {
+                releasesContent.innerHTML = releaseHistory.map(release => {
+                    const releaseDate = new Date(release.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    const externalIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>';
+
+                    return `
+                        <div class="release-card">
+                            <div class="release-card-version">v${release.version}</div>
+                            <div class="release-card-date">${releaseDate}</div>
+                            ${release.releaseNotesUrl ? `
+                                <a href="${release.releaseNotesUrl}" target="_blank" class="release-card-link" rel="noopener noreferrer">
+                                    📋 Release Notes ${externalIcon}
+                                </a>
+                            ` : ''}
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', loadDocumentation);
+    </script>
 </body>
 </html>

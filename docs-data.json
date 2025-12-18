@@ -1,0 +1,259 @@
+{
+  "products": [
+    {
+      "id": "ats",
+      "name": "ATS",
+      "fullName": "Applicant Tracking System",
+      "description": "Comprehensive applicant tracking and recruiting management",
+      "version": "1.121.3",
+      "releaseDate": "December 2025",
+      "icon": "📦",
+      "links": {
+        "integrationGuide": {
+          "url": "/ats/ats.html",
+          "label": "External Integration Guide"
+        },
+        "preDeployment": {
+          "url": "https://docs.google.com/document/d/1-NpXlQKLjLaH6z1LV0oPRSWEero8Vsw_/edit",
+          "label": "Pre-Deployment Steps"
+        },
+        "postDeployment": {
+          "url": "https://docs.google.com/document/d/1I3GxZHwOekdMqPgwql7CyNPiyAbNX4S9/edit",
+          "label": "Post-Deployment Steps"
+        },
+        "techDoc": {
+          "url": "https://docs.google.com/document/d/1vLmKyXc9eNezYof9oxUxD-LeFwxg3UlZ/edit",
+          "label": "Technical Documentation"
+        },
+        "userGuide": {
+          "url": "https://docs.google.com/document/d/1reHtsxktseXFMpY5w3g2HWYFoyC_RGjB/edit",
+          "label": "User Guide"
+        }
+      },
+      "releaseHistory": [
+        {
+          "version": "1.121.3",
+          "date": "2025-12-01",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "1.121.2",
+          "date": "2025-11-15",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "1.121.1",
+          "date": "2025-10-28",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "1.121.0",
+          "date": "2025-10-01",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "1.120.5",
+          "date": "2025-09-12",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "1.120.4",
+          "date": "2025-08-20",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        }
+      ]
+    },
+    {
+      "id": "asm",
+      "name": "ASM",
+      "fullName": "Asymbl Search and Match",
+      "description": "AI-powered candidate matching and search capabilities",
+      "version": "0.X.X",
+      "releaseDate": "Coming Soon",
+      "icon": "🔍",
+      "links": {
+        "integrationGuide": {
+          "url": "/asm/asm.html",
+          "label": "External Integration Guide"
+        },
+        "preDeployment": {
+          "url": "#",
+          "label": "Pre-Deployment Steps"
+        },
+        "postDeployment": {
+          "url": "#",
+          "label": "Post-Deployment Steps"
+        },
+        "techDoc": {
+          "url": "#",
+          "label": "Technical Documentation"
+        },
+        "userGuide": {
+          "url": "#",
+          "label": "User Guide"
+        }
+      },
+      "releaseHistory": []
+    },
+    {
+      "id": "ast",
+      "name": "AST",
+      "fullName": "Asymbl Time",
+      "description": "Timekeeping, payroll, and billing management",
+      "version": "0.X.X",
+      "releaseDate": "Coming Soon",
+      "icon": "⏱️",
+      "links": {
+        "integrationGuide": {
+          "url": "/ast/ast.html",
+          "label": "External Integration Guide"
+        },
+        "preDeployment": {
+          "url": "#",
+          "label": "Pre-Deployment Steps"
+        },
+        "postDeployment": {
+          "url": "#",
+          "label": "Post-Deployment Steps"
+        },
+        "techDoc": {
+          "url": "#",
+          "label": "Technical Documentation"
+        },
+        "userGuide": {
+          "url": "#",
+          "label": "User Guide"
+        }
+      },
+      "releaseHistory": []
+    },
+    {
+      "id": "ain",
+      "name": "AIN",
+      "fullName": "Asymbl Integration",
+      "description": "External system integrations and webhooks",
+      "version": "0.37.0",
+      "releaseDate": "December 2025",
+      "icon": "🔗",
+      "links": {
+        "integrationGuide": {
+          "url": "/ain/ATS_External_Integration_Gui.html",
+          "label": "External Integration Guide"
+        },
+        "preDeployment": {
+          "url": "https://docs.google.com/document/d/1-NpXlQKLjLaH6z1LV0oPRSWEero8Vsw_/edit",
+          "label": "Pre-Deployment Steps"
+        },
+        "postDeployment": {
+          "url": "https://docs.google.com/document/d/1I3GxZHwOekdMqPgwql7CyNPiyAbNX4S9/edit",
+          "label": "Post-Deployment Steps"
+        },
+        "techDoc": {
+          "url": "https://docs.google.com/document/d/1vLmKyXc9eNezYof9oxUxD-LeFwxg3UlZ/edit",
+          "label": "Technical Documentation"
+        },
+        "userGuide": {
+          "url": "https://docs.google.com/document/d/1reHtsxktseXFMpY5w3g2HWYFoyC_RGjB/edit",
+          "label": "User Guide"
+        }
+      },
+      "releaseHistory": [
+        {
+          "version": "0.37.0",
+          "date": "2025-12-01",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "0.36.0",
+          "date": "2025-11-10",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "0.35.0",
+          "date": "2025-10-15",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        }
+      ]
+    },
+    {
+      "id": "ara",
+      "name": "ARA",
+      "fullName": "Asymbl Recruiting Agent",
+      "description": "AI-powered recruiting assistant with Agentforce",
+      "version": "0.26.1",
+      "releaseDate": "December 2025",
+      "icon": "🤖",
+      "links": {
+        "integrationGuide": {
+          "url": "#",
+          "label": "External Integration Guide"
+        },
+        "preDeployment": {
+          "url": "https://docs.google.com/document/d/1-NpXlQKLjLaH6z1LV0oPRSWEero8Vsw_/edit",
+          "label": "Pre-Deployment Steps"
+        },
+        "postDeployment": {
+          "url": "https://docs.google.com/document/d/1I3GxZHwOekdMqPgwql7CyNPiyAbNX4S9/edit",
+          "label": "Post-Deployment Steps"
+        },
+        "techDoc": {
+          "url": "https://docs.google.com/document/d/1vLmKyXc9eNezYof9oxUxD-LeFwxg3UlZ/edit",
+          "label": "Technical Documentation"
+        },
+        "userGuide": {
+          "url": "https://docs.google.com/document/d/1reHtsxktseXFMpY5w3g2HWYFoyC_RGjB/edit",
+          "label": "User Guide"
+        }
+      },
+      "releaseHistory": [
+        {
+          "version": "0.26.1",
+          "date": "2025-12-01",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "0.26.0",
+          "date": "2025-11-18",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "0.25.0",
+          "date": "2025-10-22",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        }
+      ]
+    },
+    {
+      "id": "asin",
+      "name": "ASIN",
+      "fullName": "Asymbl Integration (Legacy)",
+      "description": "Legacy integration package and utilities",
+      "version": "0.X.X",
+      "releaseDate": "Coming Soon",
+      "icon": "📋",
+      "links": {
+        "integrationGuide": {
+          "url": "#",
+          "label": "External Integration Guide"
+        },
+        "preDeployment": {
+          "url": "#",
+          "label": "Pre-Deployment Steps"
+        },
+        "postDeployment": {
+          "url": "#",
+          "label": "Post-Deployment Steps"
+        },
+        "techDoc": {
+          "url": "#",
+          "label": "Technical Documentation"
+        },
+        "userGuide": {
+          "url": "#",
+          "label": "User Guide"
+        }
+      },
+      "releaseHistory": []
+    }
+  ]
+}
