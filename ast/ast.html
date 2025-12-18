@@ -98,60 +98,60 @@
                   <tbody>
                     <tr>
                       <td>Alternative Time</td>
-                      <td>Alternative_Time__c</td>
+                      <td>ASYMBL_Time__Alternative_Time__c</td>
                     </tr>
                     <tr>
                       <td>Timesheet Adjustment</td>
-                      <td>Timesheet_Adjustment__c</td>
+                      <td>ASYMBL_Time__Timesheet_Adjustment__c</td>
                     </tr>
                     <tr>
                       <td>Timesheet</td>
-                      <td>Timesheet__c</td>
+                      <td>ASYMBL_Time__Timesheet__c</td>
                     </tr>
                     <tr>
                       <td>Time Entrie</td>
-                      <td>Time_Entry__c</td>
+                      <td>ASYMBL_Time__Timesheet__c</td>
                     </tr>
                     <tr>
                       <td>Rate Card Template</td>
-                      <td>Rate_Card_Template__c</td>
+                      <td>ASYMBL_Time__Rate_Card_Template__c</td>
                     </tr>
                     <tr>
                       <td>Rate Card Template Detail</td>
-                      <td>Rate_Card_Template_Detail__c</td>
+                      <td>ASYMBL_Time__Rate_Card_Template_Detail__c</td>
                     </tr>
                     <tr>
                       <td>AST Rate Card Template Filter</td>
-                      <td>AST_Rate_Card_Template_Filter__c</td>
+                      <td>ASYMBL_Time__AST_Rate_Card_Template_Filter__c</td>
                     </tr>
                     <tr>
                       <td>Pay Rule</td>
-                      <td>Pay_Rule__c</td>
+                      <td>ASYMBL_Time__Pay_Rule__c</td>
                     </tr>
                     <tr>
                       <td>Holiday</td>
-                      <td>Holiday__c</td>
+                      <td>ASYMBL_Time__Holiday__c</td>
                     </tr>
                     <tr>
                       <td>Calendar</td>
-                      <td>Calendar__c</td>
+                      <td>ASYMBL_Time__Calendar__c</td>
                     </tr>
                     <tr>
                       <td>AST Log</td>
-                      <td>AST_Log__c</td>
+                      <td>ASYMBL_Time__AST_Log__c</td>
                     </tr>
                     <tr>
                       <td>Candidate Rate Card</td>
-                      <td>Candidate_Rate_Card__c</td>
+                      <td>ASYMBL_Time__Candidate_Rate_Card__c</td>
                     </tr>
                     <tr>
                       <td>Candidate Rate Card Detail</td>
-                      <td>Candidate_Rate_Card_Detail__c</td>
+                      <td>ASYMBL_Time__Candidate_Rate_Card_Detail__c</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <p class="info-text">Please follow the <a href="https://docs.google.com/spreadsheets/d/1PHHJTWK9w5SIYov-ZZM9X9AU_mXA1_hW/edit?gid=1408658604#gid=1408658604" target="_blank">link</a> to view the complete data schema of AST.</p>
+              <!-- <p class="info-text">Please follow the <a href="https://docs.google.com/spreadsheets/d/1PHHJTWK9w5SIYov-ZZM9X9AU_mXA1_hW/edit?gid=1408658604#gid=1408658604" target="_blank">link</a> to view the complete data schema of AST.</p> -->
               <p class="info-text">The external system can get the object by using the salesforce standard API.</p>
               <h4>Endpoint: </h4>
               <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/sobjects/&lt;your-object-api-name&gt/describe</pre>
@@ -308,7 +308,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                             <td>q (for SOQL query)</td>
                             <td>String</td>
                             <td>Yes (for query endpoint)</td>
-                            <td>SELECT Name FROM bpats__Job__c</td>
+                            <td>SELECT Name FROM ASYMBL_Time__Timesheet__c</td>
                             <td>SOQL statement for record fetching</td>
                         </tr>
                         <tr>
@@ -316,7 +316,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                             <td>Object_API_Name</td>
                             <td>String</td>
                             <td>Yes</td>
-                            <td>bpats__Job__c</td>
+                            <td>ASYMBL_Time__Timesheet__c</td>
                             <td>The Salesforce API name of the object you're targeting</td>
                             
                         </tr>
@@ -550,8 +550,8 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
     "records": [
         {
             "attributes": {
-                "type": "bpats__Job__c",
-                "url": "/services/data/v57.0/sobjects/bpats__Job__c/a0MEm000004fFnBMAU"
+                "type": "ASYMBL_Time__Timesheet__c",
+                "url": "/services/data/v57.0/sobjects/ASYMBL_Time__Timesheet__c/a02J300000I4F1wIAF"
             },
             "Name": "Salesforce Developer Test",
             "bpats__End_Date__c": null
@@ -733,7 +733,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
         "message": "Status: bad value for restricted picklist field: Test",
         "errorCode": "INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST",
         "fields": [
-            "bpats__Status__c"
+            "ASYMBL_Time__Status__c"
         ]
     }
 ]</pre>
@@ -742,7 +742,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 
               <h4>Possible Causes:</h4>
               <ul>
-                <li><span class="info-text">You're trying to set a picklist field (<span class="http_method">bpats__Status__c</span>) to a value (<span class="http_method">Test</span>) that isn't allowed.</span></li>
+                <li><span class="info-text">You're trying to set a picklist field (<span class="http_method">ASYMBL_Time__Status__c</span>) to a value (<span class="http_method">Test</span>) that isn't allowed.</span></li>
                 <li><span class="info-text">The picklist is restricted, meaning only predefined values are accepted.</span></li>
               </ul>
               <h4>How to Handle:</h4>
@@ -935,7 +935,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table>
                 <h4>Example:</h4>
-                <pre class="snippet-text ">https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+bpats__Status__c=’Open’</pre>
+                <pre class="snippet-text ">https://&lt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Id,+Name,+ASYMBL_Time__End_Date__c,+ASYMBL_Time__Status__c+ASYMBL_Time__Start_Date__c+FROM+ASYMBL_Time__Timesheet__c+WHERE+ASYMBL_Time__Status__c=’Open’</pre>
                 
                 <div class="info-text">This query filters only Jobs whose status is Open.</div><br>
 
@@ -965,7 +965,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                     </tbody>
                 </table>
                 <h4>Example:</h4>
-                <pre class="snippet-text ">https://&lgt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+bpats__End_Date__c+FROM+bpats__Job__c+ORDER+BY+CreatedDate+DESC</pre>
+                <pre class="snippet-text ">https://&lgt;your-instance&gt;.salesforce.com/services/data/v63.0/query/?q=SELECT+Name,+ASYMBL_Time__End_Date__c,+ASYMBL_Time__Start_Date__c+FROM+ASYMBL_Time__Timesheet__c+ORDER+BY+CreatedDate+DESC</pre>
                 
                 <div class="info-text">This returns the newest Job first.</div><br>
 
@@ -977,7 +977,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                       &nbsp;&nbsp;&nbsp;When filtering by dates in SOQL, use this format: 
                     </div><br>
                     
-                    <pre class="snippet-text" >https://<your-instance>.salesforce.com/services/data/v57.0/query/?q=SELECT+Name,+bpats__End_Date__c,+bpats__Status__c+FROM+bpats__Job__c+WHERE+CreatedDate<2025-01-01T00:00:00Z</pre>
+                    <pre class="snippet-text" >https://<your-instance>.salesforce.com/services/data/v57.0/query/?q=SELECT+Id,+Name,+ASYMBL_Time__End_Date__c,+ASYMBL_Time__Status__c+ASYMBL_Time__Start_Date__c+FROM+ASYMBL_Time__Timesheet__c+WHERE+CreatedDate<2025-01-01T00:00:00Z</pre>
                     <li>Numeric Values</li>
                     <div class="info-text">&nbsp;&nbsp;Use plain numbers without any formatting (no commas, no currency symbols).</div>
                     <p>&nbsp; &#9989;<span class="http_method">&nbsp;&nbsp;10000</span></p>
@@ -1455,11 +1455,11 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </ul>
                 <div class="info-text">The query string after q= is a URL-encoded SOQL query. Here's how it works:</div>
                 <ul>
-                  <li><span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span> <span class="info-text">is equivalent to the raw SOQL query: </span><span class="http_method">SELECT Name, bpats__Job_Title__c FROM bpats__Job__c</span></li>
+                  <li><span class="http_method">SELECT+Name,+ASYMBL_Time__Start_Date__c+FROM+ASYMBL_Time__Timesheet__c</span> <span class="info-text">is equivalent to the raw SOQL query: </span><span class="http_method">SELECT Name,ASYMBL_Time__Start_Date__c FROM ASYMBL_Time__Timesheet__c</span></li>
                 </ul>
                 <h4>Example:</h4>
                 <ul>
-                  <li>Query for Job Records: <span class="http_method">SELECT+Name,+bpats__Job_Title__c+FROM+bpats__Job__c</span></li>
+                  <li>Query for Job Records: <span class="http_method">SELECT+Id,+Name,+ASYMBL_Time__End_Date__c,+ASYMBL_Time__Status__c+ASYMBL_Time__Start_Date__c+FROM+ASYMBL_Time__Timesheet__c</span></li>
                   <li>Query for Job Board Application Records: <span class="http_method">SELECT+Name,+bpats__Job_c+FROM+bpats__Job_Board_Application__c</span></li>
                 </ul>
                 <h4>Note: </h4>
@@ -1489,7 +1489,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Required Fields:
                     <ul>
                       <li>bpats__Contact__c (Reference to Candidate (e.g. Contact Id))</li>
-                      <li>bpats__Job__c (Reference to Job (e.g. Job Id))</li>
+                      <li>ASYMBL_Time__Timesheet__c (Reference to Job (e.g. Job Id))</li>
                       <li>bpats__Email__c (Candidate Email)</li>
                       <li>bpats__First_Name__c (Candidate First Name)</li>
                       <li>bpats__Last_Name__c (Candidate Last Name)</li>
@@ -1536,7 +1536,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 <ul>
                   <li><span>Endpoint: </span><pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/vXX.0/composite/tree/&lt;Object_API_Name&gt</pre></li>
                   <li>Replace vXX.0 with the appropriate API version (e.g. v60.0).</li>
-                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating (e.g. Account, Contact, bpats__Job_Board_Application__c, bpats__Job__c, etc.).</li>
+                  <li>Replace &lt;Object_API_Name&gt with the API name of the object you're creating (e.g. Account, Contact, ASYMBL_Time__Timesheet__c etc.).</li>
                 </ul>
                 <div class="info-text">The body must include a records array with JSON objects, each representing a record to be created. You can assign a referenceId to each record for easy identification in the response.</div>
                 <h4>Example:</h4>
@@ -1556,7 +1556,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
       "bpats__Email__c": "test2@test.com",
       "bpats__First_Name__c": "candidate",
       "bpats__Last_Name__c": "new 2",
-      "bpats__Job__c": "a0MEm000004fFnBMAU"
+      "ASYMBL_Time__Timesheet__c": "a02J300000I4F1wIAF"
     },
     {
       "attributes" : {"type" : "bpats__Job_Board_Application__c", "referenceId" : "ref2"},
@@ -1564,7 +1564,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
       "bpats__Email__c": "test3@test.com",
       "bpats__First_Name__c": "candidate",
       "bpats__Last_Name__c": "new 3",
-      "bpats__Job__c": "a0MEm000004fFnBMAU"
+      "ASYMBL_Time__Timesheet__c": "a02J300000I4F1wIAF"
     }
   ]
 }</pre> 
@@ -1611,7 +1611,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                 </ul>
                 <h4>Example:</h4>
                 <ul>
-                  <li>Object API Name: bpats__Job__c</li>
+                  <li>Object API Name: ASYMBL_Time__Timesheet__c</li>
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema</li>
                 </ul>
                 <h4>Request Body</h4>
@@ -1645,12 +1645,12 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
 <pre>{
   "allOrNone" : false,
   "records" : [{
-    "attributes" : {"type" : "bpats__Job__c"},
+    "attributes" : {"type" : "ASYMBL_Time__Timesheet__c"},
     "id" : "aOMEm000004fFnBMAU" ,
     "Name" : "Salesforce Developer Test",
     "bpats__Job_Title__c" : "Salesforce Developer Test"
   }，{
-    "attributes" : {"type" : "bpats__Job__c"},
+    "attributes" : {"type" : "ASYMBL_Time__Timesheet__c"},
     "id" : "aOMEm000004{HCHMA2" ,
     "Name" : "Senior Salesforce Developer Test"
     "bpats__Job_Title__c" : "Senior Salesforce Developer Test"
@@ -1665,7 +1665,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <div class="code-content">      
 <pre>[
   {
-    "id": "a0MEm000004fFnBMAU",
+    "id": "a02J300000I4F1wIAF",
     "success": true,
     "errors": []
   },
@@ -1701,7 +1701,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <li>Required Fields: You must include all required fields for the target object. These are defined in the object schema.</li>
                 </ul>
                 <h4>Example URL: </h4>
-                <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/v63.0/sobjects/bpats__Job__c/a0LEm000007SHNYMA4</pre>
+                <pre class="snippet-text">https://&lt;your-instance&gt.salesforce.com/services/data/v63.0/sobjects/ASYMBL_Time__Timesheet__c/a0LEm000007SHNYMA4</pre>
                 <br>
               </div>
               <!-- Delete Record End -->
@@ -1726,7 +1726,7 @@ LIENT_SECRET&username=YOUR_USERNAME&password=YOUR_PASSWORD_AND_SECURITY_TOKEN</p
                   <div class="code-content">     
 <pre>[
   {
-    "id": "a0MEm000004fFnBMAU",
+    "id": "a02J300000I4F1wIAF",
     "success": true,
     "errors": []
   },
