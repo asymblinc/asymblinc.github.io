@@ -180,8 +180,8 @@
       "name": "ARA",
       "fullName": "Asymbl Recruiting Agent",
       "description": "AI-powered recruiting assistant with Agentforce",
-      "version": "0.26.1",
-      "releaseDate": "December 2025",
+      "version": "v-0.72",
+      "releaseDate": "January 2026",
       "icon": "🤖",
       "links": {
         "integrationGuide": {
@@ -189,37 +189,62 @@
           "label": "External Integration Guide"
         },
         "preDeployment": {
-          "url": "https://docs.google.com/document/d/1-NpXlQKLjLaH6z1LV0oPRSWEero8Vsw_/edit",
+          "url": "https://docs.google.com/document/d/1QviMaEHUva_9RKJ_fqtIahcOAiZxc2WzeWCmv37SscM/edit?tab=t.dkpjxxt0eo5",
           "label": "Pre-Deployment Steps"
         },
         "postDeployment": {
-          "url": "https://docs.google.com/document/d/1I3GxZHwOekdMqPgwql7CyNPiyAbNX4S9/edit",
+          "url": "https://docs.google.com/document/d/1apxeaIhQRDKZ1JXvtL7_SYG5lR8Uk6bLIJvm2icVn4Y/edit?tab=t.llowiv6b0uqm",
           "label": "Post-Deployment Steps"
         },
         "techDoc": {
-          "url": "https://docs.google.com/document/d/1vLmKyXc9eNezYof9oxUxD-LeFwxg3UlZ/edit",
+          "url": "https://docs.google.com/document/d/1Cj0Pvy4ylqDZtAhyVYhIueO6HSq3wfuJKkkf7dXv6es/edit?tab=t.0",
           "label": "Technical Documentation"
         },
         "userGuide": {
-          "url": "https://docs.google.com/document/d/1reHtsxktseXFMpY5w3g2HWYFoyC_RGjB/edit",
+          "url": "https://docs.google.com/document/d/185w13_4LdLWiXqsnlVNxJplQR8ntpxhV7Ma6_bTYRwY/edit?tab=t.0#heading=h.ba3hue27mkap",
           "label": "User Guide"
         }
       },
       "releaseHistory": [
         {
-          "version": "0.26.1",
+          "version": "v-0.72",
+          "date": "2026-01-09",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1ZpXXq1YNKVXA9P10sSdPRxCfamenKsuAzG3DH4N1R3k/edit?tab=t.0"
+        },
+        {
+          "version": "v-0.57",
           "date": "2025-12-01",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+          "releaseNotesUrl": "https://docs.google.com/document/d/1InKIjTiPczHk7naa5bYWdTGxb0rZsrTvZy9z9PAREKM/edit?tab=t.0"
         },
         {
-          "version": "0.26.0",
-          "date": "2025-11-18",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+          "version": "v-0.48",
+          "date": "2025-10-29",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1y-5FbABa9KxYbuDFQsX1cgS-_F8WNLfBXIqcehZLjKM/edit?tab=t.0"
         },
         {
-          "version": "0.25.0",
-          "date": "2025-10-22",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+          "version": "v-0.38",
+          "date": "2025-09-30",
+          "releaseNotesUrl": "https://docs.google.com/document/d/13PwnOaabl-hpLAteUzCx8Yq1EvFKUzjGY0vGbxLBHQg/edit?tab=t.0"
+        },
+        {
+          "version": "v-0.26.1",
+          "date": "2025-09-02",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1WWaKE0CJBxymV5NyWBuD1uiby_qj9SrN_qdIyq-aK58/edit?tab=t.0"
+        },
+        {
+          "version": "v-0.19",
+          "date": "2025-08-14",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1lobbT8A1k3qacRx5IHdMMWiVoo6MFEb_f_Bukl1iqP8/edit?tab=t.0"
+        },
+        {
+          "version": "v-0.14.2",
+          "date": "2025-07-15",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1hNJ0dXXIROqwSqwz1u48hy4z4hcIKcL8Enlvd7qnKyg/edit?tab=t.0"
+        },
+        {
+          "version": "v-0.10.1",
+          "date": "2025-06-20",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1O1f0RUhu7JzXzMNSkC_gHNIukhVkyqYjM5LkbCJoe3c/edit?tab=t.0"
         }
       ]
     },
