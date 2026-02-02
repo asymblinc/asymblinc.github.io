@@ -128,52 +128,73 @@
       "releaseHistory": []
     },
     {
-      "id": "ain",
-      "name": "AIN",
-      "fullName": "Asymbl Integration",
-      "description": "External system integrations and webhooks",
-      "version": "0.37.0",
-      "releaseDate": "December 2025",
-      "icon": "🔗",
-      "links": {
-        "integrationGuide": {
-          "url": "/ain/ATS_External_Integration_Gui.html",
-          "label": "External Integration Guide"
-        },
-        "preDeployment": {
-          "url": "https://docs.google.com/document/d/1-NpXlQKLjLaH6z1LV0oPRSWEero8Vsw_/edit",
-          "label": "Pre-Deployment Steps"
-        },
-        "postDeployment": {
-          "url": "https://docs.google.com/document/d/1I3GxZHwOekdMqPgwql7CyNPiyAbNX4S9/edit",
-          "label": "Post-Deployment Steps"
-        },
-        "techDoc": {
-          "url": "https://docs.google.com/document/d/1vLmKyXc9eNezYof9oxUxD-LeFwxg3UlZ/edit",
-          "label": "Technical Documentation"
-        },
-        "userGuide": {
-          "url": "https://docs.google.com/document/d/1reHtsxktseXFMpY5w3g2HWYFoyC_RGjB/edit",
-          "label": "User Guide"
-        }
+  "id": "ain",
+  "name": "AIN",
+  "fullName": "Asymbl Integration",
+  "description": "External system integrations and webhooks",
+  "version": "0.37",
+  "releaseDate": "November 7, 2025",
+  "icon": ":link:",
+  "links": {
+      "dataDictionary": {
+        "url": "https://docs.google.com/spreadsheets/d/1WeoPCVXRZig80uKDTMpM6c9Y65ClcTaT/edit",
+        "label": "Data Dictionary"
       },
-      "releaseHistory": [
-        {
-          "version": "0.37.0",
-          "date": "2025-12-01",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
-        },
-        {
-          "version": "0.36.0",
-          "date": "2025-11-10",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
-        },
-        {
-          "version": "0.35.0",
-          "date": "2025-10-15",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
-        }
-      ]
+      "postDeployment": {
+        "url": "https://docs.google.com/document/d/1HbmKI7-FMHYVcYWvVTbZxucRhx6uol-1/edit",
+        "label": "Post-Deployment Steps"
+      },
+      "techDoc": {
+        "url": "https://docs.google.com/document/d/1j3-ktmQG9C--TAGY-WI8gAJzta6VWA5A/edit",
+        "label": "Technical Documentation"
+      },
+      "userGuide": {
+        "url": "https://docs.google.com/document/d/1nUMsatrdmcQig0DWsYM-yMIBJ-sB5FjC/edit",
+        "label": "User Guide"
+      }
+  },
+  "releaseHistory": [
+      {
+        "version": "0.37",
+        "date": "2025-11-07",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1vOj0HMFrVjKRqb57oEOMDGo6Xo0vFow1/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+      },
+      {
+        "version": "0.34",
+        "date": "2025-09-30",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1ytuRNAxSImrxbwd8mTcqjqf7S2WKuXUO/edit"
+      },
+      {
+        "version": "0.32",
+        "date": "2025-09-12",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1ZNhTJWBUWZTuC15fAs8IgzIDBBAs0gxs/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+      },
+      {
+        "version": "0.30",
+        "date": "2025-08-29",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1wSHZ7rklj041n3Q2BVbuLPpHI6bbvqBa/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+      },
+      {
+        "version": "0.26",
+        "date": "2025-08-04",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1wKheff64KsLIAz_Yj6MWmt6eF1o5Wp9M/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+      },
+      {
+        "version": "0.11",
+        "date": "2025-06-05",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1Dy5UKL03a-a0mfkSqwwHzOwh67-8Deh0/edit"
+      },
+      {
+        "version": "0.6",
+        "date": "2025-05-01",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1Ksn06H2SggO8jkdhdgDUCjkHqYUo6_gp/edit"
+      },
+      {
+        "version": "0.5",
+        "date": "2025-03-31",
+        "releaseNotesUrl": "https://docs.google.com/document/d/1BiT6qEdiixOM4iHImfwUDNf4bJhwefBY/edit"
+      }
+    ]
     },
     {
       "id": "ara",
