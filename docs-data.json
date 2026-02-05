@@ -238,8 +238,8 @@
       "name": "ASM",
       "fullName": "Asymbl Search and Match",
       "description": "AI-powered candidate matching and search capabilities",
-      "version": "0.X.X",
-      "date": "Coming Soon",
+      "version": "v-0.130.0",
+      "date": "2026-01-22",
       "icon": "🔍",
       "links": {
         "integrationGuide": {
@@ -247,23 +247,74 @@
           "label": "External Integration Guide"
         },
         "preDeployment": {
-          "url": "#",
+          "url": "https://docs.google.com/document/d/1YqtU4raEyqzTmCD0gJgkV5ZWQIhgdkoYb_0bJDvO4dw/edit?tab=t.0",
           "label": "Pre-Deployment Steps"
         },
         "postDeployment": {
-          "url": "#",
+          "url": "https://docs.google.com/document/d/1DhOYmLVXgmHOjZnvq4qb2hmtEEsCghfSl0fT4iZgAzo/edit?tab=t.0",
           "label": "Post-Deployment Steps"
         },
         "techDoc": {
-          "url": "#",
+          "url": "https://docs.google.com/document/d/1vLmKyXc9eNezYof9oxUxD-LeFwxg3UlZ/edit?rtpof=true&tab=t.0",
           "label": "Technical Documentation"
         },
         "userGuide": {
-          "url": "#",
+          "url": "https://docs.google.com/document/d/1reHtsxktseXFMpY5w3g2HWYFoyC_RGjB/edit#heading=h.xgrwto13rk5t",
           "label": "User Guide"
         }
       },
-      "releaseHistory": []
+      "releaseHistory": [
+        {
+          "version": "v-0.111.1",
+          "date": "2025-12-19",
+          "releaseNotesUrl": "https://docs.google.com/document/d/16Q4BhigRldjlMyFyiCh7XRWoki5YNDOx/edit"
+        },
+        {
+          "version": "v-0.110",
+          "date": "2025-12-11",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1x0QyAnvsuQQve-Ck0i9sCJIJtJI542iq/edit"
+        },
+        {
+          "version": "v-0.103.5",
+          "date": "2025-11-11",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
+        },
+        {
+          "version": "v-0.103",
+          "date": "2025-10-31",
+          "releaseNotesUrl": "https://docs.google.com/document/d/16pdc_Ip8IilaarA7fNLnyKI06p9tCmt-/edit"
+        },
+        {
+          "version": "v-0.99.4",
+          "date": "2025-10-28",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1UDzZJ0hgCQAr7fzOJPW4XyPzstn5mF04/edit"
+        },
+        {
+          "version": "v-0.99.2",
+          "date": "2025-10-03",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1ojLvKGs-DtF5OUN08Xt3TEYd2iEPQK-s/edit"
+        },
+        {
+          "version": "v-0.79",
+          "date": "2025-08-29",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1aP_d6d6GQPzzxeCUmOZOoyLW3-8gugPy/edit"
+        },
+        {
+          "version": "v-0.65.1",
+          "date": "2025-07-31",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1J8p4Sx8wLowftYJWqw3_CICEhQBkx6tx/edit"
+        },
+        {
+          "version": "v-0.56.2",
+          "date": "2025-07-07",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1zd2BWvddVkCWqJqn-Yv6cQzDHsoqeMEH/edit"
+        },
+        {
+          "version": "v-0.36.0",
+          "date": "2025-06-04",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1-smvSdS7cThP-w_pdUUJv8HatDdVorC0/edit"
+        }
+      ]
     },
     {
       "id": "ast",
