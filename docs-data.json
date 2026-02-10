@@ -422,8 +422,8 @@
       "name": "ARA",
       "fullName": "Asymbl Recruiting Agent",
       "description": "AI-powered recruiting assistant with Agentforce",
-      "version": "v-0.72",
-      "date": "January 2026",
+      "version": "v-0.77",
+      "date": "February 2026",
       "icon": "🤖",
       "links": {
         "integrationGuide": {
@@ -448,6 +448,11 @@
         }
       },
       "releaseHistory": [
+        {
+          "version": "v-0.77",
+          "date": "2026-02-09",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1tLaU84ATEUoWwWO5tRS-XMfOdQcOZoZgCrPWZdUyftc/edit?tab=t.0"
+        },
         {
           "version": "v-0.72",
           "date": "2026-01-09",
