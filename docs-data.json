@@ -10,10 +10,6 @@
       "releaseDate": "February 3, 2026",
       "icon": "📦",
       "links": {
-        "integrationGuide": {
-          "url": "/ats/ats.html",
-          "label": "External Integration Guide"
-        },
         "preDeployment": {
           "url": "https://docs.google.com/document/d/15Dz4kVQM-aOSMZ16K5PKOikEFlE6muhh/edit",
           "label": "Pre-Deployment Steps"
@@ -104,10 +100,6 @@
       "releaseDate": "February 9, 2026",
       "icon": "🔍",
       "links": {
-        "integrationGuide": {
-          "url": "/asm/asm.html",
-          "label": "External Integration Guide"
-        },
         "preDeployment": {
           "url": "https://docs.google.com/document/d/1YqtU4raEyqzTmCD0gJgkV5ZWQIhgdkoYb_0bJDvO4dw/edit?tab=t.0",
           "label": "Pre-Deployment Steps"
@@ -279,7 +271,7 @@
           "label": "Data Dictionary"
         },
         "postDeployment": {
-          "url": "https://docs.google.com/document/d/1HbmKI7-FMHYVcYWvVTbZxucRhx6uol-1/edit",
+          "url": "https://docs.google.com/document/d/1vJlnC7De_x3XIGJDj2sR__r2EHYjYLbkU-9F47VYYSk/edit?tab=t.1uu80fmc0h8",
           "label": "Post-Deployment Steps"
         },
         "techDoc": {
@@ -352,10 +344,6 @@
       "releaseDate": "February 9, 2026",
       "icon": "🤖",
       "links": {
-        "integrationGuide": {
-          "url": "#",
-          "label": "External Integration Guide"
-        },
         "preDeployment": {
           "url": "https://docs.google.com/document/d/1QviMaEHUva_9RKJ_fqtIahcOAiZxc2WzeWCmv37SscM/edit?tab=t.dkpjxxt0eo5",
           "label": "Pre-Deployment Steps"
@@ -440,10 +428,6 @@
       "releaseDate": "Coming Soon",
       "icon": "📋",
       "links": {
-        "integrationGuide": {
-          "url": "#",
-          "label": "External Integration Guide"
-        },
         "preDeployment": {
           "url": "#",
           "label": "Pre-Deployment Steps"
