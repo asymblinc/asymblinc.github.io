@@ -233,6 +233,17 @@ body {
     font-weight: 500;
 }
 
+.detail-package-version {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #666;
+    background: #f0f0f0;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
 .detail-docs-section {
     margin-bottom: 2rem;
 }
@@ -672,7 +683,18 @@ body {
 .release-card-date {
     font-size: 0.85rem;
     color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.release-card-package {
+    font-size: 0.8rem;
+    color: #777;
+    background: #f0f0f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    display: inline-block;
     margin-bottom: 0.75rem;
+    font-weight: 500;
 }
 
 .release-card-link {

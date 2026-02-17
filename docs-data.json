@@ -5,8 +5,9 @@
       "name": "ATS",
       "fullName": "Applicant Tracking System",
       "description": "Comprehensive applicant tracking and recruiting management",
-      "version": "1.142.4",
-      "date": "January 2026",
+      "releaseVersion": "ATS 1.45",
+      "packageVersion": "v-1.146.2",
+      "releaseDate": "February 3, 2026",
       "icon": "📦",
       "links": {
         "integrationGuide": {
@@ -32,204 +33,64 @@
       },
       "releaseHistory": [
         {
-          "version": "Asymbl v-1.142.4",
+          "releaseVersion": "ATS 1.45",
+          "packageVersion": "v-1.146.2",
+          "date": "2026-02-03",
+          "releaseNotesUrl": "https://docs.google.com/document/d/161YWNQiMpYNdY9jbYnp8KI-T7Q6a6yVIv-XYWbKwCWg/edit?tab=t.0"
+        },
+        {
+          "releaseVersion": "ATS 1.44",
+          "packageVersion": "v-1.142.4",
           "date": "2026-01-05",
           "releaseNotesUrl": "https://docs.google.com/document/d/1M_9hqPMCySU77ihP8xJFMWyEOPr5P5y97W3xWzWPA48/edit?tab=t.0"
         },
         {
-          "version": "Asymbl v-1.138.1",
+          "releaseVersion": "ATS 1.43",
+          "packageVersion": "v-1.138.1",
           "date": "2025-12-01",
           "releaseNotesUrl": "https://docs.google.com/document/d/1JO4O9nS-cBJZqrm_auYBug-e-DR9tPsESLsQwkNxQ1k/edit?tab=t.0"
         },
         {
-          "version": "Asymbl v-1.134.5",
+          "releaseVersion": "ATS 1.42",
+          "packageVersion": "v-1.134.5",
           "date": "2025-10-31",
           "releaseNotesUrl": "https://docs.google.com/document/d/1Bv1lLDueXGBajfMTUPNS_JJ_8K2JNgn2/edit"
         },
         {
-          "version": "Asymbl v-1.130.1",
+          "releaseVersion": "ATS 1.41",
+          "packageVersion": "v-1.130.1",
           "date": "2025-10-01",
           "releaseNotesUrl": "https://docs.google.com/document/d/1lm8S14GLfLXfqb3r9D17qMdKI6p4bowO/edit"
         },
         {
-          "version": "Asymbl v-1.124.3",
+          "releaseVersion": "ATS 1.40",
+          "packageVersion": "v-1.124.3",
           "date": "2025-09-02",
           "releaseNotesUrl": "https://docs.google.com/document/d/1NLp2mWhkS_Kf-1f2fTt4f79NLRRUurqu/edit"
         },
         {
-          "version": "Asymbl v-1.121.3",
+          "releaseVersion": "ATS 1.39.1",
+          "packageVersion": "v-1.121.3",
           "date": "2025-08-05",
           "releaseNotesUrl": "https://docs.google.com/document/d/1RYFavnohWbCn0AE-bDwyH8jAcK7dww-U/edit"
         },
         {
-          "version": "Asymbl v-1.121.1",
+          "releaseVersion": "ATS 1.39",
+          "packageVersion": "v-1.121.1",
           "date": "2025-07-31",
           "releaseNotesUrl": "https://docs.google.com/document/d/16PsOduLl7fNT-UafX3bQTWxRH7IEzPJr/edit"
         },
         {
-          "version": "Asymbl v-1.111.1",
+          "releaseVersion": "ATS 1.38",
+          "packageVersion": "v-1.111.1",
           "date": "2025-07-01",
           "releaseNotesUrl": "https://docs.google.com/document/d/1yUpJw-QODylkSA_GEWO6snFaJ6tx2i6p/edit"
         },
         {
-          "version": "Asymbl v-1.108.4",
+          "releaseVersion": "ATS 1.37",
+          "packageVersion": "v-1.108.4",
           "date": "2025-05-30",
           "releaseNotesUrl": "https://docs.google.com/document/d/1Ai7vqppML2GCrNeg6Z9S3hc_8RXc0SzY/edit"
-        },
-        {
-          "version": "Asymbl v-1.101",
-          "date": "2025-04-30",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1VtXgSf08hbUdwLjU6bYPYQB9qfoWXjV2/edit"
-        },
-        {
-          "version": "Asymbl v-1.96.1",
-          "date": "2025-03-31",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1oA56y5Gdg-KtWOl8UTPx7TAgwU8f8kH3/edit"
-        },
-        {
-          "version": "Asymbl v-1.92.3",
-          "date": "2025-02-28",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1fqZOwIJljVeFYZGLiBlT888nvbhzATjU/edit"
-        },
-        {
-          "version": "Asymbl v-1.89",
-          "date": "2025-01-31",
-          "releaseNotesUrl": "https://docs.google.com/document/d/13PaRg_HCDax2WP6BgxO6JjSzoFgxS8Q1/edit"
-        },
-        {
-          "version": "Asymbl v-1.83.2",
-          "date": "2024-12-24",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1T4k6CUs0CnEAQQ3CWW_aVSQzoIQm2i5Z/edit"
-        },
-        {
-          "version": "Asymbl v-1.78.4",
-          "date": "2024-11-14",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1TkUTeRdcndweOFBvimViWteWE0-zlUv_/edit"
-        },
-        {
-          "version": "Asymbl v-1.73.1",
-          "date": "2024-09-30",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1ItKBpd1e8uS8NgG4kVOUyA848YnKiE2A/edit"
-        },
-        {
-          "version": "Asymbl v-1.69.1",
-          "date": "2024-09-06",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1k7AeMxBnuIOEYEYi2LPfMaNW6D14Bo8I/edit"
-        },
-        {
-          "version": "Asymbl v-1.64.1",
-          "date": "2024-08-02",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1qNiGhDp7aBuRVLXHM6USBr8cA8soOG2p/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.64",
-          "date": "2024-07-31",
-          "releaseNotesUrl": "https://docs.google.com/document/d/17cmyYhFbqW6Nhsl1o24-Sm_QG9wkmkbX/edit"
-        },
-        {
-          "version": "Asymbl v-1.58.1",
-          "date": "2024-07-04",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1N4HUH0JrmKZGms-RcP9RpcQpi9kIwUW-/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.54.2",
-          "date": "2024-06-10",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1G3-TXk-alhttfYWU9MhHSv8unH-JixhZ/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.54",
-          "date": "2024-06-04",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1x3m6tUtHuTy4J3stFArxJ648fL2pqtzE/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.50.1",
-          "date": "2024-05-07",
-          "releaseNotesUrl": "https://docs.google.com/document/d/16A-YERuHYgapUfsbEyTkzETrJJ6VHcLg/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.50",
-          "date": "2024-05-03",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1hZ8hYv3LzV6VpzCO-Tj2OgoQ1M4tXtSe/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.46.1",
-          "date": "2024-03-21",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1X4b4qSH7B1_fiRHg51HY4ugADNIhOWZO/edit"
-        },
-        {
-          "version": "Asymbl v-1.41.1",
-          "date": "2024-02-11",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1GjcCuCZlWpI1k1wtWnx0iuPmW_XU97xx/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.41",
-          "date": "2024-01-30",
-          "releaseNotesUrl": "https://docs.google.com/document/d/18mNKXzQTiSocZfxMyvvW8Hpxvo4uUmDl/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.40",
-          "date": "2024-01-22",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1ljmx7ngo4UsDzOe4d-iJYq-ZyIaCFbsd/edit"
-        },
-        {
-          "version": "Asymbl v-1.35",
-          "date": "2023-12-22",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1AGIv884ZgF8XjkjVSZ3C2a2YNtOrswyB/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.34",
-          "date": "2023-12-05",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1XqZ6h-MrtjQzKGB_a_VDIw9yFY8KLiuw/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.32.3",
-          "date": "2023-11-02",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1wOP3fDPo1vuhNCC7Ok2TneQUJyaQ0aed/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.32.2",
-          "date": "2023-10-23",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1I-hOSWoZNgobGJ_RtTI27O2ZiVSKBTMT/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.30",
-          "date": "2023-10-06",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1LpuyFa-7XFfzexOjt390ZGat6RdOpkTc/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.27",
-          "date": "2023-08-28",
-          "releaseNotesUrl": "https://docs.google.com/document/d/11G_JLm_4WseBWV2xZlxtk_P4u7wbbZzr/edit"
-        },
-        {
-          "version": "Asymbl v-1.24",
-          "date": "2023-08-16",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1Nfebfcqwyibns-fzVFuLoRxEjnYEx8eN/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.19.1",
-          "date": "2023-07-13",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1pQygkSU4U7SPneDhAOfiJsAIo5jGrF3e/edit#heading=h.gjdgxs"
-        },
-        {
-          "version": "Asymbl v-1.19",
-          "date": "2023-06-30",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1IFRIGmZWn746wqgxn9zZ-OUCZsbctjJz/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.18",
-          "date": "2023-06-07",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1LeC_wm2KvB6W3y9AQQQb_2gGJKk9CWzN/edit?usp=sharing&ouid=102890711031869545781&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.17",
-          "date": "2023-05-11",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1FkfE5SfEwawRwF3W0O2tlMsbDMLoN6r3/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
-        },
-        {
-          "version": "Asymbl v-1.16",
-          "date": "2023-04-19",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1RIx0Ia-IaKI1_IQXZ_vyLWtasiVzhB9u/edit?usp=sharing&ouid=102446235411184598683&rtpof=true&sd=true"
         }
       ]
     },
@@ -238,8 +99,9 @@
       "name": "ASM",
       "fullName": "Asymbl Search and Match",
       "description": "AI-powered candidate matching and search capabilities",
-      "version": "v-0.130.0",
-      "date": "2026-01-22",
+      "releaseVersion": "ASM 1.12.1",
+      "packageVersion": "v-0.143.0",
+      "releaseDate": "February 9, 2026",
       "icon": "🔍",
       "links": {
         "integrationGuide": {
@@ -265,54 +127,64 @@
       },
       "releaseHistory": [
         {
-          "version": "v-0.111.1",
+          "releaseVersion": "ASM 1.12.1",
+          "packageVersion": "v-0.143.0",
+          "date": "2026-02-09",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1pI8sBpn8Nj1t1qsnXXCcsyNNY3VuseWg/edit"
+        },
+        {
+          "releaseVersion": "ASM 1.12",
+          "packageVersion": "v-0.130.0",
+          "date": "2026-01-22",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1FkY1UzjiyGqlgK0jzGqYk9x3Fak8Hld4/edit"
+        },
+        {
+          "releaseVersion": "ASM 1.11.1",
+          "packageVersion": "v-0.111.1",
           "date": "2025-12-19",
           "releaseNotesUrl": "https://docs.google.com/document/d/16Q4BhigRldjlMyFyiCh7XRWoki5YNDOx/edit"
         },
         {
-          "version": "v-0.110",
+          "releaseVersion": "ASM 1.11",
+          "packageVersion": "v-0.110",
           "date": "2025-12-11",
           "releaseNotesUrl": "https://docs.google.com/document/d/1x0QyAnvsuQQve-Ck0i9sCJIJtJI542iq/edit"
         },
         {
-          "version": "v-0.103.5",
+          "releaseVersion": "ASM 1.10.2",
+          "packageVersion": "v-0.103.5",
           "date": "2025-11-11",
           "releaseNotesUrl": "https://docs.google.com/document/d/1zLbO4Q0I1qilrcimTuIC_b7dhX9ncHOA/edit"
         },
         {
-          "version": "v-0.103",
+          "releaseVersion": "ASM 1.10",
+          "packageVersion": "v-0.103",
           "date": "2025-10-31",
           "releaseNotesUrl": "https://docs.google.com/document/d/16pdc_Ip8IilaarA7fNLnyKI06p9tCmt-/edit"
         },
         {
-          "version": "v-0.99.4",
+          "releaseVersion": "ASM 1.9.2",
+          "packageVersion": "v-0.99.4",
           "date": "2025-10-28",
           "releaseNotesUrl": "https://docs.google.com/document/d/1UDzZJ0hgCQAr7fzOJPW4XyPzstn5mF04/edit"
         },
         {
-          "version": "v-0.99.2",
+          "releaseVersion": "ASM 1.9.1",
+          "packageVersion": "v-0.99.2",
           "date": "2025-10-03",
           "releaseNotesUrl": "https://docs.google.com/document/d/1ojLvKGs-DtF5OUN08Xt3TEYd2iEPQK-s/edit"
         },
         {
-          "version": "v-0.79",
+          "releaseVersion": "ASM 1.8",
+          "packageVersion": "v-0.79",
           "date": "2025-08-29",
           "releaseNotesUrl": "https://docs.google.com/document/d/1aP_d6d6GQPzzxeCUmOZOoyLW3-8gugPy/edit"
         },
         {
-          "version": "v-0.65.1",
+          "releaseVersion": "ASM 1.7.1",
+          "packageVersion": "v-0.65.1",
           "date": "2025-07-31",
           "releaseNotesUrl": "https://docs.google.com/document/d/1J8p4Sx8wLowftYJWqw3_CICEhQBkx6tx/edit"
-        },
-        {
-          "version": "v-0.56.2",
-          "date": "2025-07-07",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1zd2BWvddVkCWqJqn-Yv6cQzDHsoqeMEH/edit"
-        },
-        {
-          "version": "v-0.36.0",
-          "date": "2025-06-04",
-          "releaseNotesUrl": "https://docs.google.com/document/d/1-smvSdS7cThP-w_pdUUJv8HatDdVorC0/edit"
         }
       ]
     },
@@ -321,8 +193,9 @@
       "name": "AST",
       "fullName": "Asymbl Time",
       "description": "Timekeeping, payroll, and billing management",
-      "version": "0.X.X",
-      "date": "Coming Soon",
+      "releaseVersion": "AST 2.16.1",
+      "packageVersion": "v-1.50.1",
+      "releaseDate": "February 6, 2026",
       "icon": "⏱️",
       "links": {
         "integrationGuide": {
@@ -346,84 +219,137 @@
           "label": "User Guide"
         }
       },
-      "releaseHistory": []
+      "releaseHistory": [
+        {
+          "releaseVersion": "AST 2.16.1",
+          "packageVersion": "v-1.50.1",
+          "date": "2026-02-06",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1rOEsS_8Uwetc4CyUplMBFIzb8vFBuNYCmI2PfIdIhvE/edit?tab=t.0"
+        },
+        {
+          "releaseVersion": "AST 2.16",
+          "packageVersion": "v-1.50",
+          "date": "2026-02-02",
+          "releaseNotesUrl": "https://docs.google.com/document/d/12w1Uqr0c-VJokROhcNn14hJ-Zy2IKoSelxi0lZLHuH8/edit?tab=t.0"
+        },
+        {
+          "releaseVersion": "AST 2.15",
+          "packageVersion": "v-1.46",
+          "date": "2025-12-26",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1-4Y1HQlN5EMuEPG2Md_015Ypxz7cq85VbouBI69RO6s/edit?tab=t.0"
+        },
+        {
+          "releaseVersion": "AST 2.14",
+          "packageVersion": "v-1.39.3",
+          "date": "2025-11-14",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1Sjor8jXhX7Aldgq6eTtZC6OAoZjTKisD/edit"
+        },
+        {
+          "releaseVersion": "AST 2.13",
+          "packageVersion": "v-1.38",
+          "date": "2025-10-17",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1qQx_EXsV3uYiDY_dFEdbSVfSgPUqJNcY/edit"
+        },
+        {
+          "releaseVersion": "AST 2.12",
+          "packageVersion": "v-1.36",
+          "date": "2025-09-24",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1XyOlfrMHK6ch3F8WmIg0utBg-96iQUPF/edit"
+        },
+        {
+          "releaseVersion": "AST 2.11",
+          "packageVersion": "v-1.27.1",
+          "date": "2025-07-31",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1aOSHU9sIQ2wmUsDYiqPEZpuz_4epmuA-/edit"
+        }
+      ]
     },
     {
-  "id": "ain",
-  "name": "AIN",
-  "fullName": "Asymbl Integration",
-  "description": "External system integrations and webhooks",
-  "version": "0.37",
-  "releaseDate": "November 7, 2025",
-  "icon": ":link:",
-  "links": {
-      "dataDictionary": {
-        "url": "https://docs.google.com/spreadsheets/d/1WeoPCVXRZig80uKDTMpM6c9Y65ClcTaT/edit",
-        "label": "Data Dictionary"
+      "id": "ain",
+      "name": "AIN",
+      "fullName": "Asymbl Integration",
+      "description": "External system integrations and webhooks",
+      "releaseVersion": "AIN 1.8",
+      "packageVersion": "v-0.37",
+      "releaseDate": "November 7, 2025",
+      "icon": "🔗",
+      "links": {
+        "dataDictionary": {
+          "url": "https://docs.google.com/spreadsheets/d/1WeoPCVXRZig80uKDTMpM6c9Y65ClcTaT/edit",
+          "label": "Data Dictionary"
+        },
+        "postDeployment": {
+          "url": "https://docs.google.com/document/d/1HbmKI7-FMHYVcYWvVTbZxucRhx6uol-1/edit",
+          "label": "Post-Deployment Steps"
+        },
+        "techDoc": {
+          "url": "https://docs.google.com/document/d/1j3-ktmQG9C--TAGY-WI8gAJzta6VWA5A/edit",
+          "label": "Technical Documentation"
+        },
+        "userGuide": {
+          "url": "https://docs.google.com/document/d/1nUMsatrdmcQig0DWsYM-yMIBJ-sB5FjC/edit",
+          "label": "User Guide"
+        }
       },
-      "postDeployment": {
-        "url": "https://docs.google.com/document/d/1HbmKI7-FMHYVcYWvVTbZxucRhx6uol-1/edit",
-        "label": "Post-Deployment Steps"
-      },
-      "techDoc": {
-        "url": "https://docs.google.com/document/d/1j3-ktmQG9C--TAGY-WI8gAJzta6VWA5A/edit",
-        "label": "Technical Documentation"
-      },
-      "userGuide": {
-        "url": "https://docs.google.com/document/d/1nUMsatrdmcQig0DWsYM-yMIBJ-sB5FjC/edit",
-        "label": "User Guide"
-      }
-  },
-  "releaseHistory": [
-      {
-        "version": "0.37",
-        "date": "2025-11-07",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1vOj0HMFrVjKRqb57oEOMDGo6Xo0vFow1/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
-      },
-      {
-        "version": "0.34",
-        "date": "2025-09-30",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1ytuRNAxSImrxbwd8mTcqjqf7S2WKuXUO/edit"
-      },
-      {
-        "version": "0.32",
-        "date": "2025-09-12",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1ZNhTJWBUWZTuC15fAs8IgzIDBBAs0gxs/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
-      },
-      {
-        "version": "0.30",
-        "date": "2025-08-29",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1wSHZ7rklj041n3Q2BVbuLPpHI6bbvqBa/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
-      },
-      {
-        "version": "0.26",
-        "date": "2025-08-04",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1wKheff64KsLIAz_Yj6MWmt6eF1o5Wp9M/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
-      },
-      {
-        "version": "0.11",
-        "date": "2025-06-05",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1Dy5UKL03a-a0mfkSqwwHzOwh67-8Deh0/edit"
-      },
-      {
-        "version": "0.6",
-        "date": "2025-05-01",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1Ksn06H2SggO8jkdhdgDUCjkHqYUo6_gp/edit"
-      },
-      {
-        "version": "0.5",
-        "date": "2025-03-31",
-        "releaseNotesUrl": "https://docs.google.com/document/d/1BiT6qEdiixOM4iHImfwUDNf4bJhwefBY/edit"
-      }
-    ]
+      "releaseHistory": [
+        {
+          "releaseVersion": "AIN 1.8",
+          "packageVersion": "v-0.37",
+          "date": "2025-11-07",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1vOj0HMFrVjKRqb57oEOMDGo6Xo0vFow1/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+        },
+        {
+          "releaseVersion": "AIN 1.7",
+          "packageVersion": "v-0.34",
+          "date": "2025-09-30",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1ytuRNAxSImrxbwd8mTcqjqf7S2WKuXUO/edit"
+        },
+        {
+          "releaseVersion": "AIN 1.6",
+          "packageVersion": "v-0.32",
+          "date": "2025-09-12",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1ZNhTJWBUWZTuC15fAs8IgzIDBBAs0gxs/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+        },
+        {
+          "releaseVersion": "AIN 1.5",
+          "packageVersion": "v-0.30",
+          "date": "2025-08-29",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1wSHZ7rklj041n3Q2BVbuLPpHI6bbvqBa/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+        },
+        {
+          "releaseVersion": "AIN 1.4",
+          "packageVersion": "v-0.26",
+          "date": "2025-08-04",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1wKheff64KsLIAz_Yj6MWmt6eF1o5Wp9M/edit?usp=sharing&ouid=105898433894534843531&rtpof=true&sd=true"
+        },
+        {
+          "releaseVersion": "AIN 1.2",
+          "packageVersion": "v-0.11",
+          "date": "2025-06-05",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1Dy5UKL03a-a0mfkSqwwHzOwh67-8Deh0/edit"
+        },
+        {
+          "releaseVersion": "AIN 1.1",
+          "packageVersion": "v-0.6",
+          "date": "2025-05-01",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1Ksn06H2SggO8jkdhdgDUCjkHqYUo6_gp/edit"
+        },
+        {
+          "releaseVersion": "AIN 1.0",
+          "packageVersion": "v-0.5",
+          "date": "2025-03-31",
+          "releaseNotesUrl": "https://docs.google.com/document/d/1BiT6qEdiixOM4iHImfwUDNf4bJhwefBY/edit"
+        }
+      ]
     },
     {
       "id": "ara",
       "name": "ARA",
       "fullName": "Asymbl Recruiting Agent",
       "description": "AI-powered recruiting assistant with Agentforce",
-      "version": "v-0.77",
-      "date": "February 2026",
+      "releaseVersion": "ARA 1.8",
+      "packageVersion": "v-0.77",
+      "releaseDate": "February 9, 2026",
       "icon": "🤖",
       "links": {
         "integrationGuide": {
@@ -449,47 +375,56 @@
       },
       "releaseHistory": [
         {
-          "version": "v-0.77",
+          "releaseVersion": "ARA 1.8",
+          "packageVersion": "v-0.77",
           "date": "2026-02-09",
           "releaseNotesUrl": "https://docs.google.com/document/d/1tLaU84ATEUoWwWO5tRS-XMfOdQcOZoZgCrPWZdUyftc/edit?tab=t.0"
         },
         {
-          "version": "v-0.72",
+          "releaseVersion": "ARA 1.7",
+          "packageVersion": "v-0.73",
           "date": "2026-01-09",
           "releaseNotesUrl": "https://docs.google.com/document/d/1ZpXXq1YNKVXA9P10sSdPRxCfamenKsuAzG3DH4N1R3k/edit?tab=t.0"
         },
         {
-          "version": "v-0.57",
+          "releaseVersion": "ARA 1.6",
+          "packageVersion": "v-0.57",
           "date": "2025-12-01",
           "releaseNotesUrl": "https://docs.google.com/document/d/1InKIjTiPczHk7naa5bYWdTGxb0rZsrTvZy9z9PAREKM/edit?tab=t.0"
         },
         {
-          "version": "v-0.48",
+          "releaseVersion": "ARA 1.5",
+          "packageVersion": "v-0.48",
           "date": "2025-10-29",
           "releaseNotesUrl": "https://docs.google.com/document/d/1y-5FbABa9KxYbuDFQsX1cgS-_F8WNLfBXIqcehZLjKM/edit?tab=t.0"
         },
         {
-          "version": "v-0.38",
+          "releaseVersion": "ARA 1.4",
+          "packageVersion": "v-0.38",
           "date": "2025-09-30",
           "releaseNotesUrl": "https://docs.google.com/document/d/13PwnOaabl-hpLAteUzCx8Yq1EvFKUzjGY0vGbxLBHQg/edit?tab=t.0"
         },
         {
-          "version": "v-0.26.1",
+          "releaseVersion": "ARA 1.3",
+          "packageVersion": "v-0.26.1",
           "date": "2025-09-02",
           "releaseNotesUrl": "https://docs.google.com/document/d/1WWaKE0CJBxymV5NyWBuD1uiby_qj9SrN_qdIyq-aK58/edit?tab=t.0"
         },
         {
-          "version": "v-0.19",
+          "releaseVersion": "ARA 1.2",
+          "packageVersion": "v-0.19",
           "date": "2025-08-14",
           "releaseNotesUrl": "https://docs.google.com/document/d/1lobbT8A1k3qacRx5IHdMMWiVoo6MFEb_f_Bukl1iqP8/edit?tab=t.0"
         },
         {
-          "version": "v-0.14.2",
+          "releaseVersion": "ARA 1.1.2",
+          "packageVersion": "v-0.14.2",
           "date": "2025-07-15",
           "releaseNotesUrl": "https://docs.google.com/document/d/1hNJ0dXXIROqwSqwz1u48hy4z4hcIKcL8Enlvd7qnKyg/edit?tab=t.0"
         },
         {
-          "version": "v-0.10.1",
+          "releaseVersion": "ARA 1.1",
+          "packageVersion": "v-0.10.1",
           "date": "2025-06-20",
           "releaseNotesUrl": "https://docs.google.com/document/d/1O1f0RUhu7JzXzMNSkC_gHNIukhVkyqYjM5LkbCJoe3c/edit?tab=t.0"
         }
@@ -500,8 +435,9 @@
       "name": "ASIN",
       "fullName": "Asymbl Integration (Legacy)",
       "description": "Legacy integration package and utilities",
-      "version": "0.X.X",
-      "date": "Coming Soon",
+      "releaseVersion": "N/A",
+      "packageVersion": "N/A",
+      "releaseDate": "Coming Soon",
       "icon": "📋",
       "links": {
         "integrationGuide": {

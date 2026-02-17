@@ -126,7 +126,7 @@
                 <div class="sidebar-product-icon">${product.icon || '📦'}</div>
                 <div class="sidebar-product-info">
                     <div class="sidebar-product-name">${product.name}</div>
-                    <div class="sidebar-product-version">v${product.version}</div>
+                    <div class="sidebar-product-version">${product.releaseVersion || product.name}</div>
                 </div>
             `;
 
@@ -196,7 +196,8 @@
                         <h2 class="detail-product-name">${product.name}</h2>
                         <p class="detail-product-full-name">${product.fullName}</p>
                         <p class="detail-product-description">${product.description || ''}</p>
-                        <span class="detail-product-version">v${product.version} • ${product.releaseDate}</span>
+                        <span class="detail-product-version">${product.releaseVersion || product.name} • ${product.releaseDate}</span>
+                        ${product.packageVersion && product.packageVersion !== 'N/A' ? `<span class="detail-package-version">Package: ${product.packageVersion}</span>` : ''}
                     </div>
                 </div>
                 <div class="detail-docs-section">
@@ -237,8 +238,9 @@
 
                     return `
                         <div class="release-card">
-                            <div class="release-card-version">v${release.version}</div>
+                            <div class="release-card-version">${release.releaseVersion || 'v' + release.version}</div>
                             <div class="release-card-date">${releaseDate}</div>
+                            ${release.packageVersion ? `<div class="release-card-package">Package: ${release.packageVersion}</div>` : ''}
                             ${release.releaseNotesUrl ? `
                                 <a href="${release.releaseNotesUrl}" target="_blank" class="release-card-link" rel="noopener noreferrer">
                                     📋 Release Notes ${externalIcon}
