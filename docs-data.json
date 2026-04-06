@@ -9,6 +9,9 @@
       "packageVersion": "v-1.146.2",
       "releaseDate": "February 3, 2026",
       "icon": "📦",
+      "gitRepositories": [
+        { "name": "asymblinc/bpats", "url": "https://github.com/asymblinc/bpats" }
+      ],
       "links": {
         "preDeployment": {
           "url": "https://docs.google.com/document/d/15Dz4kVQM-aOSMZ16K5PKOikEFlE6muhh/edit",
@@ -99,6 +102,9 @@
       "packageVersion": "v-0.143.0",
       "releaseDate": "February 9, 2026",
       "icon": "🔍",
+      "gitRepositories": [
+        { "name": "asymblinc/asm", "url": "https://github.com/asymblinc/asm" }
+      ],
       "links": {
         "preDeployment": {
           "url": "https://docs.google.com/document/d/1YqtU4raEyqzTmCD0gJgkV5ZWQIhgdkoYb_0bJDvO4dw/edit?tab=t.0",
@@ -189,6 +195,9 @@
       "packageVersion": "v-1.50.1",
       "releaseDate": "February 6, 2026",
       "icon": "⏱️",
+      "gitRepositories": [
+        { "name": "asymblinc/asymbl-time", "url": "https://github.com/asymblinc/asymbl-time" }
+      ],
       "links": {
         "integrationGuide": {
           "url": "/ast/ast.html",
@@ -265,6 +274,10 @@
       "packageVersion": "v-0.37",
       "releaseDate": "November 7, 2025",
       "icon": "🔗",
+      "gitRepositories": [
+        { "name": "Salesforce - asymblinc/asymbl-integration", "url": "https://github.com/asymblinc/asymbl-integration" },
+        { "name": "AWS - asymblinc/indeed-aws", "url": "https://github.com/asymblinc/indeed-aws" }
+      ],
       "links": {
         "dataDictionary": {
           "url": "https://docs.google.com/spreadsheets/d/1WeoPCVXRZig80uKDTMpM6c9Y65ClcTaT/edit",
@@ -343,6 +356,9 @@
       "packageVersion": "v-0.90",
       "releaseDate": "March 31, 2026",
       "icon": "🤖",
+      "gitRepositories": [
+        { "name": "asymblinc/ara", "url": "https://github.com/asymblinc/ara" }
+      ],
       "links": {
         "preDeployment": {
           "url": "https://docs.google.com/document/d/1QviMaEHUva_9RKJ_fqtIahcOAiZxc2WzeWCmv37SscM/edit?tab=t.dkpjxxt0eo5",
