@@ -190,6 +190,56 @@
             }).join('');
 
             const gitRepos = product.gitRepositories || [];
+            const cicdJobs = product.cicd || [];
+            const sfOrgs = product.sfOrgs || [];
+
+            const cicdContentHTML = cicdJobs.length > 0
+                ? cicdJobs.map(job => `
+                    <a href="${job.url}" target="_blank" rel="noopener noreferrer" class="doc-link ${job.url === '#' ? 'disabled' : ''}" ${job.url === '#' ? 'aria-disabled="true"' : ''}>
+                        <span class="doc-link-icon">⚙️</span>
+                        <div class="doc-link-body">
+                            <span class="doc-link-text">${job.name}</span>
+                            ${job.description ? `<span class="doc-link-description">${job.description}</span>` : ''}
+                        </div>
+                        <span class="doc-link-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></span>
+                    </a>
+                `).join('')
+                : `
+                    <div class="git-empty">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem; opacity: 0.5;">
+                            <circle cx="12" cy="12" r="3"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <p style="color: #999; font-size: 1rem; font-weight: 500;">No CI/CD Jobs</p>
+                        <p style="color: #aaa; font-size: 0.9rem; margin-top: 0.5rem;">Jenkins job links will appear here when added</p>
+                    </div>
+                `;
+
+            const sforgsContentHTML = sfOrgs.length > 0
+                ? sfOrgs.map(org => `
+                    <div class="doc-link sforg-item">
+                        <span class="doc-link-icon">☁️</span>
+                        <div class="doc-link-body">
+                            <span class="doc-link-text">${org.name}</span>
+                            ${org.description ? `<span class="doc-link-description">${org.description}</span>` : ''}
+                        </div>
+                    </div>
+                `).join('')
+                : `
+                    <div class="git-empty">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem; opacity: 0.5;">
+                            <circle cx="12" cy="12" r="3"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <p style="color: #999; font-size: 1rem; font-weight: 500;">No SF Orgs</p>
+                        <p style="color: #aaa; font-size: 0.9rem; margin-top: 0.5rem;">Salesforce org details will appear here when added</p>
+                    </div>
+                `;
+
             const gitContentHTML = gitRepos.length > 0
                 ? gitRepos.map(repo => `
                     <a href="${repo.url}" target="_blank" rel="noopener noreferrer" class="doc-link">
@@ -230,6 +280,8 @@
                 <div class="detail-tabs">
                     <button class="detail-tab-btn active" onclick="switchTab('documentation', this)">Documentation</button>
                     <button class="detail-tab-btn" onclick="switchTab('git', this)">Git</button>
+                    <button class="detail-tab-btn" onclick="switchTab('cicd', this)">CI/CD</button>
+                    <button class="detail-tab-btn" onclick="switchTab('sforgs', this)">SF Org</button>
                 </div>
                 <div class="detail-tab-content active" id="tab-documentation">
                     <div class="doc-links">
@@ -238,6 +290,12 @@
                 </div>
                 <div class="detail-tab-content" id="tab-git">
                     ${gitContentHTML}
+                </div>
+                <div class="detail-tab-content" id="tab-cicd">
+                    ${cicdContentHTML}
+                </div>
+                <div class="detail-tab-content" id="tab-sforgs">
+                    ${sforgsContentHTML}
                 </div>
             `;
         }

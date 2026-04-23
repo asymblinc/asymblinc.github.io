@@ -12,6 +12,14 @@
       "gitRepositories": [
         { "name": "asymblinc/bpats", "url": "https://github.com/asymblinc/bpats" }
       ],
+      "cicd": [
+        { "name": "ATS Build & Deploy", "url": "#", "description": "Builds and deploys ATS to target org" },
+        { "name": "ATS Package Version", "url": "#", "description": "Creates a new managed package version for ATS" }
+      ],
+      "sfOrgs": [
+        { "name": "ATS Dev Org", "description": "Primary development sandbox for ATS feature work" },
+        { "name": "ATS QA Org", "description": "QA validation org for ATS release testing" }
+      ],
       "links": {
         "preDeployment": {
           "url": "https://docs.google.com/document/d/15Dz4kVQM-aOSMZ16K5PKOikEFlE6muhh/edit",
@@ -103,7 +111,17 @@
       "releaseDate": "February 9, 2026",
       "icon": "🔍",
       "gitRepositories": [
-        { "name": "asymblinc/asm", "url": "https://github.com/asymblinc/asm" }
+        { "name": "asymblinc/asm", "url": "https://github.com/asymblinc/asm" },
+        { "name": "asymblinc/asymbl-intelligence (AINTL)", "url": "https://github.com/asymblinc/asymbl-intelligence" },
+        { "name": "asymblinc/AINTL-Unmanaged (Packaging)", "url": "https://github.com/asymblinc/AINTL-Unmanaged/tree/packaging" }
+      ],
+      "cicd": [
+        { "name": "ASM Build & Deploy", "url": "#", "description": "Builds and deploys ASM to target org" },
+        { "name": "ASM Package Version", "url": "#", "description": "Creates a new managed package version for ASM" }
+      ],
+      "sfOrgs": [
+        { "name": "ASM Dev Org", "description": "Primary development sandbox for ASM feature work" },
+        { "name": "ASM QA Org", "description": "QA validation org for ASM release testing" }
       ],
       "links": {
         "preDeployment": {
@@ -198,6 +216,14 @@
       "gitRepositories": [
         { "name": "asymblinc/asymbl-time", "url": "https://github.com/asymblinc/asymbl-time" }
       ],
+      "cicd": [
+        { "name": "AST Build & Deploy", "url": "#", "description": "Builds and deploys AST to target org" },
+        { "name": "AST Package Version", "url": "#", "description": "Creates a new managed package version for AST" }
+      ],
+      "sfOrgs": [
+        { "name": "AST Dev Org", "description": "Primary development sandbox for AST feature work" },
+        { "name": "AST QA Org", "description": "QA validation org for AST release testing" }
+      ],
       "links": {
         "integrationGuide": {
           "url": "/ast/ast.html",
@@ -277,6 +303,14 @@
       "gitRepositories": [
         { "name": "Salesforce - asymblinc/asymbl-integration", "url": "https://github.com/asymblinc/asymbl-integration" },
         { "name": "AWS - asymblinc/indeed-aws", "url": "https://github.com/asymblinc/indeed-aws" }
+      ],
+      "cicd": [
+        { "name": "AIN Build & Deploy", "url": "#", "description": "Builds and deploys AIN to target org" },
+        { "name": "AIN Package Version", "url": "#", "description": "Creates a new managed package version for AIN" }
+      ],
+      "sfOrgs": [
+        { "name": "AIN Dev Org", "description": "Primary development sandbox for AIN feature work" },
+        { "name": "AIN QA Org", "description": "QA validation org for AIN release testing" }
       ],
       "links": {
         "dataDictionary": {
@@ -358,6 +392,14 @@
       "icon": "🤖",
       "gitRepositories": [
         { "name": "asymblinc/ara", "url": "https://github.com/asymblinc/ara" }
+      ],
+      "cicd": [
+        { "name": "ARA Build & Deploy", "url": "#", "description": "Builds and deploys ARA to target org" },
+        { "name": "ARA Package Version", "url": "#", "description": "Creates a new managed package version for ARA" }
+      ],
+      "sfOrgs": [
+        { "name": "ARA Dev Org", "description": "Primary development sandbox for ARA feature work" },
+        { "name": "ARA QA Org", "description": "QA validation org for ARA release testing" }
       ],
       "links": {
         "preDeployment": {
@@ -455,6 +497,9 @@
       "packageVersion": "N/A",
       "releaseDate": "Coming Soon",
       "icon": "📋",
+      "gitRepositories": [],
+      "cicd": [],
+      "sfOrgs": [],
       "links": {
         "preDeployment": {
           "url": "#",
