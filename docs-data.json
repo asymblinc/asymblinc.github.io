@@ -13,12 +13,13 @@
         { "name": "asymblinc/bpats", "url": "https://github.com/asymblinc/bpats" }
       ],
       "cicd": [
-        { "name": "ATS Build & Deploy", "url": "#", "description": "Builds and deploys ATS to target org" },
-        { "name": "ATS Package Version", "url": "#", "description": "Creates a new managed package version for ATS" }
+        { "name": "ATS Jenkins Section", "url": "http://3.18.150.223:8080/view/ATS/", "description": "All ATS-related CI/CD jobs on Jenkins" }
       ],
       "sfOrgs": [
-        { "name": "ATS Dev Org", "description": "Primary development sandbox for ATS feature work" },
-        { "name": "ATS QA Org", "description": "QA validation org for ATS release testing" }
+        { "name": "ATS Staging Org", "description": "BPATS Staging" },
+        { "name": "ATS Release Org", "description": "BPATS Release" },
+        { "name": "ATS Launch Release Org", "description": "Salesforce - ATS Release Tier Transition" },
+        { "name": "ATS Enterprises Release Org", "description": "Salesforce - ATS Release Enterprise" }
       ],
       "links": {
         "preDeployment": {
@@ -116,12 +117,16 @@
         { "name": "asymblinc/AINTL-Unmanaged (Packaging)", "url": "https://github.com/asymblinc/AINTL-Unmanaged/tree/packaging" }
       ],
       "cicd": [
-        { "name": "ASM Build & Deploy", "url": "#", "description": "Builds and deploys ASM to target org" },
-        { "name": "ASM Package Version", "url": "#", "description": "Creates a new managed package version for ASM" }
+        { "name": "ASM Jenkins Section", "url": "http://3.18.150.223:8080/view/ASM/", "description": "All ASM-related CI/CD jobs on Jenkins" },
+        { "name": "AINTL (Daxtra Intelligence) Jenkins Section", "url": "http://3.18.150.223:8080/view/AINTL%20(Daxtra%20Intelligence)/", "description": "All AINTL-related CI/CD jobs on Jenkins" }
       ],
       "sfOrgs": [
-        { "name": "ASM Dev Org", "description": "Primary development sandbox for ASM feature work" },
-        { "name": "ASM QA Org", "description": "QA validation org for ASM release testing" }
+        { "name": "ASM Staging", "description": "ASM Staging Org (ASM Code Deployed)" },
+        { "name": "ASM Release", "description": "ASM Release Org (ASM Package Installed)" },
+        { "name": "Daxtra Intelligence Staging", "description": "Intelligence Staging Org (ASM + AINTL Code Deployed)" },
+        { "name": "Daxtra Intelligence Release", "description": "Intelligence Release Org (ASM + AINTL Package Installed)" },
+        { "name": "ASM Validate Staging", "description": "Dedicated Validation Org (Created to run validations in a separate thread to avoid disturbing main ASM Staging workflow)" },
+        { "name": "Asymbl Daxtra US Demo Org", "description": "Demo environment created for the US Team" }
       ],
       "links": {
         "preDeployment": {
@@ -217,12 +222,11 @@
         { "name": "asymblinc/asymbl-time", "url": "https://github.com/asymblinc/asymbl-time" }
       ],
       "cicd": [
-        { "name": "AST Build & Deploy", "url": "#", "description": "Builds and deploys AST to target org" },
-        { "name": "AST Package Version", "url": "#", "description": "Creates a new managed package version for AST" }
+        { "name": "AST Jenkins Section", "url": "http://3.18.150.223:8080/view/Time/", "description": "All AST-related CI/CD jobs on Jenkins" }
       ],
       "sfOrgs": [
-        { "name": "AST Dev Org", "description": "Primary development sandbox for AST feature work" },
-        { "name": "AST QA Org", "description": "QA validation org for AST release testing" }
+        { "name": "AST Staging Org", "description": "AsymblTime Staging (ATS + AST Code Deployed)" },
+        { "name": "AST Release Org", "description": "ASYMBL Time Release (ATS + AST Package Installed)" }
       ],
       "links": {
         "integrationGuide": {
@@ -305,12 +309,11 @@
         { "name": "AWS - asymblinc/indeed-aws", "url": "https://github.com/asymblinc/indeed-aws" }
       ],
       "cicd": [
-        { "name": "AIN Build & Deploy", "url": "#", "description": "Builds and deploys AIN to target org" },
-        { "name": "AIN Package Version", "url": "#", "description": "Creates a new managed package version for AIN" }
+        { "name": "AIN Jenkins Section", "url": "http://3.18.150.223:8080/view/AIN/", "description": "All AIN-related CI/CD jobs on Jenkins" }
       ],
       "sfOrgs": [
-        { "name": "AIN Dev Org", "description": "Primary development sandbox for AIN feature work" },
-        { "name": "AIN QA Org", "description": "QA validation org for AIN release testing" }
+        { "name": "Sf Developer Org Release", "description": "Salesforce - Asymbl Integration Release (ATS + AIN Package Installed)" },
+        { "name": "Sf Developer Org Staging", "description": "Salesforce - Asymbl Integration Staging (ATS + AIN Code Deployed)" }
       ],
       "links": {
         "dataDictionary": {
@@ -394,8 +397,7 @@
         { "name": "asymblinc/ara", "url": "https://github.com/asymblinc/ara" }
       ],
       "cicd": [
-        { "name": "ARA Build & Deploy", "url": "#", "description": "Builds and deploys ARA to target org" },
-        { "name": "ARA Package Version", "url": "#", "description": "Creates a new managed package version for ARA" }
+        { "name": "ARA Jenkins Section", "url": "http://3.18.150.223:8080/view/ARA/", "description": "All ARA-related CI/CD jobs on Jenkins" }
       ],
       "sfOrgs": [
         { "name": "ARA Dev Org", "description": "Primary development sandbox for ARA feature work" },
@@ -498,7 +500,9 @@
       "releaseDate": "Coming Soon",
       "icon": "📋",
       "gitRepositories": [],
-      "cicd": [],
+      "cicd": [
+        { "name": "ASIN (Asymbl Intelligence) Jenkins Section", "url": "http://3.18.150.223:8080/view/ASIN%20(Asymbl%20Intelligence)/", "description": "All ASIN-related CI/CD jobs on Jenkins" }
+      ],
       "sfOrgs": [],
       "links": {
         "preDeployment": {
