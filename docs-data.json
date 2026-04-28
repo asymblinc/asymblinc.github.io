@@ -400,8 +400,10 @@
         { "name": "ARA Jenkins Section", "url": "http://3.18.150.223:8080/view/ARA/", "description": "All ARA-related CI/CD jobs on Jenkins" }
       ],
       "sfOrgs": [
-        { "name": "ARA Dev Org", "description": "Primary development sandbox for ARA feature work" },
-        { "name": "ARA QA Org", "description": "QA validation org for ARA release testing" }
+        { "name": "ARA Staging Org", "description": "Salesforce - Asymbl Recruiting Agent Staging (ATS + ARA Code Deployed)" },
+        { "name": "ARA Release Org (Old)", "description": "Salesforce - Asymbl Recruiting Agent Release (ATS + ARA Package Installed)" },
+        { "name": "ARA Release Org (New)", "description": "Salesforce - Asymbl - RA Release - 2 (ATS + ARA Package Installed)" },
+        { "name": "ARA Fresh Installation Org", "description": "Salesforce - Asymbl Fresh Installation (for package testing purpose of ARA)" }
       ],
       "links": {
         "preDeployment": {
