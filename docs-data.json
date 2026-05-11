@@ -389,9 +389,9 @@
       "name": "ARA",
       "fullName": "Asymbl Recruiting Agent",
       "description": "AI-powered recruiting assistant with Agentforce",
-      "releaseVersion": "ARA 1.10",
-      "packageVersion": "v-0.90",
-      "releaseDate": "March 31, 2026",
+      "releaseVersion": "ARA 1.11",
+      "packageVersion": "v-0.105",
+      "releaseDate": "May 08, 2026",
       "icon": "🤖",
       "gitRepositories": [
         { "name": "asymblinc/ara", "url": "https://github.com/asymblinc/ara" }
@@ -424,6 +424,12 @@
         }
       },
       "releaseHistory": [
+        {
+          "releaseVersion": "ARA 1.11",
+          "packageVersion": "v-0.105",
+          "date": "2026-05-08",
+          "releaseNotesUrl": "https://docs.google.com/document/d/14Sg9sKHzCDuBSTumlNCNNGjJXXWQ-xeKbT7NQCHxzls/edit?tab=t.0"
+        },
         {
           "releaseVersion": "ARA 1.10",
           "packageVersion": "v-0.90",
